@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Patek Philippe{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('css/naviquiz.css') }}" rel="stylesheet"/>
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+{% endblock %}
+</body>
+
+{% block footer %}
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/naviquiz.js') }}"></script>
+{% endblock %}
+
 </html>

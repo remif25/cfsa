@@ -1,3 +1,17 @@
+/*
+ * Welcome to your app's main JavaScript file!
+ *
+ * We recommend including the built version of this JavaScript file
+ * (and its CSS file) in your base layout (base.html.twig).
+ */
+
+// any CSS you require will output into a single css file (app.css in this case)
+require('../css/naviquiz.css');
+
+// Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
+// const $ = require('jquery');
+
+
 var myProp = 'children';
 var path = [];
 var tree = $('.naviquiz').data('tree');
@@ -15,12 +29,13 @@ $(document).on('click', '.big-card-question',  function() {
 
     lvl++;
     let id = $(this).data('card_id');
-    if (testData(tmpTree)) {
+    let reponse = findReponseInPath(id);
+    if (testData(tmpTree, reponse)) {
         let children = tmpTree[0].children;
         children.forEach(function (child) {
             if (child.id === id) {
                 $('.small-card-question').last();
-                if (testData(child.children)) {
+                if (testData(child.children, child)) {
                     displaySmallQuestions(tmpTree[0], child, lvl);
                     path.push(clone(tmpTree[0]));
                     tmpTree = child.children;
@@ -40,20 +55,21 @@ $(document).on('click', '.small-card-question',  function() {
     $('.alert-no-more-element').addClass('hide');
 
     smallCards.each(function(index, smallCard) {
+        console.log(smallCard);
         if (smallCard.dataset.lvl >= level) {
-            smallCard.remove();
+            $(smallCard).remove();
         }
     });
 
     lvl = level
     tmpTree = [findReponseInPath(id)];
-    if (testData(tmpTree))  {
+    if (testData(tmpTree, tmpTree))  {
         displayBigQuestions(tmpTree, level);
     }
 });
 
 function findReponseInPath(id) {
-    var cloneElement;
+    let cloneElement;
     path.forEach(function(element) {
         if (element.id === id) {
             cloneElement = clone(element);
@@ -112,8 +128,7 @@ function displayBigQuestions(tmpData, lvl) {
 
     children.forEach(function(child) {
         if (child.url !== null) {
-            console.log(child.url)
-            $('.questions').append(' <a type="file" href="file:///' + child.url + '" class="col-md-' + 12 / nChildren + ' big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '">\n' +
+            $('.questions').append(' <a type="file" href="' + child.url + '" class="col-md-' + 12 / nChildren + ' big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '" target="_blank" download>\n' +
                 '                                    <div class="card text-white bg-success mb-3">\n' +
                 '                                        <div class="card-header">\n' +
                 '                                            <h5 class="card-title">' + child.short + '</h5>\n' +
@@ -156,12 +171,15 @@ function clone(obj) {
     return copy;
 }
 
-function testData(data) {
+function testData(data, reponse) {
     if (typeof data !== 'undefined') {
         return 1;
     } else {
-        $('.alert-no-more-element').removeClass('hide');
-        $('.alert-no-more-element').addClass('show');
+        if (reponse.url === 'undefined' || reponse.url === null) {
+            $('.alert-no-more-element').removeClass('hide');
+            $('.alert-no-more-element').addClass('show');
+        }
         return 0;
     }
 }
+

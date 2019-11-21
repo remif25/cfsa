@@ -1,0 +1,29 @@
+.icon-cfsa {
+    text-align: center;
+    margin: 2em 0;
+}
+.card-title {
+    text-align: center;
+}
+.card-footer {
+    height: 100%;
+    background-color: white!important;
+    white-space: nowrap;
+    text-align: center;
+}
+.card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    cursor: pointer;
+    text-decoration: none!important;
+}
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.card-footer > img {
+    vertical-align: center;
+    height: 350px;
+    width: 100%;
+}

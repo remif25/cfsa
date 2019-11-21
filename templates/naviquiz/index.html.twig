@@ -1,0 +1,58 @@
+{% extends "layout/base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('naviquiz') }}
+{% endblock %}
+
+{% block title %}Naviquiz{% endblock %}
+
+
+{% block body %}
+
+    {% if permission_refused is defined %}
+        <div class="alert alert-danger" role="alert">
+            Vous n'avez pas la permission d'accéder à cette page.
+        </div>
+    {% else %}
+
+
+        <div class="alert alert-warning alert-no-more-element" role="alert">
+            Il n'y a pas d'élement sous cette réponse.
+        </div>
+        <div class="container-fluid main naviquiz" data-tree="{{ tree }}">
+            <div class="row">
+                <div class="col-md-2 left-navbar questions-short">
+                </div>
+                <div class="col-md-10">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 question-long">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="d-flex align-items-stretch questions">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif  %}
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span class="text-muted">Patek Philippe - Projet de création du référentiel : Rémi Fongaufier & Andréa Sester</span>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('naviquiz') }}
+{% endblock %}

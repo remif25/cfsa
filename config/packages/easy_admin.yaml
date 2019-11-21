@@ -24,13 +24,47 @@ easy_admin:
                 - {entity: 'Regle',icon: 'inbox', label: 'Règle'}
     entities:
 #        # List the entity class name you want to manage
-        - App\Entity\PosteTravail
-        - App\Entity\Activite
-        - App\Entity\Question
-        - App\Entity\Reponse
-        - App\Entity\GammeEnveloppe
-        - App\Entity\Regle
-        - App\Entity\Operation
-        - App\Entity\Gamme
+        Reponse:
+            class: App\Entity\Reponse
+            label: 'Réponse'
+            list:
+                fields:
+                    - { property: 'img', type: 'image', label: 'Image' }
+                    - { property: 'short', label: 'Réponse courte'}
+                    - { property: 'information', label: 'Information'}
+
+        PosteTravail:
+            class: App\Entity\PosteTravail
+            label: 'Poste de travail'
+            
+        Activite:
+            class: App\Entity\Activite
+            label: 'Activité'
+            
+        Question:
+            class: App\Entity\Question
+            label: 'Question'
+            list:
+                fields:
+                    - { property: 'short', label: 'Question courte'}
+                    - { property: 'q_long', label: 'Question longue' }
+                    - { property: 'information', label: 'Information'}
+
+        GammeEnveloppe:
+            class: App\Entity\GammeEnveloppe
+            label: 'Gamme enveloppe'
+            
+        Regle:
+            class: App\Entity\Regle
+            label: 'Règle'
+             
+        Operation:
+            class: App\Entity\Operation
+            label: 'Opération'
+                    
+        Gamme:
+            class: App\Entity\Gamme
+            label: 'Gamme'
+
 
     site_name: 'Cadrans Fluckiger SA - Back-office'

@@ -14,19 +14,6 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
-    /*
-     * ENTRY CONFIG
-     *
-     * Add 1 entry for each "page" of your app
-     * (including one that's included on every page - e.g. "app")
-     *
-     * Each entry will result in one JavaScript file (e.g. app.js)
-     * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
-     */
-    .addEntry('app', './assets/js/app.js')
-    .addEntry('naviquiz', './assets/js/naviquiz.js')
-    .addEntry('home', './assets/js/home.js')
-    //.addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -49,14 +36,10 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     // enables @babel/preset-env polyfills
-    .configureBabel(() => {}, {
-        useBuiltIns: 'usage',
-        corejs: 3
-    })
 
     // enables Sass/SCSS support
     //.enableSassLoader()
-
+    .enableLessLoader()
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
@@ -65,11 +48,16 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-    .autoProvidejQuery()
 
+    .addEntry('app', './assets/js/app.js')
+    .addEntry('naviquiz', './assets/js/naviquiz.js')
+    .addEntry('home', './assets/js/home.js')
+    .addEntry('admin_naviquiz', './assets/js/admin/naviquiz.js')
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
+
+    .autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();

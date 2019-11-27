@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Question;
 use App\Entity\Reponse;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -42,4 +43,36 @@ class ReponseRepository extends ServiceEntityRepository
         return $datas;
     }
 
+    public function getOrphelins() {
+        $repository = $repository = $this
+            ->getEntityManager()
+            ->getRepository(Question::class);
+        $ids = $repository->getAllID();
+
+        $reponses = $this->findAll();
+        $orphelins = array();
+
+        foreach ($reponses as $reponse) {
+            if(!in_array($reponse->getIdParentQuestion(), $ids))
+                $orphelins[] = $reponse;
+        }
+
+        return $orphelins;
+    }
+
+    public function getAllID()
+    {
+        $datas = $this->createQueryBuilder('r')
+            ->andWhere('r.id >= 0')
+            ->getQuery()
+            ->getResult();
+
+
+        foreach ($datas as &$data) {
+            $ids[] = $data->getID();
+        }
+
+        return $ids;
+
+    }
 }

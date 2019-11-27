@@ -1,0 +1,40 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+
+{% block head_stylesheets %}
+    {{ parent() }}
+{#
+    {{ encore_entry_link_tags('app') }}
+#}
+    {{ encore_entry_link_tags('admin_naviquiz') }}
+{% endblock %}
+
+{% block content_title %}
+    <h5>Configurer la Naviquiz</h5>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <div id="tree"></div>
+            </div>
+            <div class="col-3">
+                <h6>Réponses :</h6>
+                <div id="tree-reponses"></div>
+                <h6>Questions :</h6>
+                <div id="tree-questions"></div>
+                <h6>Corbeille :</h6>
+                <div id="tree-corbeille"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block body_javascript %}
+    {{ parent() }}
+{#
+    {{ encore_entry_script_tags('app') }}
+#}
+    {{ encore_entry_script_tags('admin_naviquiz') }}
+{% endblock %}

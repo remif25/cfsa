@@ -28,7 +28,7 @@ class Reponse implements JsonSerializable
     private $information;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $id_parent_question;
 
@@ -91,8 +91,19 @@ class Reponse implements JsonSerializable
             'information' => $this->getInformation(),
             'id_parent_question' => $this->getIdParentquestion(),
             'img' => $this->getImg(),
-            'url' => $this->getUrl()
+            'url' => $this->getUrl(),
+            'key' => $this->getId(),
+            'title' => $this->getShort(),
+            'icon' => "fab fa-sticker-mule"
         ];
+    }
+
+
+    public function jsonSerializeForFancytree() {
+        return "{" .
+            'key : ' . $this->getId() . ',' .
+            'title : ' . $this->getShort() . ',' .
+        "}";
     }
 
     public function getImg(): ?string
@@ -118,6 +129,8 @@ class Reponse implements JsonSerializable
 
         return $this;
     }
+
+
 
 
 }

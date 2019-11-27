@@ -104,8 +104,18 @@ class Question implements JsonSerializable
             'short' => $this->getShort(),
             'q_long' => $this->getQLong(),
             'information' => $this->getInformation(),
-            'id_parent_reponse' => $this->getIdParentReponse()
+            'id_parent_reponse' => $this->getIdParentReponse(),
+            'key' => $this->getId(),
+            'title' => $this->getShort(),
+            'icon' => "fas fa-question"
         ];
+    }
+
+    public function jsonSerializeForFancytree() {
+        return "{" .
+            'key : ' . $this->getId() . ',' .
+            'title : ' . $this->getShort() . ',' .
+            "}";
     }
 
 

@@ -1,10 +1,5 @@
 easy_admin:
     design:
-        assets:
-            css:
-                - 'assets/css/app.css'
-            js:
-                - 'assets/js/app.js'
         menu:
             - label: 'Données de base'
               icon: 'box-open'
@@ -22,6 +17,7 @@ easy_admin:
               children:
                 - {entity: 'GammeEnveloppe', icon: 'inbox', label: 'Gamme enveloppe'}
                 - {entity: 'Regle',icon: 'inbox', label: 'Règle'}
+            - { label: 'Naviquiz', route: 'config_naviquiz' }
     entities:
 #        # List the entity class name you want to manage
         Reponse:

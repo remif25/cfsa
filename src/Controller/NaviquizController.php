@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Question;
 use App\Entity\Reponse;
+use App\Repository\ReponseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,14 +18,11 @@ class NaviquizController extends AbstractController
     {
         if ($request->query->get('pw') === "eb70aa6ff6792225e8e4f7467d9982ac") {
 
-            $repository = $this->getDoctrine()->getRepository(Question::class);
-            $rootQuestion = $repository->findRootQuestion();
-            $rootQuestion = array($rootQuestion);
-            $tree = self::recursive($rootQuestion);
+
 
             return $this->render('naviquiz/index.html.twig', [
                 'controller_name' => 'Naviquiz',
-                'tree' => json_encode($tree, JSON_UNESCAPED_UNICODE),
+                'tree' => json_encode($this->getTree(), JSON_UNESCAPED_UNICODE),
             ]);
         } else {
             return $this->render('naviquiz/index.html.twig', [
@@ -33,7 +31,58 @@ class NaviquizController extends AbstractController
         }
     }
 
+    /**
+     * @Route("/api/tree/naviquiz", name="tree_naviquiz")
+     */
+    public function getJSONTree()
+    {
+        $tree = $this->getTree();
+
+        return $this->json($tree);
+    }
+
+    /**
+     * @Route("/api/tree/reponse/ophelins", name="reponse_orphelins_naviquiz")
+     */
+    public function getJSONReponseOphelins()
+    {
+        $repository = $this->getDoctrine()->getRepository(Question::class);
+        return $this->json($repository->getOrphelins());
+    }
+
+    /**
+     * @Route("/api/tree/question/ophelins", name="question_orphelins_naviquiz")
+     */
+    public function getJSONQuestionOphelins()
+    {
+        $repository = $this->getDoctrine()->getRepository(Reponse::class);
+        return $this->json($repository->getOrphelins());
+    }
+
+    public function getTree() {
+        $repository = $this->getDoctrine()->getRepository(Question::class);
+        $rootQuestion = $repository->findRootQuestion();
+        $rootQuestion = array($rootQuestion);
+        $tree = self::recursive($rootQuestion);
+
+        return $tree;
+    }
+
+
     public function getChildren($parent) {
+        if (isset($parent['id_parent_question'])) {
+            $repository = $this->getDoctrine()->getRepository(Question::class);
+            return $repository->findOneQuestionByReponseID($parent['id']);
+        }
+        if (isset($parent['id_parent_reponse'])) {
+            $repository = $this->getDoctrine()->getRepository(Reponse::class);
+            return $repository->findReponsesByQuestionID($parent['id']);
+        }
+
+        return 0;
+    }
+
+    public function getChildrenForFancytree($parent) {
         if (isset($parent['id_parent_question'])) {
             $repository = $this->getDoctrine()->getRepository(Question::class);
             return $repository->findOneQuestionByReponseID($parent['id']);
@@ -50,6 +99,19 @@ class NaviquizController extends AbstractController
         if (is_array($arraydatas)) {
             foreach ($arraydatas as &$arraydata) {
                 $children = self::getChildren($arraydata);
+
+                if(count($children)  > 0) {
+                    $arraydata['children'] = $this->recursive($children);
+                }
+            }
+        }
+        return $arraydatas;
+    }
+
+    public function recursiveForFancytree(&$arraydatas) {
+        if (is_array($arraydatas)) {
+            foreach ($arraydatas as &$arraydata) {
+                $children = self::getChildrenForFancytree($arraydata);
 
                 if(count($children)  > 0) {
                     $arraydata['children'] = $this->recursive($children);

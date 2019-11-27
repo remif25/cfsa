@@ -36,6 +36,11 @@ easy_admin:
         PosteTravail:
             class: App\Entity\PosteTravail
             label: 'Poste de travail'
+            list:
+                fields:
+                    - { property: 'short', label: 'Question courte'}
+                    - { property: 'q_long', label: 'Question longue' }
+                    - { property: 'information', label: 'Information'}
             
         Activite:
             class: App\Entity\Activite

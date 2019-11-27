@@ -14,6 +14,7 @@
             <excludedPath local="true" path="$PROJECT_DIR$/public/css" />
             <excludedPath local="true" path="$PROJECT_DIR$/public/js" />
             <excludedPath local="true" path="$PROJECT_DIR$/node_modules" />
+            <excludedPath local="true" path="$PROJECT_DIR$/.env" />
           </excludedPaths>
         </serverdata>
       </paths>

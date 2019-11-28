@@ -1,0 +1,60 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+
+{% block head_stylesheets %}
+    {{ parent() }}
+    {#
+        {{ encore_entry_link_tags('app') }}
+    #}
+    {{ encore_entry_link_tags('admin_ge_config') }}
+{% endblock %}
+
+{% block content_title %}
+    <h5>MAJ de la Gamme Enveloppe : {{ ge.nom }}</h5>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        {{ form_start(form) }}
+        <div class="my-custom-class-for-errors">
+            {{ form_errors(form) }}
+        </div>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Séq</th>
+                <th scope="col">Code PDT</th>
+                <th scope="col">Désignation PDT</th>
+                <th scope="col">Code activité</th>
+                <th scope="col">Désignation activité</th>
+                <th scope="col">Règle</th>
+                <th scope="col">Branche(s)</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for operation in ge.operations %}
+            <tr>
+                <th scope="row">{{ operation.numero }}</th>
+                <td>{{ operation.pdt.reference }}</td>
+                <td>{{ operation.pdt.description }}</td>
+                <td>{{ operation.activite.reference }}</td>
+                <td>{{ operation.activite.description }}</td>
+                <td>{% if operation.linkregleoperation.regle is defined %} {{ operation.linkregleoperation.regle.question }} {% endif %}</td>
+                <td>{% if operation.linkregleoperation.branch is defined %}{{ operation.linkregleoperation.branch }}{% endif %}</td>
+
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+
+{% block body_javascript %}
+    {{ parent() }}
+    {#
+        {{ encore_entry_script_tags('app') }}
+    #}
+    {{ encore_entry_script_tags('admin_ge_config') }}
+{% endblock %}

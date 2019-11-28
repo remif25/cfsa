@@ -97,7 +97,7 @@ class QuestionRepository extends ServiceEntityRepository
         $orphelins = array();
 
         foreach ($questions as $question) {
-            if(!in_array($question->getIdParentReponse(), $ids) && ($question->getIdParentReponse() > 0 || $question->getIdParentReponse() === null) )
+            if(!in_array($question->getIdParentReponse(), $ids) && ($question->getIdParentReponse() >= 0 || $question->getIdParentReponse() === null) )
                 $orphelins[] = $question;
         }
 

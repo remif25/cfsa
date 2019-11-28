@@ -1,4 +1,5 @@
 import('../../css/admin/naviquiz.css');
+import('babel-polyfill');
 
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
@@ -46,10 +47,9 @@ const tree = createTree('#tree', {
             // return false to prevent auto-expanding data.node on hover
         },
         dragOver: function(node, data) {
-            if(data.otherNode.data.hasOwnProperty('id_parent_question') && node.data.hasOwnProperty('id_parent_reponse') ||
-                data.otherNode.data.hasOwnProperty('id_parent_reponse') && node.data.hasOwnProperty('id_parent_question')) {
+            if(data.otherNode.data.hasOwnProperty('id_parent_question') && node.data.hasOwnProperty('id_parent_reponse') && data.hitMode === "over" ||
+                data.otherNode.data.hasOwnProperty('id_parent_reponse') && node.data.hasOwnProperty('id_parent_question') && data.hitMode === "over") {
                 return true
-
             }
             /* data.otherNode may be null for non-fancytree droppables.
              * Return false to disallow dropping on node. In this case
@@ -74,15 +74,11 @@ const tree = createTree('#tree', {
         dragStop: function(node, data) {
         },
         dragDrop: function(node, data) {
-            if(data.otherNode.data.hasOwnProperty('id_parent_question') && node.data.hasOwnProperty('id_parent_reponse') ||
-                data.otherNode.data.hasOwnProperty('id_parent_reponse') && node.data.hasOwnProperty('id_parent_question')) {
+            if(data.otherNode.data.hasOwnProperty('id_parent_question') && node.data.hasOwnProperty('id_parent_reponse') && data.hitMode === "over" ||
+                data.otherNode.data.hasOwnProperty('id_parent_reponse') && node.data.hasOwnProperty('id_parent_question') && data.hitMode === "over") {
                 data.otherNode.moveTo(node, data.hitMode);
-                let d = tree.toDict(true);
-                alert(JSON.stringify(d));
+                sendtree();
             }
-
-
-
 
             // This function MUST be defined to enable dropping of items on the tree.
             // data.hitMode is 'before', 'after', or 'over'.
@@ -97,7 +93,8 @@ const tree_reponse = createTree('#tree-reponses', {
     source: $.ajax({
         url: "/api/tree/reponse/ophelins",
         dataType: "json",
-        cache: false
+        cache: false,
+
     }),
     dnd: {
         autoExpandMS: 400,
@@ -146,6 +143,7 @@ const tree_reponse = createTree('#tree-reponses', {
         },
         dragDrop: function(node, data) {
             data.otherNode.moveTo(node, data.hitMode);
+            sendtree();
             // This function MUST be defined to enable dropping of items on the tree.
             // data.hitMode is 'before', 'after', or 'over'.
             // We could for example move the source to the new target:
@@ -202,8 +200,6 @@ const tree_question = createTree('#tree-questions', {
             // return false to prevent auto-expanding data.node on hover
         },
         dragOver: function(node, data) {
-            let check = data;
-            console.log(check);
         },
         dragLeave: function(node, data) {
         },
@@ -211,6 +207,7 @@ const tree_question = createTree('#tree-questions', {
         },
         dragDrop: function(node, data) {
             data.otherNode.moveTo(node, data.hitMode);
+            sendtree();
         }
     },
     postProcess: function(event, data){
@@ -227,7 +224,7 @@ const tree_corbeille = createTree('#tree-corbeille', {
         draggable: { // modify default jQuery draggable options
             zIndex: 1000,
             scroll: false,
-            revert: "invalid"
+            containment: "parent",
         },
         preventRecursiveMoves: true, // Prevent dropping nodes on own descendants
         preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
@@ -237,7 +234,12 @@ const tree_corbeille = createTree('#tree-corbeille', {
             // Return false to cancel dragging of node.
 //    if( data.originalEvent.shiftKey ) ...
 //    if( node.isFolder() ) { return false; }
+            if (node.key === "9999999") {
+                return false;
+            }
+
             return true;
+
         },
         dragEnter: function(node, data) {
             /* data.otherNode may be null for non-fancytree droppables.
@@ -251,12 +253,13 @@ const tree_corbeille = createTree('#tree-corbeille', {
             // nodes under the same parent):
 //    if(node.parent !== data.otherNode.parent){
 //      return false;
+           return true;
 //    }
             // Don't allow dropping *over* a node (would create a child). Just
             // allow changing the order:
 //    return ["before", "after"];
             // Accept everything:
-            return true;
+
         },
         dragExpand: function(node, data) {
             // return false to prevent auto-expanding data.node on hover
@@ -269,6 +272,8 @@ const tree_corbeille = createTree('#tree-corbeille', {
         },
         dragDrop: function(node, data) {
             data.otherNode.moveTo(node, data.hitMode);
+            removeParent();
+
             // This function MUST be defined to enable dropping of items on the tree.
             // data.hitMode is 'before', 'after', or 'over'.
             // We could for example move the source to the new target:
@@ -276,45 +281,42 @@ const tree_corbeille = createTree('#tree-corbeille', {
     }
 
 });
+function sendtree() {
+    let d = tree.toDict(true);
+    let getUrl = window.location;
+    let baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+    let link = baseUrl + "/api/tree/naviquiz/save";
+    (async () => {
+        const rawResponse = await fetch(link, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(d)
+        });
+        const content = await rawResponse.json();
 
-function convertData(childList) {
-    var parent,
-        nodeMap = {};
+        console.log(content);
+    })();
+}
 
-    if( childList.kind === "tasks#tasks" ) {
-        childList = childList.items;
-    }
-    // Pass 1: store all tasks in reference map
-    $.each(childList, function(i, c){
-        nodeMap[c.id] = c;
-    });
-    // Pass 2: adjust fields and fix child structure
-    childList = $.map(childList, function(c){
-        // Rename 'key' to 'id'
-        c.key = c.id;
-        delete c.id;
-        // Set checkbox for completed tasks
-        c.selected = (c.status === "completed");
-        // Check if c is a child node
-        if( c.parent ) {
-            // add c to `children` array of parent node
-            parent = nodeMap[c.parent];
-            if( parent.children ) {
-                parent.children.push(c);
-            } else {
-                parent.children = [c];
-            }
-            return null;  // Remove c from childList
-        }
-        return c;  // Keep top-level nodes
-    });
-    // Pass 3: sort children by 'position'
-    $.each(childList, function(i, c){
-        if( c.children && c.children.length > 1 ) {
-            c.children.sort(function(a, b){
-                return ((a.position < b.position) ? -1 : ((a.position > b.position) ? 1 : 0));
-            });
-        }
-    });
-    return childList;
+function removeParent()  {
+    let d = tree_corbeille.toDict(true);
+    let getUrl = window.location;
+    let baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+    let link = baseUrl + "/api/tree/naviquiz/removeparent";
+    (async () => {
+        const rawResponse = await fetch(link, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(d)
+        });
+        const content = await rawResponse.json();
+
+        console.log(content);
+    })();
 }

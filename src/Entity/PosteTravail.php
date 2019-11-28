@@ -67,7 +67,7 @@ class PosteTravail
         return $this->description;
     }
 
-    public function setDecription(string $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 

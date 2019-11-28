@@ -37,6 +37,7 @@ Encore
 
     // enables @babel/preset-env polyfills
 
+
     // enables Sass/SCSS support
     //.enableSassLoader()
     .enableLessLoader()
@@ -53,6 +54,8 @@ Encore
     .addEntry('naviquiz', './assets/js/naviquiz.js')
     .addEntry('home', './assets/js/home.js')
     .addEntry('admin_naviquiz', './assets/js/admin/naviquiz.js')
+    .addEntry('admin_ge_config', './assets/js/admin/ge/config.js')
+
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')

@@ -134,4 +134,8 @@ class GammeEnveloppe
 
         return $this;
     }
+
+    public function __toString() {
+        return $this->reference . ' - ' . $this->nom;
+    }
 }

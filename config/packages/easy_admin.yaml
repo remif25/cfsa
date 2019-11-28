@@ -17,7 +17,7 @@ easy_admin:
               children:
                 - {entity: 'GammeEnveloppe', icon: 'inbox', label: 'Gamme enveloppe'}
                 - {entity: 'Regle',icon: 'inbox', label: 'Règle'}
-            - { label: 'Naviquiz', route: 'config_naviquiz' }
+            - { label: 'Naviquiz', route: 'config_naviquiz', icon: 'tree' }
     entities:
 #        # List the entity class name you want to manage
         Reponse:
@@ -34,9 +34,8 @@ easy_admin:
             label: 'Poste de travail'
             list:
                 fields:
-                    - { property: 'short', label: 'Question courte'}
-                    - { property: 'q_long', label: 'Question longue' }
-                    - { property: 'information', label: 'Information'}
+                    - { property: 'reference', label: 'Référence'}
+                    - { property: 'description', label: 'Description' }
             
         Activite:
             class: App\Entity\Activite
@@ -54,6 +53,9 @@ easy_admin:
         GammeEnveloppe:
             class: App\Entity\GammeEnveloppe
             label: 'Gamme enveloppe'
+            list:
+                actions:
+                    - { name: 'configGE', icon: 'cubes', label: 'Mise à jour' }
             
         Regle:
             class: App\Entity\Regle

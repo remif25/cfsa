@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ReponseRepository")
@@ -108,7 +109,7 @@ class Reponse implements JsonSerializable
 
     public function getImg(): ?string
     {
-        return $this->img;
+        return "http://127.0.0.1:8000/img/r/" . $this->img;
     }
 
     public function setImg(?string $img): self

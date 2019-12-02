@@ -29,6 +29,12 @@ easy_admin:
                     - { property: 'short', label: 'Réponse courte'}
                     - { property: 'information', label: 'Information'}
 
+            form:
+                fields:
+                    - { property: 'short', label: 'Question courte' }
+                    - { property: 'information', label: 'Information' }
+                    - { property: 'img', label: 'Image' }
+
         PosteTravail:
             class: App\Entity\PosteTravail
             label: 'Poste de travail'
@@ -36,10 +42,22 @@ easy_admin:
                 fields:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
+                    - { property: 'activites' }
+            form:
+                fields:
+                    - { property: 'reference', label: 'Référence'}
+                    - { property: 'description', label: 'Description' }
+                    - { property: 'activites', type_options: { by_reference: false } }
             
         Activite:
             class: App\Entity\Activite
             label: 'Activité'
+            list:
+                fields:
+                    - { property: 'reference', label: 'Référence'}
+                    - { property: 'description', label: 'Description' }
+                    - { property: 'pdts'}
+
             
         Question:
             class: App\Entity\Question

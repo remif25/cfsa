@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\GammeEnveloppe;
+use App\Entity\Operation;
+use App\Entity\PosteTravail;
 use App\Entity\Question;
 use App\Entity\Reponse;
+use App\Form\GammeEnveloppeType;
 use Doctrine\ORM\EntityManager;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -42,9 +45,28 @@ class AdminController extends EasyAdminController
         if(isset($_GET['id']) && $em->find(GammeEnveloppe::class, $_GET['id'])) {
 
             $ge = $em->find(GammeEnveloppe::class, $_GET['id']);
-            $form = $this->createFormBuilder($ge)
-                ->add('save', SubmitType::class, ['label' => 'Sauvegarder', 'attr' => ['class'=> 'btn btn-primary']])
-                ->getForm();
+
+            $operations = array();
+
+            for ($i = 0; $i < 50; $i++) {
+                $operations[$i] = new Operation(random_int(99999999, 9999999999999));
+            }
+
+
+            $i = 0;
+            foreach($ge->getOperations() as $operation) {
+                unset($operations[$i]);
+                $operations[$i] = $operation;
+                $ge->removeOperation($operation);
+                $i++;
+            }
+
+            foreach ($operations as $operation) {
+                $operation->setId = random_int(99999999, 9999999999999);
+                $ge->addOperation($operation);
+            }
+
+            $form = $this->createForm(GammeEnveloppeType::class, $ge);
 
             return $this->render('admin/ge/config.html.twig', [
                 'controller_name' => 'AdminController',

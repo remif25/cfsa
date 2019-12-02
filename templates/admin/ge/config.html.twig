@@ -22,30 +22,27 @@
             <thead class="thead-dark">
             <tr>
                 <th scope="col">Séq</th>
-                <th scope="col">Code PDT</th>
-                <th scope="col">Désignation PDT</th>
-                <th scope="col">Code activité</th>
-                <th scope="col">Désignation activité</th>
+                <th scope="col">Code PDT - Désignation PDT</th>
+                <th scope="col">Code activité - Désignation activité</th>
                 <th scope="col">Règle</th>
                 <th scope="col">Branche(s)</th>
             </tr>
             </thead>
             <tbody>
-            {% for operation in ge.operations %}
+            {% for operation in form.operations %}
             <tr>
-                <th scope="row">{{ operation.numero }}</th>
-                <td>{{ operation.pdt.reference }}</td>
-                <td>{{ operation.pdt.description }}</td>
-                <td>{{ operation.activite.reference }}</td>
-                <td>{{ operation.activite.description }}</td>
-                <td>{% if operation.linkregleoperation.regle is defined %} {{ operation.linkregleoperation.regle.question }} {% endif %}</td>
-                <td>{% if operation.linkregleoperation.branch is defined %}{{ operation.linkregleoperation.branch }}{% endif %}</td>
+                <th scope="row">{{ form_widget(operation.numero) }}</th>
+                <td>{{ form_widget(operation.pdt) }}</td>
+
+                <td>{{ form_widget(operation.activite) }}</td>
+
+                <td> {{ form_widget(operation.linkregleoperation) }}</td>
+                <td>{{ form_widget(operation.linkregleoperation) }}</td>
 
             </tr>
             {% endfor %}
             </tbody>
         </table>
-
         {{ form_end(form) }}
     </div>
 {% endblock %}

@@ -109,7 +109,7 @@ class Reponse implements JsonSerializable
 
     public function getImg(): ?string
     {
-        return "http://127.0.0.1:8000/img/r/" . $this->img;
+        return 'https://naviquiz.repliqa.fr/img/r/' . $this->img;
     }
 
     public function setImg(?string $img): self

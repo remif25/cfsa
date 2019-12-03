@@ -10,5 +10,20 @@ const $ = require('jquery');
 //import 'jquery-ui';
 
 $(document).ready(function() {
-    $('.select2-form').select2();
+    var data = {
+        id: 9999999,
+        text: ''
+    };
+    let newOption = new Option(data.text, data.id, false, false);
+    $('.select2-form').append(newOption).trigger('change');
+    $('.select2-form').val('9999999');
+    $('.select2-form').trigger('change');
+    $('.select2-form').select2({
+        placeholder: {
+            id: '9999999', // the value of the option
+            text: 'Choisir une option'
+        },
+        allowClear: true,
+    });
+
 });

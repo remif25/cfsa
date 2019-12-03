@@ -23,7 +23,7 @@ class LinkRegleOperation
     private $regle;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Operation", inversedBy="branche", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Operation", inversedBy="linkregleoperation", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $operation;

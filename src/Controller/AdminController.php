@@ -19,11 +19,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends EasyAdminController
 {
 
-    public function getEM(): EntityManager
-    {
-
+    public function getEM(): EntityManager {
         return $this->getDoctrine()->getManager();
-
     }
 
     /**
@@ -48,7 +45,7 @@ class AdminController extends EasyAdminController
 
             $operations = array();
 
-            for ($i = 0; $i < 50; $i++) {
+            for ($i = 0; $i < 2; $i++) {
                 $operations[$i] = new Operation(random_int(99999999, 9999999999999));
             }
 
@@ -66,7 +63,10 @@ class AdminController extends EasyAdminController
                 $ge->addOperation($operation);
             }
 
-            $form = $this->createForm(GammeEnveloppeType::class, $ge);
+            $form = $this->createForm(GammeEnveloppeType::class, $ge, [
+                'action' => 'api/tree/naviquiz/save',
+                'method' => 'POST',
+                ]);
 
             return $this->render('admin/ge/config.html.twig', [
                 'controller_name' => 'AdminController',
@@ -76,6 +76,14 @@ class AdminController extends EasyAdminController
         }
 
         return $this->redirectToRoute('admin');
+    }
+
+    /**
+     * @Route("/api/tree/naviquiz/save", name="save_ge")
+     */
+    public function saveGE(Request $request)
+    {
+        var_dump($request->request->get('gamme_enveloppe')['operations']);
     }
 
     /**

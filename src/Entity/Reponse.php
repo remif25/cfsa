@@ -4,10 +4,13 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ReponseRepository")
+ * @Vich\Uploadable
+ * @ORM\HasLifecycleCallbacks()
  */
 class Reponse implements JsonSerializable
 {
@@ -39,10 +42,25 @@ class Reponse implements JsonSerializable
     private $img;
 
     /**
+     * @Vich\UploadableField(mapping="reponse_images", fileNameProperty="img")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="string", length=2048, nullable=true)
      */
     private $url;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated;
 
     public function getId(): ?int
     {
@@ -109,7 +127,7 @@ class Reponse implements JsonSerializable
 
     public function getImg(): ?string
     {
-        return 'https://naviquiz.repliqa.fr/img/r/' . $this->img;
+        return $this->img;
     }
 
     public function setImg(?string $img): self
@@ -132,6 +150,56 @@ class Reponse implements JsonSerializable
     }
 
 
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->setUpdated(new \DateTime('now'));
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function getCreated(): ?\DateTimeInterface
+    {
+        return $this->created;
+    }
+
+    public function setCreated(?\DateTimeInterface $created): self
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    public function getUpdated(): ?\DateTimeInterface
+    {
+        return $this->updated;
+    }
+
+    public function setUpdated(?\DateTimeInterface $updated): self
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
 
 
+    public function onPrePersist()
+    {
+        $this->created = new \DateTime("now");
+    }
+
+    public function __toString()
+    {
+        return (string)$this->short;
+    }
 }

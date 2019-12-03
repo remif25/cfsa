@@ -118,5 +118,9 @@ class Question implements JsonSerializable
             "}";
     }
 
+    public function __toString()
+    {
+        return (string)$this->short;
+    }
 
 }

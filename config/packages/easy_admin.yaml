@@ -25,15 +25,15 @@ easy_admin:
             label: 'Réponse'
             list:
                 fields:
-                    - { property: 'img', type: 'image', label: 'Image' }
+                    - { property: 'img', type: 'image', base_path: '%app.path.reponse_images%' }
                     - { property: 'short', label: 'Réponse courte'}
                     - { property: 'information', label: 'Information'}
 
             form:
                 fields:
-                    - { property: 'short', label: 'Question courte' }
+                    - { property: 'short', label: 'Réponse courte' }
                     - { property: 'information', label: 'Information' }
-                    - { property: 'img', label: 'Image' }
+                    - { property: 'imageFile', type: 'file', label: 'Image de la réponse' }
 
         PosteTravail:
             class: App\Entity\PosteTravail
@@ -68,12 +68,19 @@ easy_admin:
                     - { property: 'q_long', label: 'Question longue' }
                     - { property: 'information', label: 'Information'}
 
+            form:
+                fields:
+                    - { property: 'short', label: 'Question courte' }
+                    - { property: 'q_long', label: 'Question longue' }
+                    - { property: 'information', label: 'Information'}
+
         GammeEnveloppe:
             class: App\Entity\GammeEnveloppe
             label: 'Gamme enveloppe'
             list:
                 actions:
                     - { name: 'configGE', icon: 'cubes', label: 'Mise à jour' }
+            controller: App\Controller\AdminController
             
         Regle:
             class: App\Entity\Regle

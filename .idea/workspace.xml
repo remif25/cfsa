@@ -2,19 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e786d1e-7018-4f0c-8565-42becfa75a2e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/admin/ge/config.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/admin/ge/config.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/admin/ge/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/admin/ge/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/naviquiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/naviquiz.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/easy_admin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/easy_admin.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/10.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/11.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/12.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/12.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/13.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/13.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/3.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/3.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/4.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/4.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/9.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/r/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/reponse/default.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/NaviquizController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NaviquizController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/GammeEnveloppe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GammeEnveloppe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/LinkRegleOperation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/LinkRegleOperation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Regle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Regle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Reponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/OperationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/OperationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190924120629.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190924121701.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190924121906.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190924121955.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190924122221.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190924122223.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191017063743.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191106160549.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191120144845.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191121131636.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191121143217.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191127141701.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/ge/config.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/ge/config.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/configurateur/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/configurateur/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,68 +72,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GammeEnveloppe.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/GammeEnveloppe.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1615">
-              <caret line="98" column="33" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/admin/ge/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="easy_admin.yaml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="easy_admin.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="35" column="60" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="60" />
+            <state relative-caret-position="401">
+              <caret line="76" column="23" lean-forward="true" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
+      <file leaf-file-name="GammeEnveloppeType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Form/GammeEnveloppeType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1367">
-              <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
-              <folding>
-                <element signature="e#34#64#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reponse.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Reponse.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="107" column="5" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="45" lean-forward="true" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/admin/ge/config.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            <state relative-caret-position="221">
+              <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -116,17 +93,29 @@
       <file leaf-file-name="config.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/admin/ge/config.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="605">
+              <caret line="37" column="80" selection-start-line="37" selection-start-column="80" selection-end-line="37" selection-end-column="80" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PosteTravailRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Repository/PosteTravailRepository.php">
+      <file leaf-file-name="LinkRegleOperation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/LinkRegleOperation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
+            <state relative-caret-position="435">
+              <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LinkRegleOperationType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Form/LinkRegleOperationType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+              <folding>
+                <element signature="e#28#62#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,11 +123,51 @@
       <file leaf-file-name="OperationType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Form/OperationType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+            <state relative-caret-position="527">
+              <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
               <folding>
                 <element signature="e#28#53#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="90" column="7" lean-forward="true" selection-start-line="90" selection-start-column="7" selection-end-line="90" selection-end-column="7" />
+              <folding>
+                <element signature="e#34#64#0#PHP" expanded="true" />
+                <element signature="e#611#708#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Regle.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Regle.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="102" column="39" lean-forward="true" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="26" selection-start-column="26" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/admin/ge/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -155,8 +184,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>jquery</find>
-      <find>tmpChild</find>
       <find>href</find>
       <find>#2c3e50</find>
       <find>#18bc9c</find>
@@ -185,6 +212,8 @@
       <find>$this-&gt;em</find>
       <find>127.0.0</find>
       <find>env(</find>
+      <find>app.path.product_images</find>
+      <find>product_images</find>
     </findStrings>
     <replaceStrings>
       <replace>#6F5F59</replace>
@@ -203,12 +232,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/assets/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/src/Entity/QuestionSerializable.php" />
-        <option value="$PROJECT_DIR$/public/js/jquery.js" />
-        <option value="$PROJECT_DIR$/public/js/jquery-3.3.1.slim.min.js" />
-        <option value="$PROJECT_DIR$/public/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/public/css/naviquiz.css" />
         <option value="$PROJECT_DIR$/var/cache/dev/pools/W6btHQUgOC/4/S/+kgKSJB5K0BiQB4gZmnQ" />
         <option value="$PROJECT_DIR$/symfony.lock" />
@@ -227,7 +250,6 @@
         <option value="$PROJECT_DIR$/config/routes/easy_admin.yaml" />
         <option value="$PROJECT_DIR$/templates/admin/index.html.twig" />
         <option value="$PROJECT_DIR$/assets/css/admin/naviquiz.css" />
-        <option value="$PROJECT_DIR$/src/Entity/Question.php" />
         <option value="$PROJECT_DIR$/src/Repository/ReponseRepository.php" />
         <option value="$PROJECT_DIR$/src/Migrations/Version20191127140338.php" />
         <option value="$PROJECT_DIR$/src/Migrations/Version20191127140854.php" />
@@ -235,7 +257,6 @@
         <option value="$PROJECT_DIR$/templates/admin/naviquiz.html.twig" />
         <option value="$PROJECT_DIR$/assets/js/admin/naviquiz.js" />
         <option value="$PROJECT_DIR$/src/Repository/QuestionRepository.php" />
-        <option value="$PROJECT_DIR$/assets/js/naviquiz.js" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/Entity/GammeEnveloppe.php" />
         <option value="$PROJECT_DIR$/src/Form/PosteTravailType.php" />
@@ -243,17 +264,25 @@
         <option value="$PROJECT_DIR$/src/Repository/PosteTravailRepository.php" />
         <option value="$PROJECT_DIR$/templates/configurateur/index.html.twig" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
-        <option value="$PROJECT_DIR$/assets/js/admin/ge/config.js" />
-        <option value="$PROJECT_DIR$/templates/admin/ge/config.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/PosteTravail.php" />
         <option value="$PROJECT_DIR$/src/Entity/Activite.php" />
         <option value="$PROJECT_DIR$/src/Controller/NaviquizController.php" />
-        <option value="$PROJECT_DIR$/src/Form/OperationType.php" />
-        <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/assets/css/admin/ge/config.css" />
-        <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/src/Form/ReponseType.php" />
+        <option value="$PROJECT_DIR$/src/Entity/LinkRegleOperation.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Question.php" />
+        <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/Entity/Reponse.php" />
+        <option value="$PROJECT_DIR$/assets/js/naviquiz.js" />
+        <option value="$PROJECT_DIR$/config/packages/vich_uploader.yaml" />
+        <option value="$PROJECT_DIR$/src/Entity/Regle.php" />
+        <option value="$PROJECT_DIR$/src/Form/LinkRegleOperationType.php" />
+        <option value="$PROJECT_DIR$/src/Form/OperationType.php" />
+        <option value="$PROJECT_DIR$/assets/js/admin/ge/config.js" />
+        <option value="$PROJECT_DIR$/templates/admin/ge/config.html.twig" />
+        <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
+        <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
       </list>
     </option>
   </component>
@@ -398,8 +427,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/templating" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="245" />
+    <option name="y" value="-10" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -428,28 +458,55 @@
               <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
               <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="ge" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
               <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="ge" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
+              <item name="var" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -475,6 +532,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\wamp64\www\naviquiz\public\uploads\images\reponse" />
+      <recent name="D:\wamp64\www\naviquiz\public\uploads\files" />
       <recent name="D:\wamp64\www\naviquiz\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -542,12 +601,14 @@
       <workItem from="1575269439471" duration="3827000" />
       <workItem from="1575274703977" duration="14029000" />
       <workItem from="1575292298571" duration="1230000" />
-      <workItem from="1575297508939" duration="4402000" />
+      <workItem from="1575297508939" duration="4540000" />
+      <workItem from="1575353063916" duration="10354000" />
+      <workItem from="1575365141750" duration="6048000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179555000" />
+    <option name="totallyTimeSpent" value="196095000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -559,24 +620,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32897604" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.2238806" side_tool="true" visible="true" weight="0.34422657" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.07569297" side_tool="true" visible="true" weight="0.34422657" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.5733042" weight="0.33006537" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.57196164" weight="0.33006537" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.7761194" visible="true" weight="0.34422657" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.92430705" visible="true" weight="0.34422657" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.32967034" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16044776" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15405117" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.50765866" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3278867" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.64445627" weight="0.39542484" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -584,9 +644,11 @@
       <window_info anchor="bottom" id="Database Console" order="11" weight="0.32897604" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3278867" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="11" weight="0.32897604" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.32967034" />
@@ -597,16 +659,15 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32897604" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.64445627" weight="0.39542484" />
-      <window_info anchor="bottom" id="Database Console" order="11" weight="0.32897604" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3278867" />
       <window_info anchor="right" id="Database" order="4" weight="0.50765866" />
       <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.7768052" visible="true" weight="0.33443344" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.22319475" side_tool="true" visible="true" weight="0.33443344" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.64445627" weight="0.39542484" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.22319475" side_tool="true" visible="true" weight="0.33443344" />
       <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.5733042" weight="0.33113313" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3278867" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -622,42 +683,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191121131636.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes/easy_admin.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Gamme.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="19" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4641" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/admin/naviquiz.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -672,23 +697,7 @@
     <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191127140854.php" />
     <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191127140903.php" />
     <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191127140621.php" />
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191121143217.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191127141701.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191121143217.php" />
     <entry file="file://$PROJECT_DIR$/src/Controller/ConfigurateurController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -731,13 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/ReponseRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/admin/naviquiz.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -745,34 +747,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/naviquiz.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="150" column="85" selection-start-line="150" selection-start-column="85" selection-end-line="150" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Question.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Regle.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/LinkRegleOperation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -807,25 +785,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/GammeEnveloppeType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-          <folding>
-            <element signature="e#28#58#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/ActiviteType.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Operation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="31" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/QuestionRepository.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -836,23 +797,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/OperationRepository.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/NaviquizController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#34#58#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/PosteTravail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="115" column="31" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="31" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Activite.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -868,34 +812,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/admin/ge/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/PosteTravailRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="12" column="65" selection-start-line="12" selection-start-column="65" selection-end-line="12" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/ge/config.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/OperationType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding>
-            <element signature="e#28#53#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -906,34 +826,185 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1367">
-          <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
+        <state relative-caret-position="425">
+          <caret line="25" column="45" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/QuestionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
           <folding>
-            <element signature="e#34#64#0#PHP" expanded="true" />
+            <element signature="e#28#52#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191127141701.php" />
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191203072840.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="45" lean-forward="true" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+        <state relative-caret-position="-204" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/ReponseRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Question.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="872">
+          <caret line="121" column="4" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/NaviquizController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#34#58#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/vich_uploader.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="60" selection-start-column="60" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/ReponseType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/PosteTravail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="635">
+          <caret line="137" column="5" selection-start-line="135" selection-start-column="4" selection-end-line="137" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Reponse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="107" column="5" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+        <state relative-caret-position="418">
+          <caret line="203" column="5" lean-forward="true" selection-start-line="200" selection-start-column="4" selection-end-line="203" selection-end-column="5" />
+          <folding>
+            <element signature="e#30#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Operation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="40" column="7" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/naviquiz.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="154" column="143" selection-start-line="154" selection-start-column="143" selection-end-line="154" selection-end-column="143" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Regle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="102" column="39" lean-forward="true" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/admin/ge/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/LinkRegleOperation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/LinkRegleOperationType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="e#28#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/OperationType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+          <folding>
+            <element signature="e#28#53#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/ge/config.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="37" column="80" selection-start-line="37" selection-start-column="80" selection-end-line="37" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="35" column="60" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="60" />
+        <state relative-caret-position="401">
+          <caret line="76" column="23" lean-forward="true" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/GammeEnveloppeType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="90" column="7" lean-forward="true" selection-start-line="90" selection-start-column="7" selection-end-line="90" selection-end-column="7" />
+          <folding>
+            <element signature="e#34#64#0#PHP" expanded="true" />
+            <element signature="e#611#708#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>

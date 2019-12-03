@@ -1,7 +1,8 @@
 vich_uploader:
     db_driver: orm
 
-    #mappings:
-    #    products:
-    #        uri_prefix: /images/products
-    #        upload_destination: '%kernel.project_dir%/public/images/products'
+    mappings:
+        reponse_images:
+            uri_prefix: '%app.path.reponse_images%'
+            upload_destination: '%kernel.project_dir%/public%app.path.reponse_images%'
+            namer: vich_uploader.namer_uniqid

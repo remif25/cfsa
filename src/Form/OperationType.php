@@ -23,14 +23,14 @@ class OperationType extends AbstractType
                 'attr' => ['min' => '10', 'max' => '500', 'step' => '10', 'class' => 'form-control']
             ])
             ->add('pdt', null, [
-                'attr' => ['class' => 'form-control select2-form']
+                'attr' => ['class' => 'form-control select2-form', 'placeholder' => 'Entrez le PDT']
 
             ])
             ->add('activite',null, [
-                'attr' => ['class' => 'form-control select2-form']
+                'attr' => ['class' => 'form-control select2-form', 'placeholder' => 'Entrez le activité']
 
             ])
-            ->add('linkregleoperation')
+            ->add('linkregleoperation', LinkRegleOperationType::class)
 
         ;
     }

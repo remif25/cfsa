@@ -14,10 +14,13 @@ class LinkRegleOperationType extends AbstractType
     {
         $builder
             ->add('regle',null, [
-                'attr' => ['class' => 'form-control select2-form']
+                'attr' => ['class' => 'form-control select2-form'],
+                'required' => false
 
             ])
-            ->add('branche', TextType::class)
+            ->add('branche', TextType::class, [
+                'required' => false
+            ])
         ;
     }
 

@@ -36,15 +36,15 @@ class LinkRegleOperationRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?LinkRegleOperation
+
+    public function findOneByOperation($operation): ?LinkRegleOperation
     {
         return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('l.operation = :val')
+            ->setParameter('val', $operation)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+
 }

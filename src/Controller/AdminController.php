@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Activite;
 use App\Entity\GammeEnveloppe;
+use App\Entity\LinkRegleOperation;
 use App\Entity\Operation;
 use App\Entity\PosteTravail;
 use App\Entity\Question;
+use App\Entity\Regle;
 use App\Entity\Reponse;
 use App\Form\GammeEnveloppeType;
 use Doctrine\ORM\EntityManager;
@@ -37,53 +40,95 @@ class AdminController extends EasyAdminController
      */
     public function configGEAction()
     {
+        if(isset($_GET['id']))
+           return $this->displayGE($_GET['id']);
+
+        return $this->redirectToRoute('admin');
+    }
+
+    public function displayGE($id) {
         $em = $this->getEM();
+        $ge = $em->find(GammeEnveloppe::class, $id);
+        $operations = array();
 
-        if(isset($_GET['id']) && $em->find(GammeEnveloppe::class, $_GET['id'])) {
-
-            $ge = $em->find(GammeEnveloppe::class, $_GET['id']);
-
-            $operations = array();
-
-            for ($i = 0; $i < 2; $i++) {
-                $operations[$i] = new Operation(random_int(99999999, 9999999999999));
-            }
-
-
-            $i = 0;
-            foreach($ge->getOperations() as $operation) {
-                unset($operations[$i]);
-                $operations[$i] = $operation;
-                $ge->removeOperation($operation);
-                $i++;
-            }
-
-            foreach ($operations as $operation) {
-                $operation->setId = random_int(99999999, 9999999999999);
-                $ge->addOperation($operation);
-            }
-
-            $form = $this->createForm(GammeEnveloppeType::class, $ge, [
-                'action' => 'api/tree/naviquiz/save',
-                'method' => 'POST',
-                ]);
-
-            return $this->render('admin/ge/config.html.twig', [
-                'controller_name' => 'AdminController',
-                'ge' => $ge,
-                'form' => $form->createView()
-            ]);
+        for ($i = 0; $i < 50; $i++) {
+            $operations[$i] = new Operation(random_int(99999999, 9999999999999));
         }
+        
+        $i = 0;
+        foreach($ge->getOperations() as $operation) {
+            unset($operations[$i]);
+            $operations[$i] = $operation;
+            $ge->removeOperation($operation);
+            $i++;
+        }
+
+        foreach ($operations as $operation) {
+            $operation->setId = random_int(99999999, 9999999999999);
+            $ge->addOperation($operation);
+        }
+
+        $form = $this->createForm(GammeEnveloppeType::class, $ge, [
+            'action' => 'api/ge/save',
+            'method' => 'POST',
+        ]);
+
+        return $this->render('admin/ge/config.html.twig', [
+            'controller_name' => 'AdminController',
+            'ge' => $ge,
+            'form' => $form->createView()
+        ]);
+
 
         return $this->redirectToRoute('admin');
     }
 
     /**
-     * @Route("/api/tree/naviquiz/save", name="save_ge")
+     * @Route("/api/ge/save", name="save_ge")
      */
     public function saveGE(Request $request)
     {
-        var_dump($request->request->get('gamme_enveloppe')['operations']);
+        $em = $this->getEM();
+
+        $ge = $em->find(GammeEnveloppe::class, $request->request->get('gamme_enveloppe')['id']);
+
+        foreach ($request->request->get('gamme_enveloppe')['operations'] as $operationdata) {
+            $numero = $operationdata['numero'];
+            if($numero !== '') {
+                $operation = $this->getDoctrine()->getRepository(Operation::class)->findbyGEandNumero($ge->getId(), $numero);
+                $regle = $em->find(Regle::class, $operationdata['linkregleoperation']['regle']);
+                $pdt = $em->find(PosteTravail::class, $operationdata['pdt']);
+                $activite = $em->find(Activite::class, $operationdata['activite']);
+
+                if (!$operation) {
+                    $operation = new Operation();
+                    $linkRegletoOperation = new LinkRegleOperation();
+                } else {
+                    $linkRegletoOperation = $this->getDoctrine()->getRepository(LinkRegleOperation::class)->findOneByOperation($operation->getId());
+                }
+
+                $banches = explode('-', $operationdata['linkregleoperation']['branche']);
+
+                if($regle) {
+                    $linkRegletoOperation->setRegle($regle)
+                        ->setOperation($operation)
+                        ->setBranche($banches);
+                    $em->persist($linkRegletoOperation);
+                }
+
+                $operation->setNumero($numero)
+                    ->setActivite($activite)
+                    ->setPdt($pdt);
+                $em->persist($operation);
+
+                $ge->addOperation($operation);
+            }
+        }
+        $em->persist($ge);
+        $em->flush();
+
+
+        return $this->displayGE($ge->getId());
     }
 
     /**

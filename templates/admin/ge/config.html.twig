@@ -15,6 +15,7 @@
 {% block main %}
     <div class="container">
         {{ form_start(form) }}
+        {{ form_widget(form.id) }}
         <div class="my-custom-class-for-errors">
             {{ form_errors(form) }}
         </div>
@@ -32,10 +33,10 @@
             {% for operation in form.operations %}
             <tr>
                 <th scope="row">{{ form_widget(operation.numero) }}</th>
-                <td>{{ form_widget(operation.pdt) }}</td>
+               {# <td>{{ form_widget(operation.pdt) }}</td>
                 <td>{{ form_widget(operation.activite) }}</td>
                 <td>{{ form_widget(operation.linkregleoperation.regle) }}</td>
-                <td>{{ form_widget(operation.linkregleoperation.branche) }}</td>
+                <td>{{ form_widget(operation.linkregleoperation.branche) }}</td>#}
             </tr>
             {% endfor %}
             </tbody>

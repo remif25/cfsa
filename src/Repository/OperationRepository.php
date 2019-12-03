@@ -22,19 +22,31 @@ class OperationRepository extends ServiceEntityRepository
     // /**
     //  * @return Operation[] Returns an array of Operation objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findAllbyGE($ge)
     {
         return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('o.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('o.gammeEnveloppe = :val')
+            ->setParameter('val', $ge)
+            ->orderBy('o.numero', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
+    public function findbyGEandNumero($ge, $numero)
+    {
+        return $this->createQueryBuilder('o')
+            ->andWhere('o.gammeEnveloppe = :val')
+            ->andWhere('o.numero = :val2')
+            ->setParameter('val', $ge)
+            ->setParameter('val2', $numero)
+            ->orderBy('o.numero', 'ASC')
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
 
     /*
     public function findOneBySomeField($value): ?Operation

@@ -20,14 +20,17 @@ class OperationType extends AbstractType
 
         $builder
             ->add('numero', IntegerType::class, [
-                'attr' => ['min' => '10', 'max' => '500', 'step' => '10', 'class' => 'form-control']
+                'attr' => ['min' => '10', 'max' => '500', 'step' => '10', 'class' => 'form-control'],
+                'required' => false
             ])
             ->add('pdt', null, [
-                'attr' => ['class' => 'form-control select2-form', 'placeholder' => 'Entrez le PDT']
+                'attr' => ['class' => 'form-control select2-form', 'placeholder' => 'Entrez le PDT'],
+                'required' => false
 
             ])
             ->add('activite',null, [
-                'attr' => ['class' => 'form-control select2-form', 'placeholder' => 'Entrez le activité']
+                'attr' => ['class' => 'form-control select2-form', 'placeholder' => 'Entrez le activité'],
+                'required' => false
 
             ])
             ->add('linkregleoperation', LinkRegleOperationType::class)

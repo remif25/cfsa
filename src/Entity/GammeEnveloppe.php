@@ -2,13 +2,18 @@
 
 namespace App\Entity;
 
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Form\AbstractType;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GammeEnveloppeRepository")
+ * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity("reference")
  */
 class GammeEnveloppe
 {
@@ -31,6 +36,7 @@ class GammeEnveloppe
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Operation", mappedBy="gammeEnveloppe")
+     * @ORM\OrderBy({"numero" = "ASC"})
      */
     private $operations;
 
@@ -39,10 +45,21 @@ class GammeEnveloppe
      */
     private $reference;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Reponse", mappedBy="gammeEnveloppe")
+     */
+    private $reponses;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->gammes = new ArrayCollection();
         $this->operations = new ArrayCollection();
+        $this->reponses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -138,5 +155,57 @@ class GammeEnveloppe
 
     public function __toString() {
         return $this->reference . ' - ' . $this->nom;
+    }
+
+    /**
+     * @return Collection|Reponse[]
+     */
+    public function getReponses(): Collection
+    {
+        return $this->reponses;
+    }
+
+    public function addReponse(Reponse $reponse): self
+    {
+        if (!$this->reponses->contains($reponse)) {
+            $this->reponses[] = $reponse;
+            $reponse->setGammeEnveloppe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReponse(Reponse $reponse): self
+    {
+        if ($this->reponses->contains($reponse)) {
+            $this->reponses->removeElement($reponse);
+            // set the owning side to null (unless already changed)
+            if ($reponse->getGammeEnveloppe() === $this) {
+                $reponse->setGammeEnveloppe(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateSlug()
+    {
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->reference);
     }
 }

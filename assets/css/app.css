@@ -3,3 +3,8 @@
         max-width: 1540px;
     }
 }
+
+.navbar-brand a:hover {
+    text-decoration: none;
+    color: #c7bf95;
+}

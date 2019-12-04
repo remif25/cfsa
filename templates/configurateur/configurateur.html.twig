@@ -1,0 +1,89 @@
+{% extends "layout/base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('configurateur') }}
+{% endblock %}
+
+{% block title %}Configurateur GE{% endblock %}
+
+
+{% block body %}
+
+    {% if permission_refused is defined %}
+        <div class="alert alert-danger" role="alert">
+            Vous n'avez pas la permission d'accéder à cette page.
+        </div>
+    {% else %}
+        <div class="container-fluid main configurateur">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="container grid-striped">
+                        <div class="row font-weight-bold py-2">
+                            <div class="col-1">
+                                Séq
+                            </div>
+                            <div class="col-2">
+                                PDT
+                            </div>
+                            <div class="col-3">
+                                Désignation PDT
+                            </div>
+                            <div class="col-2">
+                                Activité
+                            </div>
+                            <div class="col-3">
+                                Désignation activité
+                            </div>
+                            <div class="col-1">
+                                #
+                            </div>
+                        </div>
+                        {% for key, operation in ge.operations %}
+                            <div class="row py-2 ligne-{{ key }} {% if operation.linkregleoperation.regle is defined %}has-regle regle_id-{{ operation.linkregleoperation.regle.id }}{% endif %}" data-regle_id="{% if operation.linkregleoperation.regle is defined %}{{ operation.linkregleoperation.regle.id }}{% endif %}">
+                                <div class="col-1">{{ operation.numero }}</div>
+                                <div class="col-2">{{ operation.activite.reference }}</div>
+                                <div class="col-3">{{ operation.activite.description }}</div>
+                                <div class="col-2">{{ operation.pdt.reference }}</div>
+                                <div class="col-3">{{ operation.pdt.description }}</div>
+                                <div class="col-1">{% if operation.linkregleoperation.regle is defined %}{{ operation.linkregleoperation.regle.id }}{% endif %}</div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="modalRegle1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Règle n°</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif  %}
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('configurateur') }}
+{% endblock %}

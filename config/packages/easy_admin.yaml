@@ -10,8 +10,9 @@ easy_admin:
             - label: 'Naviquiz'
               icon: 'question-circle'
               children:
-                - {entity: 'Reponse', icon: 'inbox', label: 'Réponse'}
                 - {entity: 'Question',icon: 'inbox', label: 'Question'}
+                - {entity: 'Reponse', icon: 'inbox', label: 'Réponse'}
+
             - label: 'Configurateur'
               icon: 'cogs'
               children:
@@ -28,12 +29,14 @@ easy_admin:
                     - { property: 'img', type: 'image', base_path: '%app.path.reponse_images%' }
                     - { property: 'short', label: 'Réponse courte'}
                     - { property: 'information', label: 'Information'}
+                    - { property: 'gammeEnveloppe', label: "Gamme enveloppe"}
 
             form:
                 fields:
                     - { property: 'short', label: 'Réponse courte' }
                     - { property: 'information', label: 'Information' }
                     - { property: 'imageFile', type: 'file', label: 'Image de la réponse' }
+                    - { property: 'gammeEnveloppe', label: "Gamme enveloppe"}
 
         PosteTravail:
             class: App\Entity\PosteTravail
@@ -81,7 +84,12 @@ easy_admin:
                 actions:
                     - { name: 'configGE', icon: 'cubes', label: 'Mise à jour' }
             controller: App\Controller\AdminController
-            
+            form:
+                fields:
+                    - { property: 'nom', label: 'Titre' }
+                    - { property: 'reference', label: 'Référence' }
+                    - { property: 'gammes', label: 'Gammes'}
+
         Regle:
             class: App\Entity\Regle
             label: 'Règle'

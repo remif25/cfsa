@@ -36,15 +36,15 @@ class GammeEnveloppeRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?GammeEnveloppe
+
+    public function findOneBySlug($value): ?GammeEnveloppe
     {
         return $this->createQueryBuilder('g')
-            ->andWhere('g.exampleField = :val')
+            ->andWhere('g.slug = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+
 }

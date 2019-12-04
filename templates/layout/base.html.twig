@@ -9,13 +9,18 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="navbar-brand" >Patek Philippe</div>
+    <div class="navbar-brand" ><a href="{{ path('home') }}">Patek Philippe</a></div>
 </nav>
 {% block body %}
 {% endblock %}
 </body>
 
 {% block footer %}
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span class="text-muted">Patek Philippe - Projet de création du référentiel : Rémi Fongaufier & Andréa Sester</span>
+        </div>
+    </footer>
 {% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}

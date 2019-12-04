@@ -55,7 +55,6 @@ $(document).on('click', '.small-card-question',  function() {
     $('.alert-no-more-element').addClass('hide');
 
     smallCards.each(function(index, smallCard) {
-        console.log(smallCard);
         if (smallCard.dataset.lvl >= level) {
             $(smallCard).remove();
         }
@@ -127,8 +126,10 @@ function displayBigQuestions(tmpData, lvl) {
     let nChildren = children.length;
 
     children.forEach(function(child) {
-        if (child.url !== null) {
-            $('.questions').append(' <a type="file" href="' + child.url + '" class="col-md-' + 12 / nChildren + ' big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '" target="_blank" download>\n' +
+        console.log(child);
+        console.log(child.gammeEnveloppe);
+        if (child.gammeEnveloppe) {
+            $('.questions').append(' <a href="/configurateur/' + child.gammeEnveloppe + '" class="col-md-' + 12 / nChildren + ' big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '" target="_blank">\n' +
                 '                                    <div class="card text-white bg-success mb-3">\n' +
                 '                                        <div class="card-header">\n' +
                 '                                            <h5 class="card-title">' + child.short + '</h5>\n' +
@@ -175,7 +176,7 @@ function testData(data, reponse) {
     if (typeof data !== 'undefined') {
         return 1;
     } else {
-        if (reponse.url === 'undefined' || reponse.url === null) {
+        if (!reponse.gammeEnveloppe) {
             $('.alert-no-more-element').removeClass('hide');
             $('.alert-no-more-element').addClass('show');
         }

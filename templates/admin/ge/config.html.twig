@@ -27,16 +27,19 @@
                 <th scope="col">Code activité - Désignation activité</th>
                 <th scope="col">Règle</th>
                 <th scope="col">Branche(s)</th>
+                <th scope="col" >#</th>
             </tr>
             </thead>
             <tbody>
-            {% for operation in form.operations %}
-            <tr>
-                <th scope="row">{{ form_widget(operation.numero) }}</th>
-               {# <td>{{ form_widget(operation.pdt) }}</td>
+            {% for key, operation in form.operations %}
+            <tr class="ligne-{{ key }}">
+                {{ form_widget(operation.id) }}
+                <th scope="row" >{{ form_widget(operation.numero) }}</th>
+                <td>{{ form_widget(operation.pdt) }}</td>
                 <td>{{ form_widget(operation.activite) }}</td>
                 <td>{{ form_widget(operation.linkregleoperation.regle) }}</td>
-                <td>{{ form_widget(operation.linkregleoperation.branche) }}</td>#}
+                <td>{{ form_widget(operation.linkregleoperation.branche) }}</td>
+                <td data-key="{{ key }}"><i class="fas fa-times"></i></td>
             </tr>
             {% endfor %}
             </tbody>

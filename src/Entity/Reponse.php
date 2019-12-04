@@ -62,6 +62,11 @@ class Reponse implements JsonSerializable
      */
     private $updated;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\GammeEnveloppe", inversedBy="reponses")
+     */
+    private $gammeEnveloppe;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +109,11 @@ class Reponse implements JsonSerializable
     }
 
     public function jsonSerialize() {
+        $ge = "";
+
+        if ($this->getGammeEnveloppe())
+            $ge = $this->getGammeEnveloppe()->getSlug();
+
         return [
             'id' => $this->getId(),
             'short' => $this->getShort(),
@@ -113,7 +123,8 @@ class Reponse implements JsonSerializable
             'url' => $this->getUrl(),
             'key' => $this->getId(),
             'title' => $this->getShort(),
-            'icon' => "fab fa-sticker-mule"
+            'icon' => "fab fa-sticker-mule",
+            'gammeEnveloppe' => $ge
         ];
     }
 
@@ -201,5 +212,17 @@ class Reponse implements JsonSerializable
     public function __toString()
     {
         return (string)$this->short;
+    }
+
+    public function getGammeEnveloppe(): ?GammeEnveloppe
+    {
+        return $this->gammeEnveloppe;
+    }
+
+    public function setGammeEnveloppe(?GammeEnveloppe $gammeEnveloppe): self
+    {
+        $this->gammeEnveloppe = $gammeEnveloppe;
+
+        return $this;
     }
 }

@@ -52,6 +52,7 @@ Encore
 
     .addEntry('app', './assets/js/app.js')
     .addEntry('naviquiz', './assets/js/naviquiz.js')
+    .addEntry('configurateur', './assets/js/configurateur.js')
     .addEntry('home', './assets/js/home.js')
     .addEntry('admin_naviquiz', './assets/js/admin/naviquiz.js')
     .addEntry('admin_ge_config', './assets/js/admin/ge/config.js')

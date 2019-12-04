@@ -1,0 +1,20 @@
+.grid-striped .row:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.05);
+}
+
+.grid-striped .row:first-child {
+    background-color: rgba(0,0,0,.6);
+    color: #FFF;
+}
+
+.col-md-12 {
+    font-size: 0.9vw;
+    margin-top: 1.5em;
+    border-right: 3px #6f5f59 solid;
+}
+.has-regle {
+    cursor: pointer;
+}
+.selected-regle {
+    background-color: rgba(0,0,0,.35)!important;
+}

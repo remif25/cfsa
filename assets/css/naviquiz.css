@@ -24,6 +24,9 @@ nav {
 .card:hover {
     text-decoration: none!important;
 }
+a.big-card-question {
+    text-decoration: none!important;
+}
 .big-card-question .card {
     height: 100%;
 }

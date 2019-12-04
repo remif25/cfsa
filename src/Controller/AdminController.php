@@ -63,13 +63,15 @@ class AdminController extends EasyAdminController
             $i++;
         }
 
+        ksort($operations);
+
         foreach ($operations as $operation) {
             $operation->setId = random_int(99999999, 9999999999999);
             $ge->addOperation($operation);
         }
 
         $form = $this->createForm(GammeEnveloppeType::class, $ge, [
-            'action' => 'api/ge/save',
+            'action' => '/admin/api/ge/save',
             'method' => 'POST',
         ]);
 
@@ -132,6 +134,27 @@ class AdminController extends EasyAdminController
     }
 
     /**
+     * @Route("/api/ge/deleteop", name="deleteop_ge")
+     */
+
+    public function deteleOP(Request $request) {
+        $datas = json_decode($request->getContent(), true);
+        $em = $this->getEM();
+        $op = $em->find(Operation::class, $datas['operation_id']);
+        $em->remove($op);
+        $em->flush();
+
+        return new JsonResponse(
+            [
+                'statut' => 'ok',
+                'message' => "Suppresion de l'opération",
+                'op_id' => $datas['operation_id']
+            ],
+            Response::HTTP_OK
+        );
+    }
+
+    /**
      * @Route("/api/tree/naviquiz/save", name="save_naviquiz")
      */
     public function saveTree(Request $request)
@@ -146,6 +169,7 @@ class AdminController extends EasyAdminController
 
         return new JsonResponse(
             [
+                'statut' => 'ok',
                 'message' => json_encode($saveAll),
             ],
             Response::HTTP_OK
@@ -179,7 +203,8 @@ class AdminController extends EasyAdminController
 
         return new JsonResponse(
             [
-                'message' => 'Sauvegarde ok',
+                'statut' => 'ok',
+                'message' => "Sauvegarde de l'arbre",
             ],
             Response::HTTP_OK
         );
@@ -213,6 +238,7 @@ class AdminController extends EasyAdminController
         }
         return new JsonResponse(
             [
+                'status' => 'ok',
                 'message' => 'Sauvegarde ok',
             ],
             Response::HTTP_OK

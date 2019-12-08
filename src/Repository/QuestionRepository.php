@@ -87,7 +87,12 @@ class QuestionRepository extends ServiceEntityRepository
         return $data->jsonSerialize();
     }
 
-    public function getOrphelins() {
+    /**
+     * @return Question[]
+     */
+
+    public function findAllOrphelins(): array
+    {
         $repository = $repository = $this
             ->getEntityManager()
             ->getRepository(Reponse::class);

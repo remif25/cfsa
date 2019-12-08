@@ -186,28 +186,45 @@ class AdminController extends EasyAdminController
         if(isset($datas['children'][0]['children'])) {
             $datas = $datas['children'][0]['children'];
             $em = $this->getEM();
-            foreach ($datas as $data) {
-                if (array_key_exists('id_parent_question', $data['data'])) {
-                    $reponse = $em->find(Reponse::class, $data['data']['id']);
-                    $reponse->setIdParentQuestion(0);
-                    $em->persist($reponse);
-                }
-                if(array_key_exists('id_parent_reponse', $data['data']) && $data['data']['id_parent_reponse'] != -1) {
-                    $question = $em->find(Question::class, $data['data']['id']);
-                    $question->setIdParentReponse(0);
-                    $em->persist($question);
-                }
-                $em->flush();
-            }
+            $check = $this->removeParentRecursive($datas, $em);
         }
 
+        if ($check) {
+            return new JsonResponse(
+                [
+                    'statut' => 'ok',
+                    'message' => "Sauvegarde de l'arbre",
+                ],
+                Response::HTTP_OK
+            );
+        }
         return new JsonResponse(
             [
-                'statut' => 'ok',
-                'message' => "Sauvegarde de l'arbre",
+                'statut' => 'error',
+                'message' => "Les données n'ont pas été mis à la courbeille",
             ],
             Response::HTTP_OK
         );
+    }
+
+    public function removeParentRecursive($datas, $em) {
+        foreach ($datas as $data) {
+            if(array_key_exists('children', $data)) {
+                $this->removeParentRecursive($data['children'], $em);
+            }
+            if (array_key_exists('id_parent_question', $data['data'])) {
+                $reponse = $em->find(Reponse::class, $data['data']['id']);
+                $reponse->setIdParentQuestion(0);
+                $em->persist($reponse);
+            }
+            if(array_key_exists('id_parent_reponse', $data['data']) && $data['data']['id_parent_reponse'] != -1) {
+                $question = $em->find(Question::class, $data['data']['id']);
+                $question->setIdParentReponse(0);
+                $em->persist($question);
+            }
+            $em->flush();
+        }
+        return true;
     }
 
     public function recursive($arraydatas, $parent) {
@@ -217,20 +234,16 @@ class AdminController extends EasyAdminController
             foreach ($arraydatas as $arraydata) {
                 if (isset($arraydata['children'])) {
                     $this->recursive($arraydata['children'], $arraydata);
-
-
                 }
                 if (array_key_exists('id_parent_question', $arraydata['data'])) {
                     $reponse = $em->find(Reponse::class, $arraydata['data']['id']);
                     $reponse->setIdParentQuestion($parent['data']['id']);
                     $em->persist($reponse);
-
                 }
                 if(array_key_exists('id_parent_reponse', $arraydata['data']) && $arraydata['data']['id_parent_reponse'] != -1) {
                     $question = $em->find(Question::class, $arraydata['data']['id']);
                     $question->setIdParentReponse($parent['data']['id']);
                     $em->persist($question);
-
                 }
                 $em->flush();
             }

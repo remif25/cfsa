@@ -17,6 +17,13 @@ class ConfigurateurController extends AbstractController
             ->getRepository(GammeEnveloppe::class)
             ->findOneBySlug($slug);
 
+        $ge->createConfiguration();
+
+       /* foreach ($ge->configurations as $configuration) {
+            var_dump($configuration);
+        }*/
+
+
         return $this->render('configurateur/configurateur.html.twig', [
             'controller_name' => 'ConfigurateurController',
             'ge' => $ge

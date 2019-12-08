@@ -265,15 +265,22 @@ const tree_corbeille = createTree('#tree-corbeille', {
             // return false to prevent auto-expanding data.node on hover
         },
         dragOver: function(node, data) {
+            if (data.hitMode === 'over') {
+                return true;
+
+            }
+
+            return false;
         },
         dragLeave: function(node, data) {
         },
         dragStop: function(node, data) {
         },
         dragDrop: function(node, data) {
-            data.otherNode.moveTo(node, data.hitMode);
-            removeParent();
-
+            if (data.hitMode === 'over') {
+                data.otherNode.moveTo(node, data.hitMode);
+                removeParent();
+            }
             // This function MUST be defined to enable dropping of items on the tree.
             // data.hitMode is 'before', 'after', or 'over'.
             // We could for example move the source to the new target:
@@ -281,6 +288,7 @@ const tree_corbeille = createTree('#tree-corbeille', {
     }
 
 });
+
 function sendtree() {
     let d = tree.toDict(true);
     let getUrl = window.location;
@@ -320,3 +328,12 @@ function removeParent()  {
         console.log(content);
     })();
 }
+
+$(document).ready(function() {
+    $('.expand-all').click(function() {
+        tree.visit(function(node){
+            node.toggleExpanded();
+        });
+        $('.expand-all').toggle();
+    })
+});

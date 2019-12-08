@@ -1,6 +1,8 @@
 require('../css/configurateur.css');
 require('bootstrap/js/dist/modal');
 
+import '../scss/main.scss'
+
 $(document).ready(function() {
     $('.has-regle').hover(function() {
         let id_regle = $(this).data('regle_id');

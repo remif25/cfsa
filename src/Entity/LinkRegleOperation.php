@@ -67,10 +67,23 @@ class LinkRegleOperation
         return $this->branche;
     }
 
+
     public function setBranche(array $branche): self
     {
         $this->branche = $branche;
 
         return $this;
+    }
+
+    public function pushBranche($branche, $bool): self
+    {
+        $this->branche[$branche] =  $bool;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->regle . " - " . $this->operation;
     }
 }

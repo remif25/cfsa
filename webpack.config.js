@@ -39,7 +39,7 @@ Encore
 
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader()
     .enableLessLoader()
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()

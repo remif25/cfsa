@@ -45,7 +45,7 @@ easy_admin:
                 fields:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
-                    - { property: 'activites' }
+                    - { property: 'activites', label: "Activités" }
             form:
                 fields:
                     - { property: 'reference', label: 'Référence'}
@@ -59,7 +59,7 @@ easy_admin:
                 fields:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
-                    - { property: 'pdts'}
+                    - { property: 'pdts', label: 'Poste de travail' }
 
             
         Question:
@@ -83,6 +83,13 @@ easy_admin:
             list:
                 actions:
                     - { name: 'configGE', icon: 'cubes', label: 'Mise à jour' }
+                fields:
+                    - { property: 'nom', label: 'Titre' }
+                    - { property: 'reference', label: 'Référence' }
+                    - { property: 'gammes', label: 'Gammes'}
+                    - { property: 'gammes', label: 'Opérations'}
+                    - { property: 'gammes', label: 'Réponses'}
+
             controller: App\Controller\AdminController
             form:
                 fields:
@@ -93,14 +100,29 @@ easy_admin:
         Regle:
             class: App\Entity\Regle
             label: 'Règle'
+            list:
+                fields:
+                    - { property: 'question', label: 'Question' }
+                    - { property: 'aide', label: 'Aide' }
+                    - { property: 'linkRegleOperations', label: 'Liens avec des opérations'}
+            form:
+                fields:
+                    - { property: 'question', label: 'Question' }
+                    - { property: 'aide', label: 'Aide' }
              
         Operation:
             class: App\Entity\Operation
             label: 'Opération'
+            list:
+                fields:
+                    - { property: 'numero', label: 'Numéro' }
+                    - { property: 'pdt', label: 'Poste de travail' }
+                    - { property: 'activite', label: 'Activité'}
+                    - { property: 'linkregleoperation', label: 'Lien avec les règles'}
                     
         Gamme:
             class: App\Entity\Gamme
             label: 'Gamme'
 
 
-    site_name: 'Cadrans Fluckiger SA - Back-office'
+    site_name: '<a href="https://naviquiz.repliqa.fr">Cadrans Fluckiger SA - Back-office</a>'

@@ -2,6 +2,10 @@
 
 namespace App\Entity;
 
+/*ini_set('xdebug.var_display_max_depth', '13');
+ini_set('xdebug.var_display_max_children', '256');
+ini_set('xdebug.var_display_max_data', '1024');*/
+
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -207,5 +211,58 @@ class GammeEnveloppe
     {
         $slugify = new Slugify();
         $this->slug = $slugify->slugify($this->reference);
+    }
+
+    public function getBranchesByRules() {
+        $unique_regle_id = array();
+        $regles = array();
+        foreach($this->operations as $operation) {
+            if ($operation->getLinkregleoperation()) {
+                $regle = $operation->getLinkregleoperation()->getRegle();
+                $branches = $operation->getLinkregleoperation()->getBranche();
+
+                if (array_key_exists($regle->getId(), $regles)) {
+                    foreach ($branches as $branche) {
+                        if (!in_array($branche, $regles[$regle->getId()]))
+                            $regles[$regle->getId()][] = $branche;
+                    }
+
+                } else {
+                    $regles[$regle->getId()] = $branches;
+                }
+
+                if (!in_array($regle->getId(), $unique_regle_id))
+                    $unique_regle_id[] = $regle->getId();
+
+                if (!in_array(0, $regles[$regle->getId()]))
+                    $regles[$regle->getId()][] = '0';
+            }
+        }
+        return $regles;
+    }
+
+    public function createConfiguration() {
+        $regles = $this->getBranchesByRules();
+
+        foreach($this->operations as $operation) {
+            if ($operation->getLinkregleoperation()) {
+                $branches = array();
+                $regle_id = $operation->getLinkregleoperation()->getRegle()->getId();
+                $regle = $regles[$regle_id];
+
+                foreach ($regle as $branche) {
+                    if(in_array($branche, $operation->getLinkregleoperation()->getBranche()))
+                        $branches[$branche] = true;
+                    else
+                        $branches[$branche] = false;
+                }
+                ksort($branches);
+
+                //$operation->getLinkregleoperation()->setBranche($branches);
+                $this->configurations[$regle_id][] = $operation;
+                $this->configurations[$regle_id][count($this->configurations[$regle_id]) - 1]->getLinkregleoperation()->setBranche($branches);
+
+            }
+        }
     }
 }

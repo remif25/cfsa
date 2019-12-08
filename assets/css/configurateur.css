@@ -18,3 +18,21 @@
 .selected-regle {
     background-color: rgba(0,0,0,.35)!important;
 }
+
+.modal-dialog {
+    max-width: 1200px!important;
+}
+.check {
+    text-align: center;
+}
+.no-border {
+    border-left: 1px solid white !important;
+    border-bottom: 1px solid white !important;
+    background-color: #FFF!important;
+}
+.no-border:first-child {
+    border-right: 1px solid white !important;
+}
+.line-radio-button {
+
+}

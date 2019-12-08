@@ -1,0 +1,9 @@
+.expand-all{
+    margin: 0.5em 0;
+}
+h6 {
+    margin: 0.5em 0;
+}
+#tree, #tree-corbeille, #tree-reponses, #tree-questions {
+    margin-bottom: 0.5em;
+}

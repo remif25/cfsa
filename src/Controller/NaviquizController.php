@@ -41,21 +41,21 @@ class NaviquizController extends AbstractController
     }
 
     /**
-     * @Route("/api/tree/reponse/ophelins", name="reponse_orphelins_naviquiz")
+     * @Route("/api/tree/question/ophelins", name="question_orphelins_naviquiz")
      */
     public function getJSONReponseOphelins()
     {
         $repository = $this->getDoctrine()->getRepository(Question::class);
-        return $this->json($repository->getOrphelins());
+        return $this->json($repository->findAllOrphelins());
     }
 
     /**
-     * @Route("/api/tree/question/ophelins", name="question_orphelins_naviquiz")
+     * @Route("/api/tree/reponse/ophelins", name="reponse_orphelins_naviquiz")
      */
     public function getJSONQuestionOphelins()
     {
         $repository = $this->getDoctrine()->getRepository(Reponse::class);
-        return $this->json($repository->getOrphelins());
+        return $this->json($repository->findAllOrphelins());
     }
 
     public function getTree() {

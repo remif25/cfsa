@@ -56,6 +56,7 @@ Encore
     .addEntry('home', './assets/js/home.js')
     .addEntry('admin_naviquiz', './assets/js/admin/naviquiz.js')
     .addEntry('admin_ge_config', './assets/js/admin/ge/config.js')
+    .addEntry('admin', './assets/js/admin/admin.js')
 
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()

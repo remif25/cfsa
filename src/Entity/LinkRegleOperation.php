@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\LinkRegleOperationRepository")
  */
-class LinkRegleOperation
+class LinkRegleOperation implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -85,5 +86,15 @@ class LinkRegleOperation
     public function __toString()
     {
         return $this->regle . " - " . $this->operation;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'regle' => $this->getRegle(),
+            'branches' => $this->getBranche(),
+/*            'operation' => $this->getOperation()*/
+        ];
     }
 }

@@ -15,7 +15,7 @@
             Vous n'avez pas la permission d'accéder à cette page.
         </div>
     {% else %}
-        <div class="container-fluid main configurateur">
+        <div class="container-fluid main configurateur" data-configurations="{{ configurations }}">
             <div class="row">
                 <div class="col-md-12">
                     <div class="container grid-striped">
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         {% for key, operation in ge.operations %}
-                            <div class="row py-2 ligne-{{ key }} {% if operation.linkregleoperation.regle is defined %}has-regle regle_id-{{ operation.linkregleoperation.regle.id }}{% endif %}" data-regle_id="{% if operation.linkregleoperation.regle is defined %}{{ operation.linkregleoperation.regle.id }}{% endif %}">
+                            <div class="row py-2 operation-id-{{ operation.id }} ligne-{{ key }} {% if operation.linkregleoperation.regle is defined %}has-regle regle_id-{{ operation.linkregleoperation.regle.id }}{% endif %}" data-regle_id="{% if operation.linkregleoperation.regle is defined %}{{ operation.linkregleoperation.regle.id }}{% endif %}">
                                 <div class="col-1">{{ operation.numero }}</div>
                                 <div class="col-2">{{ operation.activite.reference }}</div>
                                 <div class="col-3">{{ operation.activite.description }}</div>
@@ -48,17 +48,26 @@
                                 <div class="col-3">{{ operation.pdt.description }}</div>
                                 <div class="col-1">{% if operation.linkregleoperation.regle is defined %}{{ operation.linkregleoperation.regle.id }}{% endif %}</div>
                             </div>
-
                         {% endfor %}
 
+                    </div>
+                    <div class="container">
+                        <form method="post" action="{{ path('configurateur_export') }}" target="_blank">
+                            <div class="form-group">
+                                <input type="hidden" value="{{ ge.id }}" name="gammeEnveloppe">
+                                {% for regle, configuration in ge.configurations %}
+                                    <input type="hidden" name="regle[{{ regle }}]" value="" id="regle-{{ regle }}" required/>
+                                {% endfor %}
+                            </div>
+                            <input class="btn btn-primary" type="submit" name="type" value="Exportez - PROD">
+                            <input class="btn btn-primary" type="submit" name="type" value="Exportez - PROTO">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-
-
         {% for regle, configuration in ge.configurations %}
-            <div class="modal fade" id="modalRegle{{ regle }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalRegle{{ regle }}" data-regle="{{ regle }}" tabindex="-1" role="dialog" aria-labelledby="Regle-numero-{{ regle }}" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -73,7 +82,6 @@
                                 <tr>
                                     <th scope="col" class="col-1">Séq</th>
                                     <th scope="col" class="col-8">Désignation</th>
-
                                     {% for key, operation in configuration %}
                                         {% if key == 0 %}
                                             {% if operation.linkregleoperation.regle is defined %}
@@ -85,9 +93,7 @@
                                     {% endfor %}
                                 </tr>
                                 </thead>
-
                                 <tbody>
-
                                 {% for key, operation in configuration %}
                                     {% if operation.linkregleoperation.regle is defined %}
                                         <tr>
@@ -105,7 +111,6 @@
                                 <tr class="line-radio-button">
                                     <th scope="row" class="no-border"></th>
                                     <td class="no-border"></td>
-
                                     {% for key, operation in configuration %}
                                         {% if key == 0 %}
                                             {% if operation.linkregleoperation.regle is defined %}
@@ -125,15 +130,14 @@
                             </table>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-primary" data-regle="{{ regle }}" name="save">Enregistrer</button>
                         </div>
                     </div>
                 </div>
             </div>
         {% endfor %}
     {% endif  %}
-
 {% endblock %}
 
         {% block footer %}

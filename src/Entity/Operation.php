@@ -5,11 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OperationRepository")
  */
-class Operation
+class Operation implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -175,6 +176,16 @@ class Operation
 
     public function __toString() {
         return $this->numero . ' - ' . $this->pdt . ' - ' .  $this->activite . ' - ' . $this->description;
+    }
+
+    public function jsonSerialize() {
+        return [
+            'id' => $this->getId(),
+            'numero' => $this->getNumero(),
+            'pdt' => $this->getPdt(),
+            'activite' => $this->getActivite(),
+            'linkregleoperation' => $this->getLinkRegleOperation(),
+        ];
     }
 
 }

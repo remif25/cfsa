@@ -5,11 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RegleRepository")
  */
-class Regle
+class Regle implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -101,5 +102,14 @@ class Regle
     public function __toString()
     {
         return (string)$this->question;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'question' => $this->getQuestion(),
+            'aide' => $this->getAide(),
+        ];
     }
 }

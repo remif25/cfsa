@@ -39,3 +39,21 @@
 th.col-1  {
     text-align: center;
 }
+.no-selected {
+    overflow: hidden;
+    max-height: 0;
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: all 0.5s ease;
+    will-change: transform;
+    background-color: #6f5f59!important;
+}
+
+.is-selected {
+    max-height: 50px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    will-change: transform;
+}

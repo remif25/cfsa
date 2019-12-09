@@ -5,11 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PosteTravailRepository")
  */
-class PosteTravail
+class PosteTravail implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -37,6 +38,11 @@ class PosteTravail
      * @ORM\ManyToMany(targetEntity="App\Entity\Activite", mappedBy="pdts")
      */
     private $activites;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\CentreProduction", inversedBy="pdts")
+     */
+    private $centreProduction;
 
     public function __construct()
     {
@@ -135,5 +141,26 @@ class PosteTravail
 
     public function __toString() {
         return $this->reference . ' - ' . $this->description;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'reference' => $this->getReference(),
+            'description' => $this->getDescription(),
+        ];
+    }
+
+    public function getCentreProduction(): ?CentreProduction
+    {
+        return $this->centreProduction;
+    }
+
+    public function setCentreProduction(?CentreProduction $centreProduction): self
+    {
+        $this->centreProduction = $centreProduction;
+
+        return $this;
     }
 }

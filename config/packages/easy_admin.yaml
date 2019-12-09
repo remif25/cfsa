@@ -4,9 +4,12 @@ easy_admin:
             - label: 'Données de base'
               icon: 'box-open'
               children:
-                - {entity: 'PosteTravail', icon: 'inbox', label: 'Poste de travail'}
-                - {entity: 'Activite',icon: 'inbox', label: 'Activité'}
-                - {entity: 'Operation',icon: 'inbox', label: 'Opération'}
+                - {entity: 'Departement', icon: 'inbox'}
+                - {entity: 'CentreProduction', icon: 'inbox'}
+                - {entity: 'PosteTravail', icon: 'inbox'}
+                - {entity: 'Activite', icon: 'inbox'}
+                - {entity: 'Operation', icon: 'inbox'}
+
             - label: 'Naviquiz'
               icon: 'question-circle'
               children:
@@ -19,6 +22,18 @@ easy_admin:
                 - {entity: 'GammeEnveloppe', icon: 'inbox', label: 'Gamme enveloppe'}
                 - {entity: 'Regle',icon: 'inbox', label: 'Règle'}
             - { label: 'Naviquiz', route: 'config_naviquiz', icon: 'tree' }
+            - label: 'Imports données'
+              icon: 'cloud-upload-alt'
+              children:
+                - {label: 'Import données',icon: 'inbox', route: 'import_data'}
+                - {label: 'Import liens',icon: 'inbox', route: 'import_link'}
+
+            - label: 'Export données'
+              icon: 'cloud-download-alt'
+              children:
+                - {label: 'Export structure',icon: 'inbox', route: 'export_structure'}
+                - {label: 'Export GE',icon: 'inbox', route: 'export_ge'}
+
     entities:
 #        # List the entity class name you want to manage
         Reponse:
@@ -119,7 +134,37 @@ easy_admin:
                     - { property: 'pdt', label: 'Poste de travail' }
                     - { property: 'activite', label: 'Activité'}
                     - { property: 'linkregleoperation', label: 'Lien avec les règles'}
-                    
+
+        CentreProduction:
+            class: App\Entity\CentreProduction
+            label: 'Centre de production'
+            list:
+                fields:
+                    - { property: 'reference', label: 'Référence' }
+                    - { property: 'designation', label: 'Désignation' }
+                    - { property: 'cout', label: 'Coût'}
+                    - { property: 'pdts', label: 'Poste de travail'}
+            form:
+                fields:
+                    - { property: 'reference', label: 'Référence' }
+                    - { property: 'designation', label: 'Désignation' }
+                    - { property: 'cout', label: 'Coût'}
+                    - { property: 'pdts', label: 'Poste de travail', type_options: { by_reference: false }}
+
+        Departement:
+            class: App\Entity\Departement
+            label: 'Département'
+            list:
+                fields:
+                    - { property: 'reference', label: 'Référence' }
+                    - { property: 'designation', label: 'Désignation' }
+                    - { property: 'centreproductions', label: 'Centre de productions'}
+            form:
+                fields:
+                    - { property: 'reference', label: 'Référence' }
+                    - { property: 'designation', label: 'Désignation' }
+                    - { property: 'centreproductions', label: 'Centre de productions', type_options: { by_reference: false }}
+
         Gamme:
             class: App\Entity\Gamme
             label: 'Gamme'

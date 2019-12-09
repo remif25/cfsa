@@ -13,17 +13,74 @@ use App\Entity\Reponse;
 use App\Form\GammeEnveloppeType;
 use Doctrine\ORM\EntityManager;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
+use Symfony\Component\Asset\UrlPackage;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Asset\Package;
+use Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy;
 
 class AdminController extends EasyAdminController
 {
-
     public function getEM(): EntityManager {
         return $this->getDoctrine()->getManager();
+    }
+
+    public function getUrlPackage() : UrlPackage
+    {
+        return new UrlPackage(
+            'https://naviquiz.repliqa.fr/',
+            new EmptyVersionStrategy());
+    }
+
+    /**
+     * @Route("/export/ge", name="export_ge")
+     */
+    public function exportGE()
+    {
+        $urlPackage = $this->getUrlPackage();
+        return $this->render('admin/export/ge.html.twig', [
+            'controller_name' => 'AdminController',
+            'url_model_file' => $urlPackage->getUrl('model/model_import_donnees.csv')
+        ]);
+    }
+
+    /**
+     * @Route("/export/structure", name="export_structure")
+     */
+    public function exportStructure()
+    {
+        $urlPackage = $this->getUrlPackage();
+        return $this->render('admin/export/structure.html.twig', [
+            'controller_name' => 'AdminController',
+            'url_model_file' => $urlPackage->getUrl('model/model_import_donnees.csv')
+        ]);
+    }
+
+    /**
+     * @Route("/import/data", name="import_data")
+     */
+    public function importPDTActivite()
+    {
+        $urlPackage = $this->getUrlPackage();
+        return $this->render('admin/import/data.html.twig', [
+            'controller_name' => 'AdminController',
+            'url_model_file' => $urlPackage->getUrl('model/model_import_donnees.csv')
+        ]);
+    }
+
+    /**
+     * @Route("/import/link", name="import_link")
+     */
+    public function importLinkPDTActivite()
+    {
+        $urlPackage = $this->getUrlPackage();
+        return $this->render('admin/import/link.html.twig', [
+            'controller_name' => 'AdminController',
+            'url_model_file' => $urlPackage->getUrl('model/model_import_donnees.csv')
+        ]);
     }
 
     /**

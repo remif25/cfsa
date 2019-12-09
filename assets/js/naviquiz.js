@@ -129,7 +129,7 @@ function displayBigQuestions(tmpData, lvl) {
         console.log(child);
         console.log(child.gammeEnveloppe);
         if (child.gammeEnveloppe) {
-            $('.questions').append(' <a href="/configurateur/' + child.gammeEnveloppe + '" class="col-md-' + 12 / nChildren + ' big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '" target="_blank">\n' +
+            $('.questions').append(' <a href="/configurateur/config/' + child.gammeEnveloppe + '" class="col-md-' + 12 / nChildren + ' big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '" target="_blank">\n' +
                 '                                    <div class="card text-white bg-success mb-3">\n' +
                 '                                        <div class="card-header">\n' +
                 '                                            <h5 class="card-title">' + child.short + '</h5>\n' +

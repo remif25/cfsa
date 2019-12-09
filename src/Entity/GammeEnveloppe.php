@@ -6,6 +6,7 @@ namespace App\Entity;
 ini_set('xdebug.var_display_max_children', '256');
 ini_set('xdebug.var_display_max_data', '1024');*/
 
+use JsonSerializable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -19,7 +20,7 @@ use Cocur\Slugify\Slugify;
  * @ORM\HasLifecycleCallbacks()
  * @UniqueEntity("reference")
  */
-class GammeEnveloppe
+class GammeEnveloppe implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -122,6 +123,19 @@ class GammeEnveloppe
         return $this->operations;
     }
 
+    /**
+     * @return Operation[]
+     */
+    public function getOperationsSerialize()
+    {
+        foreach ($this->operations as $operation){
+            $jsonOp = json_encode($operation);
+            if ($jsonOp)
+                $operations[] = $operation;
+        }
+        return $operations;
+    }
+
     public function addOperation(Operation $operation): self
     {
         if (!$this->operations->contains($operation)) {
@@ -168,6 +182,7 @@ class GammeEnveloppe
     {
         return $this->reponses;
     }
+
 
     public function addReponse(Reponse $reponse): self
     {
@@ -241,8 +256,11 @@ class GammeEnveloppe
         return $regles;
     }
 
-    public function createConfiguration() {
+    public function createConfiguration()
+    {
         $regles = $this->getBranchesByRules();
+
+        $this->configurations = array();
 
         foreach($this->operations as $operation) {
             if ($operation->getLinkregleoperation()) {
@@ -261,8 +279,20 @@ class GammeEnveloppe
                 //$operation->getLinkregleoperation()->setBranche($branches);
                 $this->configurations[$regle_id][] = $operation;
                 $this->configurations[$regle_id][count($this->configurations[$regle_id]) - 1]->getLinkregleoperation()->setBranche($branches);
-
             }
         }
+
+/*        return $this->configurations;*/
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'reference' => $this->getReference(),
+            'nom' => $this->getNom(),
+            'operations' => $this->getOperationsSerialize(),
+            'configurations' => $this->configurations
+        ];
     }
 }

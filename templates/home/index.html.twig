@@ -14,8 +14,15 @@
             <div class="col-12 icon-cfsa">
                 <img src="img/logo/cfsa.jpg" alt="">
             </div>
-
-            <div class="col-4">
+            <div class="col-12 icones">
+                <ul>
+                    <li><a href="{{ path('naviquiz') }}?pw=eb70aa6ff6792225e8e4f7467d9982ac"><i class="far fa-question-circle" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ path('configurateur_index') }}"><img src="img/logo/configurateur.svg" /></a></li>
+                    <li><a href="/admin"><i class="fas fa-toolbox" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ path('import_data') }}"><i class="fas fa-upload"></i></a></li>
+                </ul>
+            </div>
+            {#<div class="col-4">
                 <a href="{{ path('naviquiz') }}?pw=eb70aa6ff6792225e8e4f7467d9982ac" class="card text-white bg-success mb-3">
                     <div class="card-header">
                         <h5 class="card-title">NAVIQUIZ</h5>
@@ -44,7 +51,7 @@
                         <span class="helper"></span><img src="img/logo/back-office.png" class="card-img-top" >
                     </div>
                 </a>
-            </div>
+            </div>#}
         </div>
     </div>
 

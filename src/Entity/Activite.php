@@ -142,6 +142,7 @@ class Activite implements JsonSerializable
             'id' => $this->getId(),
             'reference' => $this->getReference(),
             'description' => $this->getDescription(),
+            'text' => $this->__toString()
         ];
     }
 }

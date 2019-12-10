@@ -304,9 +304,7 @@ function sendtree() {
             body: JSON.stringify(d)
         });
         const content = await rawResponse.json();
-
-        console.log(content);
-    })();
+        })();
 }
 
 function removeParent()  {

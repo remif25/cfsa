@@ -1,5 +1,5 @@
 import('../../../css/admin/ge/config.css');
-import('babel-polyfill');
+require('babel-polyfill');
 
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
@@ -7,22 +7,95 @@ require('select2');
 
 
 const $ = require('jquery');
+const pdts = getDatas('pdts', 'null');
+const activites = getDatas('activites', 'null');
+
+const test = 'test2';
+
+$.fn.select2.amd.define('select2/data/customAdapter',
+    ['select2/data/array', 'select2/utils'],
+    function (ArrayAdapter, Utils) {
+        function CustomDataAdapter ($element, options) {
+            CustomDataAdapter.__super__.constructor.call(this, $element, options);
+        }
+        Utils.Extend(CustomDataAdapter, ArrayAdapter);
+        CustomDataAdapter.prototype.updateOptions = function (data) {
+            this.$element.find('option').remove(); // remove all options
+            this.addOptions(this.convertToOptions(data));
+        }
+        return CustomDataAdapter;
+    }
+);
+
+var customAdapter = $.fn.select2.amd.require('select2/data/customAdapter');
+
+async function getDatas(object, constraint) {
+    let link = 'api/ge/' + object + '/' + constraint;
+    const rawResponse = await fetch(link, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+
+    });
+    return await rawResponse.json();
+}
 //import 'jquery-ui';
 
 $(document).ready(function() {
-   let gamme_enveloppe_id = $('#gamme_enveloppe_id').val();
-    /*let newOption = new Option(data.text, data.id, false, false);
-    $('.select2-form').append(newOption).trigger('change');
-    $('.select2-form').val('');
-    $('.select2-form').trigger('change');*/
+    let gamme_enveloppe_id = $('#gamme_enveloppe_id').val();
+
+     $('.select2-form').change( async function () {
+
+        let type_object = $(this).data('type_object');
+        let id_op = $(this).closest('tr').attr('class').split('ligne-')[1];
+        let tmpString = '';
+        let constraint = '';
+
+        if (type_object === 'pdts')
+            tmpString = 'activites';
+        else
+            tmpString = 'pdts';
+
+         let select2_ = '#gamme_enveloppe_operations_' + id_op + '_' + tmpString.slice(0, -1);
+
+        if ($(this).val())
+            constraint = $(this).children('option:selected').val();
+        else {
+            constraint = 'null';
+            try {
+                const options = await getDatas(tmpString, constraint);
+                if (options.success) {
+                    $(this).data('select2').dataAdapter.updateOptions(options.results).trigger('change');
+                }
+            } catch (error) {
+                $(this).val(null);
+                console.log(error);
+            }
+        }
+        let value = $(select2_).val();
+        try {
+            const datas = await getDatas(type_object, constraint);
+            if (datas.success) {
+                $(select2_).data('select2').dataAdapter.updateOptions(datas.results).trigger('change');
+                $(select2_).val(value);
+            }
+        } catch (error) {
+            $(select2_).val(value);
+            console.log(error);
+        }
+    });
+
     $('.select2-form').select2({
+        dataAdapter: customAdapter,
         placeholder: {
             id: '', // the value of the option
             text: 'Choisir une option'
         },
         allowClear: true,
     });
-    $('.select2-form').select2('data');
+    //$('.select2-form').select2('data');
 
     let alltr = $('tbody > tr');
 

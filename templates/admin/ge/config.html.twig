@@ -35,8 +35,8 @@
             <tr class="ligne-{{ key }}">
                 {{ form_widget(operation.id) }}
                 <th scope="row" >{{ form_widget(operation.numero) }}</th>
-                <td>{{ form_widget(operation.pdt) }}</td>
-                <td>{{ form_widget(operation.activite) }}</td>
+                <td>{{ form_widget(operation.pdt,{'attr': {'data-type_object': 'pdts'}}) }}</td>
+                <td>{{ form_widget(operation.activite, {'attr': {'data-type_object': 'activites'}})  }}</td>
                 <td>{{ form_widget(operation.linkregleoperation.regle) }}</td>
                 <td>{{ form_widget(operation.linkregleoperation.branche) }}</td>
                 <td data-key="{{ key }}"><i class="fas fa-times"></i></td>

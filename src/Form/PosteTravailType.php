@@ -17,7 +17,7 @@ class PosteTravailType extends AbstractType
                 'label' => false
             ])
             ->add('description', null, [
-                'label' => false
+                'label' => false,
             ])
         ;
     }

@@ -31,7 +31,7 @@ class AdminController extends EasyAdminController
     public function getUrlPackage() : UrlPackage
     {
         return new UrlPackage(
-            'https://naviquiz.repliqa.fr/',
+            'https://cfsa.repliqa.fr/',
             new EmptyVersionStrategy());
     }
 
@@ -111,7 +111,7 @@ class AdminController extends EasyAdminController
         for ($i = 0; $i < 50; $i++) {
             $operations[$i] = new Operation(random_int(99999999, 9999999999999));
         }
-        
+
         $i = 0;
         foreach($ge->getOperations() as $operation) {
             unset($operations[$i]);
@@ -193,7 +193,6 @@ class AdminController extends EasyAdminController
     /**
      * @Route("/api/ge/deleteop", name="deleteop_ge")
      */
-
     public function deteleOP(Request $request) {
         $datas = json_decode($request->getContent(), true);
         $em = $this->getEM();
@@ -262,6 +261,51 @@ class AdminController extends EasyAdminController
             ],
             Response::HTTP_OK
         );
+    }
+
+    /**
+     * @Route("/api/ge/{type_object}/{constraint}", name="get_pdts")
+     */
+    public function getPDTS($type_object, $constraint) {
+        if ($type_object === 'activites')
+            $objects = $this->getDoctrine()->getRepository(PosteTravail::class)->findAll();
+        elseif ($type_object === 'pdts')
+            $objects = $this->getDoctrine()->getRepository(Activite::class)->findAll();
+
+        $objectsData = array();
+
+        if (isset($objects) && $constraint !== 'null') {
+            foreach($objects as $object) {
+
+                if ($type_object === 'activites')
+                    $tmpObjects = $object->getActivites();
+                elseif ($type_object === 'pdts')
+                    $tmpObjects = $object->getpdts();
+
+                foreach ($tmpObjects as $tmpObject) {
+                    if ($tmpObject->getId() === (integer)$constraint)
+                        $objectsData[] = $object;
+                }
+            }
+            $objects = $objectsData;
+        }
+
+        if ($objects) {
+            return new JsonResponse(
+                [
+                    'success' => true,
+                    'results' => $objects,
+                ],
+                Response::HTTP_OK
+            );
+        } else {
+            return new JsonResponse(
+                [
+                    'fail' => true,
+                ],
+                Response::HTTP_OK
+            );
+        }
     }
 
     public function removeParentRecursive($datas, $em) {

@@ -112,6 +112,15 @@ ul li:hover a:before{
 ul li:hover a:after{
     background: #85746e;
 }
+li h4 {
+    margin-bottom: 4em;
+    text-align: center;
+    color: white;
+    transition: .5s;
+}
+li:hover h4 {
+    color: #52443e;
+}
 /*
 ul li:hover:nth-child(1) a{
     background: #3b5999;

@@ -57,3 +57,24 @@ th.col-1  {
     transition: all 0.5s ease;
     will-change: transform;
 }
+.question-reponse {
+    margin-bottom: 2em;
+    background-color: #80808038;
+    padding-top: 0.5em;
+    padding-bottom: 0.2em;
+    border-radius: 5px;
+}
+.question-reponse h5 {
+    margin-bottom: 0.8em;
+}
+.question-reponse p {
+    display: inline-block;
+    width: 96%;
+    margin-left: 0.8em;
+    background-color: white;
+    padding: 0.4em;
+    border-radius: 3px;
+}
+.question-reponse svg {
+    vertical-align: top;
+}

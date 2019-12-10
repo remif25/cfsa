@@ -44,6 +44,11 @@ class PosteTravail implements JsonSerializable
      */
     private $centreProduction;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\PosteTravailProto", mappedBy="pdt", cascade={"persist", "remove"})
+     */
+    private $posteTravailProto;
+
     public function __construct()
     {
         $this->operations = new ArrayCollection();
@@ -161,6 +166,24 @@ class PosteTravail implements JsonSerializable
     public function setCentreProduction(?CentreProduction $centreProduction): self
     {
         $this->centreProduction = $centreProduction;
+
+        return $this;
+    }
+
+    public function getPosteTravailProto(): ?PosteTravailProto
+    {
+        return $this->posteTravailProto;
+    }
+
+    public function setPosteTravailProto(?PosteTravailProto $posteTravailProto): self
+    {
+        $this->posteTravailProto = $posteTravailProto;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newPdt = null === $posteTravailProto ? null : $this;
+        if ($posteTravailProto->getPdt() !== $newPdt) {
+            $posteTravailProto->setPdt($newPdt);
+        }
 
         return $this;
     }

@@ -277,12 +277,11 @@ class GammeEnveloppe implements JsonSerializable
                 ksort($branches);
 
                 //$operation->getLinkregleoperation()->setBranche($branches);
+                $this->configurations[$regle_id]['regle'] = $operation->getLinkregleoperation()->getRegle();
                 $this->configurations[$regle_id][] = $operation;
-                $this->configurations[$regle_id][count($this->configurations[$regle_id]) - 1]->getLinkregleoperation()->setBranche($branches);
+                $this->configurations[$regle_id][count($this->configurations[$regle_id]) - 2]->getLinkregleoperation()->setBranche($branches);
             }
         }
-
-/*        return $this->configurations;*/
     }
 
     public function jsonSerialize()

@@ -24,7 +24,7 @@ class LinkRegleOperation implements JsonSerializable
     private $regle;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Operation", inversedBy="linkregleoperation", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Operation", inversedBy="linkregleoperation")
      * @ORM\JoinColumn(nullable=false)
      */
     private $operation;
@@ -47,6 +47,13 @@ class LinkRegleOperation implements JsonSerializable
     public function setRegle(?Regle $regle): self
     {
         $this->regle = $regle;
+
+        return $this;
+    }
+
+    public function removeRegle(): self
+    {
+        $this->regle = null;
 
         return $this;
     }

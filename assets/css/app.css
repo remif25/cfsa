@@ -16,3 +16,11 @@ footer {
     right: 0px;
     margin-bottom: 0px;
 }
+.form-group label, .form-group legend.col-form-label {
+    text-align: right!important;
+}
+
+nav .deco {
+    right: 20px;
+    position: absolute;
+}

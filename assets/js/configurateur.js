@@ -31,18 +31,20 @@ $(document).ready(function() {
     function hideOp(regle_id, conf) {
         let configurations = $('.configurateur').data('configurations');
         let regle = configurations.configurations[regle_id];
-        regle.forEach(function(item) {
-            let ligne = $('.operation-id-' + item.id);
-            if(item.linkregleoperation.branches[conf]) {
-                ligne.removeClass('no-selected')
-                    .removeClass('py-1')
-                    .addClass('is-selected')
-                    .addClass('py-2');
-            } else {
-                ligne.addClass('no-selected')
-                    .addClass('py-1')
-                    .removeClass('is-selected')
-                    .removeClass('py-2');
+        $.each(regle, function(index, item) {
+            if (index!== 'regle') {
+                let ligne = $('.operation-id-' + item.id);
+                if (item.linkregleoperation.branches[conf]) {
+                    ligne.removeClass('no-selected')
+                        .removeClass('py-1')
+                        .addClass('is-selected')
+                        .addClass('py-2');
+                } else {
+                    ligne.addClass('no-selected')
+                        .addClass('py-1')
+                        .removeClass('is-selected')
+                        .removeClass('py-2');
+                }
             }
         });
     }

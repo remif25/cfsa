@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Activite;
+use App\Entity\CentreProduction;
+use App\Entity\Departement;
 use App\Entity\GammeEnveloppe;
 use App\Entity\LinkRegleOperation;
 use App\Entity\Operation;
@@ -10,7 +12,9 @@ use App\Entity\PosteTravail;
 use App\Entity\Question;
 use App\Entity\Regle;
 use App\Entity\Reponse;
+use App\Entity\User;
 use App\Form\GammeEnveloppeType;
+use App\Form\UserType;
 use Doctrine\ORM\EntityManager;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Symfony\Component\Asset\UrlPackage;
@@ -21,9 +25,18 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Asset\Package;
 use Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AdminController extends EasyAdminController
 {
+
+    private $passwordEncoder;
+
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
+
     public function getEM(): EntityManager {
         return $this->getDoctrine()->getManager();
     }
@@ -72,6 +85,97 @@ class AdminController extends EasyAdminController
     }
 
     /**
+     * @Route("/import/data/save", name="import_data_save")
+     */
+    public function importDataSave(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $fileimport = $request->files->get('importfile');
+        if($fileimport) {
+            $filename = $fileimport->getPathName();
+            $file = fopen($filename, "r");
+
+            $jumpFirstLine = 0;
+            while (($getData = fgetcsv($file, 10000, ";")) !== FALSE) {
+                $cDep = trim($getData[0]);
+                $dDep = trim($getData[1]);
+                $cCP = trim($getData[2]);
+                $dCP = trim($getData[3]);
+                $cPDT = trim($getData[4]);
+                $dPDT = trim($getData[5]);
+                $cAct = trim($getData[6]);
+                $dAct = trim($getData[7]);
+
+
+                $activite = $this->getDoctrine()
+                    ->getRepository(Activite::class)
+                    ->findOneByReference($cAct);
+
+                if (!$activite) {
+                    $activite = new Activite();
+                    $activite->setReference($cAct);
+
+                }
+
+                $activite->setDescription($dAct);
+
+                $posteTravail = $this->getDoctrine()
+                    ->getRepository(PosteTravail::class)
+                    ->findOneByReference($cPDT);
+
+                if (!$posteTravail) {
+                    $posteTravail = new PosteTravail();
+                    $posteTravail->setReference($cPDT);
+
+                }
+
+                $posteTravail->setDescription($dPDT);
+                $posteTravail->addActivite($activite);
+
+                $centreProduction = $this->getDoctrine()
+                    ->getRepository(CentreProduction::class)
+                    ->findOneByReference($cCP);
+
+                if (!$centreProduction) {
+                    $centreProduction = new CentreProduction();
+                    $centreProduction->setReference($cCP);
+
+                }
+
+                $centreProduction->setDesignation($dCP);
+                $centreProduction->addPdt($posteTravail);
+
+                $departement = $this->getDoctrine()
+                    ->getRepository(Departement::class)
+                    ->findOneByReference($cDep);
+                
+                if (!$departement) {
+                    $departement = new Departement();
+                    $departement->setReference($cDep);
+                }
+
+                $departement->setDesignation($dDep);
+                $departement->addCentreproduction($centreProduction);
+
+                $em->persist($activite);
+                $em->persist($posteTravail);
+                $em->persist($centreProduction);
+                $em->persist($departement);
+                $em->flush();
+
+            }
+
+
+            $urlPackage = $this->getUrlPackage();
+            return $this->render('admin/import/data.html.twig', [
+                'controller_name' => 'AdminController',
+                'url_model_file' => $urlPackage->getUrl('model/model_import_donnees.csv')
+            ]);
+        }
+    }
+
+    /**
      * @Route("/import/link", name="import_link")
      */
     public function importLinkPDTActivite()
@@ -98,10 +202,12 @@ class AdminController extends EasyAdminController
     public function configGEAction()
     {
         if(isset($_GET['id']))
-           return $this->displayGE($_GET['id']);
+            return $this->displayGE($_GET['id']);
 
         return $this->redirectToRoute('admin');
     }
+
+
 
     public function displayGE($id) {
         $em = $this->getEM();
@@ -148,46 +254,56 @@ class AdminController extends EasyAdminController
     public function saveGE(Request $request)
     {
         $em = $this->getEM();
-
+        $deleteLink = false;
         $ge = $em->find(GammeEnveloppe::class, $request->request->get('gamme_enveloppe')['id']);
 
         foreach ($request->request->get('gamme_enveloppe')['operations'] as $operationdata) {
             $numero = $operationdata['numero'];
             if($numero !== '') {
                 $operation = $this->getDoctrine()->getRepository(Operation::class)->findbyGEandNumero($ge->getId(), $numero);
-                $regle = $em->find(Regle::class, $operationdata['linkregleoperation']['regle']);
+                $regle = $em->find(Regle::class, isset($operationdata['linkregleoperation']['regle']) ? $operationdata['linkregleoperation']['regle'] : 0);
+
+                if(!isset($operationdata['linkregleoperation']['regle']))
+                    $deleteLink = true;
+
                 $pdt = $em->find(PosteTravail::class, $operationdata['pdt']);
                 $activite = $em->find(Activite::class, $operationdata['activite']);
-
                 if (!$operation) {
                     $operation = new Operation();
                     $linkRegletoOperation = new LinkRegleOperation();
                 } else {
                     $linkRegletoOperation = $this->getDoctrine()->getRepository(LinkRegleOperation::class)->findOneByOperation($operation->getId());
+
+                    if (!$linkRegletoOperation)
+                        $linkRegletoOperation = new LinkRegleOperation();
                 }
-
                 $banches = explode('-', $operationdata['linkregleoperation']['branche']);
-
                 if($regle) {
                     $linkRegletoOperation->setRegle($regle)
                         ->setOperation($operation)
                         ->setBranche($banches);
                     $em->persist($linkRegletoOperation);
                 }
-
                 $operation->setNumero($numero)
                     ->setActivite($activite)
                     ->setPdt($pdt);
                 $em->persist($operation);
-
                 $ge->addOperation($operation);
+
+                if($deleteLink && $operation->getLinkRegleOperation()) {
+                    $link = $operation->getLinkRegleOperation();
+                    $em->remove($link);
+                }
             }
         }
         $em->persist($ge);
         $em->flush();
 
 
-        return $this->displayGE($ge->getId());
+        return $this->redirectToRoute('easyadmin', array(
+            'action' => 'list',
+            'entity' => 'GammeEnveloppe',
+        ));
     }
 
     /**
@@ -306,6 +422,18 @@ class AdminController extends EasyAdminController
                 Response::HTTP_OK
             );
         }
+    }
+
+    public function persistUserEntity($user)
+    {
+        $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPlainPassword()));
+        parent::persistEntity($user);
+    }
+
+    public function updateUserEntity($user)
+    {
+        $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPlainPassword()));
+        parent::updateEntity($user);
     }
 
     public function removeParentRecursive($datas, $em) {

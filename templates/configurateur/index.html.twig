@@ -15,10 +15,32 @@
             Vous n'avez pas la permission d'accéder à cette page.
         </div>
     {% else %}
-        <div class="container-fluid main configurateur">
-            <div class="row">
-                <div class="col-md-12">
-
+        <div class="container-fluid main configurateur index">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h3>Choisissez une Gamme enveloppe à configurer</h3>
+                    <div class="container-fluid main configurateur">
+                        <table class="table table-striped table-bordered">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" class="col-1">#</th>
+                                <th scope="col" class="col-2">Référence</th>
+                                <th scope="col" class="col-7">Désignation</th>
+                                <th scope="col" class="col-2">lien</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for key, ge in ges %}
+                                <tr>
+                                    <th scope="row" class="col-1">{{ key }}</th>
+                                    <th scope="row" class="col-1">{{ ge.reference }}</th>
+                                    <th scope="row" class="col-1">{{ ge.nom }}</th>
+                                    <th scope="row" class="col-1"><a href="/configurateur/config/{{ ge.slug }}">Configurer</a></th>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

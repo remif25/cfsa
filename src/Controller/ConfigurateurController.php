@@ -54,8 +54,10 @@ class ConfigurateurController extends AbstractController
 
     public function index()
     {
+        $ges = $this->getDoctrine()->getRepository(GammeEnveloppe::class)->findAll();
         return $this->render('configurateur/index.html.twig', [
             'controller_name' => 'ConfigurateurController',
+            'ges' => $ges
         ]);
     }
 

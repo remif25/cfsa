@@ -36,15 +36,15 @@ class CentreProductionRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?CentreProduction
+
+    public function findOneByReference($value): ?CentreProduction
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+            ->andWhere('c.reference = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+
 }

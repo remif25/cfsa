@@ -36,15 +36,15 @@ class ActiviteRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Activite
+
+    public function findOneByReference($value): ?Activite
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
+            ->andWhere('a.reference = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+
 }

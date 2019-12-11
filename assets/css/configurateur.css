@@ -78,3 +78,10 @@ th.col-1  {
 .question-reponse svg {
     vertical-align: top;
 }
+h3 {
+    text-align: center;
+    margin: 1em!important;
+}
+.index th{
+    text-align: center;
+}

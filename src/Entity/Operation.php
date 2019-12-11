@@ -138,6 +138,13 @@ class Operation implements JsonSerializable
         return $this;
     }
 
+    public function removeLinkRegleOperation(): self
+    {
+        $this->linkregleoperation = null;
+
+        return $this;
+    }
+
     public function getPdt(): ?PosteTravail
     {
         return $this->pdt;

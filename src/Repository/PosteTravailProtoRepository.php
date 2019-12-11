@@ -36,15 +36,15 @@ class PosteTravailProtoRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?PosteTravailProto
+
+    public function findOneByReference($value): ?PosteTravailProto
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
+            ->andWhere('p.reference = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+
 }

@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form method="post" action="{{ path('configurateur_export') }}" target="_blank">
+                <form method="post" action="{{ path('import_data_save') }}" target="_blank" enctype="multipart/form-data">
                     <div class="form-group">
                         <input type="file" class="custom-file-input" id="validatedCustomFile" name="importfile" required>
                         <label class="custom-file-label" for="validatedCustomFile">Sélectionner un fichier CSV (séparateur point-virgule)</label>

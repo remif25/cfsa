@@ -36,15 +36,15 @@ class DepartementRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Departement
+
+    public function findOneByReference($value): ?Departement
     {
         return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
+            ->andWhere('d.reference = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+
 }

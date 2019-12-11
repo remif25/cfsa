@@ -14,44 +14,59 @@
             <div class="col-12 icon-cfsa">
                 <img src="img/logo/cfsa.jpg" alt="">
             </div>
-            <div class="col-12 icones">
-                <ul>
-                    <li><h4>NAVIQUIZ</h4><a href="{{ path('naviquiz') }}?pw=eb70aa6ff6792225e8e4f7467d9982ac"><i class="far fa-question-circle" aria-hidden="true"></i></a></li>
-                    <li><h4>CONFIGURATEUR</h4><a href="{{ path('configurateur_index') }}"><i class="far fa-object-group"></i></a></li>
-                    <li><h4>DONNÉES DE BASE</h4><a href="/admin"><i class="fas fa-toolbox" aria-hidden="true"></i></a></li>
-                    <li><h4>IMPORTATION</h4><a href="{{ path('import_data') }}"><i class="fas fa-upload"></i></a></li>
-                </ul>
-            </div>
-            {#<div class="col-4">
-                <a href="{{ path('naviquiz') }}?pw=eb70aa6ff6792225e8e4f7467d9982ac" class="card text-white bg-success mb-3">
-                    <div class="card-header">
-                        <h5 class="card-title">NAVIQUIZ</h5>
-                    </div>
-                    <div class="card-footer">
-                        <span class="helper"></span><img src="img/logo/naviquiz.png" class="card-img-top" >
-                    </div>
-                </a>
-            </div>
-            <div class="col-4">
-                <a href="{{ path('configurateur_index') }}" class="card text-white bg-success mb-3">
-                    <div class="card-header">
-                        <h5 class="card-title">CONFIGURATEUR</h5>
-                    </div>
-                    <div class="card-footer">
-                        <span class="helper"></span><img src="img/logo/naviquiz.jpg" class="card-img-top" >
-                    </div>
-                </a>
-            </div>
-            <div class="col-4">
-                <a href="/admin" class="card text-white bg-success mb-3">
-                    <div class="card-header">
-                        <h5 class="card-title">BACK-OFFICE</h5>
-                    </div>
-                    <div class="card-footer">
-                        <span class="helper"></span><img src="img/logo/back-office.png" class="card-img-top" >
-                    </div>
-                </a>
-            </div>#}
+            {% if hasAccess is not defined %}
+                <div class="col-8 login">
+                    <form method="post">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                        {% if app.user %}
+                            <div class="mb-3">
+                                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                            </div>
+                        {% endif %}
+
+                        <div class="form-group">
+                            <label for="inputEmail">Email</label>
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Mot de passe</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control" required>
+                        </div>
+
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+
+                        {#
+                            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                            See https://symfony.com/doc/current/security/remember_me.html
+
+                            <div class="checkbox mb-3">
+                                <label>
+                                    <input type="checkbox" name="_remember_me"> Remember me
+                                </label>
+                            </div>
+                        #}
+
+                        <button class="btn btn-lg btn-primary" type="submit">
+                            Se connecter
+                        </button>
+                    </form>
+                </div>
+            {% endif %}
+            {% if last_username is not defined %}
+                <div class="col-12 icones">
+                    <ul>
+                        <li><h4>NAVIQUIZ</h4><a href="{{ path('naviquiz') }}?pw=eb70aa6ff6792225e8e4f7467d9982ac"><i class="far fa-question-circle" aria-hidden="true"></i></a></li>
+                        <li><h4>CONFIGURATEUR</h4><a href="{{ path('configurateur_index') }}"><i class="far fa-object-group"></i></a></li>
+                        <li><h4>DONNÉES DE BASE</h4><a href="/admin"><i class="fas fa-toolbox" aria-hidden="true"></i></a></li>
+                        <li><h4>IMPORTATION</h4><a href="{{ path('import_data') }}"><i class="fas fa-upload"></i></a></li>
+                    </ul>
+                </div>
+            {% endif %}
         </div>
     </div>
 

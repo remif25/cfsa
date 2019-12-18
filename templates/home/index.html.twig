@@ -12,13 +12,13 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 icon-cfsa">
-                <img src="img/logo/cfsa.jpg" alt="">
+                <img src="{{ asset('build/logo/cfsa.jpg') }}" alt="">
             </div>
             {% if hasAccess is not defined %}
                 <div class="col-8 login">
                     <form method="post">
                         {% if error %}
-                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            <div class="alert alert-danger">{#{{ error.messageKey|trans(error.messageData, 'security') }}#}{{ error }}</div>
                         {% endif %}
 
                         {% if app.user %}

@@ -22,6 +22,8 @@ security:
                 entry_point: App\Security\LoginFormAuthenticator
             logout:
                 path: app_logout
+
+           # access_denied_handler: App\Security\AccessDeniedHandler
                 # where to redirect after logout
                 # target: app_any_route
 
@@ -45,4 +47,6 @@ security:
     role_hierarchy:
         ROLE_MODIFICATEUR: ROLE_LECTEUR
         ROLE_ADMIN:        ROLE_MODIFICATEUR
+
+    access_denied_url: /no-permission
 

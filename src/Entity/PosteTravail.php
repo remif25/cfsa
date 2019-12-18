@@ -36,16 +36,19 @@ class PosteTravail implements JsonSerializable
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Activite", mappedBy="pdts")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $activites;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\CentreProduction", inversedBy="pdts")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $centreProduction;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\PosteTravailProto", mappedBy="pdt", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $posteTravailProto;
 

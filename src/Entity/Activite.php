@@ -31,11 +31,13 @@ class Activite implements JsonSerializable
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Operation", mappedBy="activite", orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $operations;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\PosteTravail", inversedBy="activites")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $pdts;
 

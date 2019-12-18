@@ -21,4 +21,22 @@ class HomeController extends AbstractController
             'hasAccess' => $hasAccess
         ]);
     }
+
+
+    /**
+     * @Route("/no-permission", name="no-permission")
+     */
+    public function noPermission()
+    {
+        $error = "Vous n'avez pas accès au back-office";
+        $hasAccess = $this->isGranted('ROLE_LECTEUR');
+        if (!$hasAccess)
+            return $this->redirectToRoute('app_login');
+
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+            'hasAccess' => $hasAccess,
+            'error' => $error
+        ]);
+    }
 }

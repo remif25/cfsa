@@ -92,6 +92,10 @@ class AdminController extends EasyAdminController
 
         $em = $this->getDoctrine()->getManager();
         $fileimport = $request->files->get('importfile');
+        $pdtExistants = $this->getDoctrine()
+            ->getRepository(PosteTravail::class)
+            ->findAll();
+
         if($fileimport) {
             $filename = $fileimport->getPathName();
             $file = fopen($filename, "r");
@@ -112,7 +116,7 @@ class AdminController extends EasyAdminController
                     ->getRepository(Activite::class)
                     ->findOneByReference($cAct);
 
-                if (!$activite) {
+                if (!$activite && $cAct !== "") {
                     $activite = new Activite();
                     $activite->setReference($cAct);
 
@@ -124,7 +128,7 @@ class AdminController extends EasyAdminController
                     ->getRepository(PosteTravail::class)
                     ->findOneByReference($cPDT);
 
-                if (!$posteTravail) {
+                if (!$posteTravail && $cPDT !== "") {
                     $posteTravail = new PosteTravail();
                     $posteTravail->setReference($cPDT);
 
@@ -137,7 +141,7 @@ class AdminController extends EasyAdminController
                     ->getRepository(CentreProduction::class)
                     ->findOneByReference($cCP);
 
-                if (!$centreProduction) {
+                if (!$centreProduction && $cCP !== "") {
                     $centreProduction = new CentreProduction();
                     $centreProduction->setReference($cCP);
 
@@ -150,7 +154,7 @@ class AdminController extends EasyAdminController
                     ->getRepository(Departement::class)
                     ->findOneByReference($cDep);
                 
-                if (!$departement) {
+                if (!$departement && $cDep !== "") {
                     $departement = new Departement();
                     $departement->setReference($cDep);
                 }
@@ -164,6 +168,21 @@ class AdminController extends EasyAdminController
                 $em->persist($departement);
                 $em->flush();
 
+                $pdts[] = $posteTravail;
+
+            }
+
+            foreach ($pdtExistants as $pdtExistant) {
+                $check = true;
+                foreach ($pdts as $pdt) {
+                    if ($pdtExistant->getReference() === $pdt->getReference())
+                        $check = false;
+                }
+
+                if ($check)  {
+                    $em->remove($pdtExistant);
+                    $em->flush();
+                }
             }
 
 

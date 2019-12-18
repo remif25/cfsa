@@ -30,7 +30,6 @@ class Departement
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\CentreProduction", mappedBy="departement")
-     * @ORM\JoinColumn(nullable=true)
      */
     private $centreproductions;
 

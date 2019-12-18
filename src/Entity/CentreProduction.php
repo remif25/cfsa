@@ -35,7 +35,6 @@ class CentreProduction
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\PosteTravail", mappedBy="centreProduction")
-     * @ORM\JoinColumn(nullable=true)
      */
     private $pdts;
 

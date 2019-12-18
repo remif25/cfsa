@@ -220,7 +220,7 @@ class GammeEnveloppe implements JsonSerializable
     }
 
     /**
-     * @ORM\PreUpdate
+     * @ORM\PrePersist
      */
     public function updateSlug()
     {

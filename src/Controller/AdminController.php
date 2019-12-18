@@ -75,12 +75,26 @@ class AdminController extends EasyAdminController
     /**
      * @Route("/import/data", name="import_data")
      */
-    public function importPDTActivite()
+    public function importDATA()
     {
         $urlPackage = $this->getUrlPackage();
         return $this->render('admin/import/data.html.twig', [
             'controller_name' => 'AdminController',
             'url_model_file' => $urlPackage->getUrl('model/model_import_donnees.csv')
+        ]);
+    }
+
+
+    /**
+     * @Route("/import/data/pdt_proto", name="import_data_pdt_proto")
+     */
+    public function importPDTPROTO()
+    {
+        $urlPackage = $this->getUrlPackage();
+
+        return $this->render('admin/import/pdtproto.html.twig', [
+            'controller_name' => 'AdminController',
+            'url_model_file' => $urlPackage->getUrl('model/model_import_pdt_proto.csv')
         ]);
     }
 
@@ -92,6 +106,7 @@ class AdminController extends EasyAdminController
 
         $em = $this->getDoctrine()->getManager();
         $fileimport = $request->files->get('importfile');
+        $jumpFirstLine = !$request->get('firstline');
         $pdtExistants = $this->getDoctrine()
             ->getRepository(PosteTravail::class)
             ->findAll();
@@ -99,77 +114,231 @@ class AdminController extends EasyAdminController
         if($fileimport) {
             $filename = $fileimport->getPathName();
             $file = fopen($filename, "r");
-
-            $jumpFirstLine = 0;
             while (($getData = fgetcsv($file, 10000, ";")) !== FALSE) {
-                $cDep = trim($getData[0]);
-                $dDep = trim($getData[1]);
-                $cCP = trim($getData[2]);
-                $dCP = trim($getData[3]);
-                $cPDT = trim($getData[4]);
-                $dPDT = trim($getData[5]);
-                $cAct = trim($getData[6]);
-                $dAct = trim($getData[7]);
+                if (!$jumpFirstLine) {
+                    $cDep = trim($getData[0]);
+                    $dDep = trim($getData[1]);
+                    $cCP = trim($getData[2]);
+                    $dCP = trim($getData[3]);
+                    $cPDT = trim($getData[4]);
+                    $dPDT = trim($getData[5]);
+                    $cAct = trim($getData[6]);
+                    $dAct = trim($getData[7]);
+
+                    if ($cAct !== "") {
+
+                        $activite = $this->getDoctrine()
+                            ->getRepository(Activite::class)
+                            ->findOneByReference($cAct);
+
+                        if (!$activite) {
+                            $activite = new Activite();
+                            $activite->setReference($cAct);
+                        }
+
+                        $activite->setDescription($dAct);
+                    }
+
+                    $posteTravail = $this->getDoctrine()
+                        ->getRepository(PosteTravail::class)
+                        ->findOneByReference($cPDT);
+
+                    if ($cPDT !== "") {
+                        if (!$posteTravail) {
+                            $posteTravail = new PosteTravail();
+                            $posteTravail->setReference($cPDT);
+
+                        }
+
+                        $posteTravail->setDescription($dPDT);
+                        if ($activite !== null)
+                            $posteTravail->addActivite($activite);
+                    }
+
+                    $centreProduction = $this->getDoctrine()
+                        ->getRepository(CentreProduction::class)
+                        ->findOneByReference($cCP);
+
+                    if ($cCP !== "") {
+                        if (!$centreProduction && $cCP !== "") {
+                            $centreProduction = new CentreProduction();
+                            $centreProduction->setReference($cCP);
+
+                        }
+
+                        $centreProduction->setDesignation($dCP);
+                        if ($posteTravail !== null)
+                            $centreProduction->addPdt($posteTravail);
+                    }
+
+                    if ($cDep !== "") {
+                        $departement = $this->getDoctrine()
+                            ->getRepository(Departement::class)
+                            ->findOneByReference($cDep);
+
+                        if (!$departement) {
+                            $departement = new Departement();
+                            $departement->setReference($cDep);
+                        }
+
+                        $departement->setDesignation($dDep);
+                        if ($centreProduction !== null)
+                            $departement->addCentreproduction($centreProduction);
+                    }
+
+                    if ($activite !== null)
+                        $em->persist($activite);
+
+                    if ($posteTravail !== null) {
+                        $em->persist($posteTravail);
+                        $pdts[] = $posteTravail;
+                    }
 
 
-                $activite = $this->getDoctrine()
-                    ->getRepository(Activite::class)
-                    ->findOneByReference($cAct);
+                    if ($centreProduction !== null)
+                        $em->persist($centreProduction);
 
-                if (!$activite && $cAct !== "") {
-                    $activite = new Activite();
-                    $activite->setReference($cAct);
+                    if ($departement !== null)
+                        $em->persist($departement);
 
+                    $em->flush();
+                } else {
+                    $jumpFirstLine = false;
+                }
+            }
+
+            foreach ($pdtExistants as $pdtExistant) {
+                $check = true;
+                foreach ($pdts as $pdt) {
+                    if ($pdtExistant->getReference() === $pdt->getReference())
+                        $check = false;
                 }
 
-                $activite->setDescription($dAct);
-
-                $posteTravail = $this->getDoctrine()
-                    ->getRepository(PosteTravail::class)
-                    ->findOneByReference($cPDT);
-
-                if (!$posteTravail && $cPDT !== "") {
-                    $posteTravail = new PosteTravail();
-                    $posteTravail->setReference($cPDT);
-
+                if ($check)  {
+                    $em->remove($pdtExistant);
+                    $em->flush();
                 }
+            }
 
-                $posteTravail->setDescription($dPDT);
-                $posteTravail->addActivite($activite);
 
-                $centreProduction = $this->getDoctrine()
-                    ->getRepository(CentreProduction::class)
-                    ->findOneByReference($cCP);
+            $urlPackage = $this->getUrlPackage();
+            return $this->render('admin/import/data.html.twig', [
+                'controller_name' => 'AdminController',
+                'url_model_file' => $urlPackage->getUrl('model/model_import_donnees.csv')
+            ]);
+        }
+    }
 
-                if (!$centreProduction && $cCP !== "") {
-                    $centreProduction = new CentreProduction();
-                    $centreProduction->setReference($cCP);
 
+    /**
+     * @Route("/import/data/pdt_proto/save", name="import_data_pdt_proto_save")
+     */
+    public function importPDTPROTOSave(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $fileimport = $request->files->get('importfile');
+        $jumpFirstLine = !$request->get('firstline');
+        $pdtExistants = $this->getDoctrine()
+            ->getRepository(PosteTravail::class)
+            ->findAll();
+
+        if($fileimport) {
+            $filename = $fileimport->getPathName();
+            $file = fopen($filename, "r");
+            while (($getData = fgetcsv($file, 10000, ";")) !== FALSE) {
+                if (!$jumpFirstLine) {
+                    $cDep = trim($getData[0]);
+                    $dDep = trim($getData[1]);
+                    $cCP = trim($getData[2]);
+                    $dCP = trim($getData[3]);
+                    $cPDT = trim($getData[4]);
+                    $dPDT = trim($getData[5]);
+                    $cAct = trim($getData[6]);
+                    $dAct = trim($getData[7]);
+                    $cPDTPROTO = trim($getData[8]);
+                    $cActPROTO = trim($getData[9]);
+
+                    if ($cAct !== "") {
+
+                        $activite = $this->getDoctrine()
+                            ->getRepository(Activite::class)
+                            ->findOneByReference($cAct);
+
+                        if (!$activite) {
+                            $activite = new Activite();
+                            $activite->setReference($cAct);
+                        }
+
+                        $activite->setDescription($dAct);
+                    }
+
+                    $posteTravail = $this->getDoctrine()
+                        ->getRepository(PosteTravail::class)
+                        ->findOneByReference($cPDT);
+
+                    if ($cPDT !== "") {
+                        if (!$posteTravail) {
+                            $posteTravail = new PosteTravail();
+                            $posteTravail->setReference($cPDT);
+
+                        }
+
+                        $posteTravail->setDescription($dPDT);
+                        if ($activite !== null)
+                            $posteTravail->addActivite($activite);
+                    }
+
+                    $centreProduction = $this->getDoctrine()
+                        ->getRepository(CentreProduction::class)
+                        ->findOneByReference($cCP);
+
+                    if ($cCP !== "") {
+                        if (!$centreProduction && $cCP !== "") {
+                            $centreProduction = new CentreProduction();
+                            $centreProduction->setReference($cCP);
+
+                        }
+
+                        $centreProduction->setDesignation($dCP);
+                        if ($posteTravail !== null)
+                            $centreProduction->addPdt($posteTravail);
+                    }
+
+                    if ($cDep !== "") {
+                        $departement = $this->getDoctrine()
+                            ->getRepository(Departement::class)
+                            ->findOneByReference($cDep);
+
+                        if (!$departement) {
+                            $departement = new Departement();
+                            $departement->setReference($cDep);
+                        }
+
+                        $departement->setDesignation($dDep);
+                        if ($centreProduction !== null)
+                            $departement->addCentreproduction($centreProduction);
+                    }
+
+                    if ($activite !== null)
+                        $em->persist($activite);
+
+                    if ($posteTravail !== null) {
+                        $em->persist($posteTravail);
+                        $pdts[] = $posteTravail;
+                    }
+
+
+                    if ($centreProduction !== null)
+                        $em->persist($centreProduction);
+
+                    if ($departement !== null)
+                        $em->persist($departement);
+
+                    $em->flush();
+                } else {
+                    $jumpFirstLine = false;
                 }
-
-                $centreProduction->setDesignation($dCP);
-                $centreProduction->addPdt($posteTravail);
-
-                $departement = $this->getDoctrine()
-                    ->getRepository(Departement::class)
-                    ->findOneByReference($cDep);
-                
-                if (!$departement && $cDep !== "") {
-                    $departement = new Departement();
-                    $departement->setReference($cDep);
-                }
-
-                $departement->setDesignation($dDep);
-                $departement->addCentreproduction($centreProduction);
-
-                $em->persist($activite);
-                $em->persist($posteTravail);
-                $em->persist($centreProduction);
-                $em->persist($departement);
-                $em->flush();
-
-                $pdts[] = $posteTravail;
-
             }
 
             foreach ($pdtExistants as $pdtExistant) {
@@ -454,6 +623,7 @@ class AdminController extends EasyAdminController
         $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPlainPassword()));
         parent::updateEntity($user);
     }
+
 
     public function removeParentRecursive($datas, $em) {
         foreach ($datas as $data) {

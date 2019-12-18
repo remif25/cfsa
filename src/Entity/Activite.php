@@ -31,15 +31,18 @@ class Activite implements JsonSerializable
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Operation", mappedBy="activite", orphanRemoval=true)
-     * @ORM\JoinColumn(nullable=true)
      */
     private $operations;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\PosteTravail", inversedBy="activites")
-     * @ORM\JoinColumn(nullable=true)
      */
     private $pdts;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\ActiviteProto", mappedBy="activite", cascade={"persist", "remove"})
+     */
+    private $activiteProto;
 
     public function __construct()
     {
@@ -146,5 +149,23 @@ class Activite implements JsonSerializable
             'description' => $this->getDescription(),
             'text' => $this->__toString()
         ];
+    }
+
+    public function getActiviteProto(): ?ActiviteProto
+    {
+        return $this->activiteProto;
+    }
+
+    public function setActiviteProto(?ActiviteProto $activiteProto): self
+    {
+        $this->activiteProto = $activiteProto;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newActivite = null === $activiteProto ? null : $this;
+        if ($activiteProto->getActivite() !== $newActivite) {
+            $activiteProto->setActivite($newActivite);
+        }
+
+        return $this;
     }
 }

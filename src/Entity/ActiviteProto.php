@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PosteTravailProtoRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ActiviteProtoRepository")
  */
-class PosteTravailProto
+class ActiviteProto
 {
     /**
      * @ORM\Id()
@@ -17,7 +17,7 @@ class PosteTravailProto
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=24)
+     * @ORM\Column(type="string", length=64)
      */
     private $reference;
 
@@ -27,9 +27,9 @@ class PosteTravailProto
     private $description;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\PosteTravail", inversedBy="posteTravailProto")
+     * @ORM\OneToOne(targetEntity="App\Entity\Activite", inversedBy="activiteProto", cascade={"persist", "remove"})
      */
-    private $pdt;
+    private $activite;
 
     public function getId(): ?int
     {
@@ -60,14 +60,14 @@ class PosteTravailProto
         return $this;
     }
 
-    public function getPdt(): ?PosteTravail
+    public function getActivite(): ?Activite
     {
-        return $this->pdt;
+        return $this->activite;
     }
 
-    public function setPdt(?PosteTravail $pdt): self
+    public function setActivite(?Activite $activite): self
     {
-        $this->pdt = $pdt;
+        $this->activite = $activite;
 
         return $this;
     }

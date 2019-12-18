@@ -19,8 +19,20 @@
                         <label class="custom-file-label" for="validatedCustomFile">Sélectionner un fichier CSV (séparateur point-virgule)</label>
                         <div class="invalid-feedback">Fichier invalide</div>
                     </div>
-                    <a type="file" href="{{ url_model_file }}" class="btn btn-primary">Fichier model pour l'import</a>
-                    <button type="submit" class="btn btn-primary">Uploader</button>
+                    <div class="form-group form-padding-left">
+                        <label for="myonoffswitch">Prendre en compte la première ligne du fichier : </label>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="firstline" class="onoffswitch-checkbox" id="myonoffswitch" value="1" checked>
+                            <label class="onoffswitch-label" for="myonoffswitch">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group form-padding-left">
+                        <a type="file" href="{{ url_model_file }}" class="btn btn-primary margin-right">Fichier model pour l'import</a>
+                        <button type="submit" class="btn btn-primary">Uploader</button>
+                    </div>
                 </form>
             </div>
         </div>

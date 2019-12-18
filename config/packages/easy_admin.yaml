@@ -1,15 +1,20 @@
 easy_admin:
     design:
         menu:
-            - label: 'Données de base'
-              icon: 'box-open'
+            - label: 'Données PROD'
+              icon: 'project-diagram'
               children:
                 - {entity: 'Departement', icon: 'inbox'}
                 - {entity: 'CentreProduction', icon: 'inbox'}
                 - {entity: 'PosteTravail', icon: 'inbox'}
                 - {entity: 'Activite', icon: 'inbox'}
-                - {entity: 'PosteTravailProto', icon: 'inbox'}
                 - {entity: 'Operation', icon: 'inbox'}
+
+            - label: 'Données PROTO'
+              icon: 'box-open'
+              children:
+                 - {entity: 'PosteTravailProto', icon: 'inbox'}
+                 - {entity: 'ActiviteProto', icon: 'inbox'}
 
             - label: 'Naviquiz'
               icon: 'question-circle'
@@ -23,7 +28,12 @@ easy_admin:
                 - {entity: 'GammeEnveloppe', icon: 'inbox', label: 'Gamme enveloppe'}
                 - {entity: 'Regle',icon: 'inbox', label: 'Règle'}
             - { label: 'Naviquiz', route: 'config_naviquiz', icon: 'tree' }
-            - { label: 'Import données',icon: 'cloud-upload-alt', route: 'import_data'}
+            - label: 'Import données'
+              icon: 'cloud-download-alt'
+              children:
+                - { label: 'Données PROD',icon: 'inbox', route: 'import_data'}
+                - { label: 'PDT PROTO',icon: 'inbox', route: 'import_data_pdt_proto'}
+
             - label: 'Export données'
               icon: 'cloud-download-alt'
               children:
@@ -77,6 +87,21 @@ easy_admin:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
                     - { property: 'pdt', label: "Poste de Travail PROD lié" }
+
+
+        ActiviteProto:
+            class: App\Entity\ActiviteProto
+            label: 'Activité Prototype'
+            list:
+                fields:
+                    - { property: 'reference', label: 'Référence'}
+                    - { property: 'description', label: 'Description' }
+                    - { property: 'activite', label: "Activité PROD liée" }
+            form:
+                fields:
+                    - { property: 'reference', label: 'Référence'}
+                    - { property: 'description', label: 'Description' }
+                    - { property: 'activite', label: "Activité PROD liée" }
             
         Activite:
             class: App\Entity\Activite

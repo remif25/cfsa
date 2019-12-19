@@ -22,11 +22,11 @@ class OperationType extends AbstractType
         $builder
             ->add('id', HiddenType::class)
             ->add('numero', IntegerType::class, [
-                'attr' => ['min' => '10', 'max' => '500', 'step' => '10', 'class' => 'form-control'],
+                'attr' => ['min' => '10', 'max' => '500', 'step' => '10', 'class' => 'form-control', 'data-type_object' => 'activites'],
                 'required' => false
             ])
             ->add('pdt', null, [
-                'attr' => ['class' => 'form-control select2-form', 'placeholder' => 'Entrez le PDT'],
+                'attr' => ['class' => 'form-control select2-form', 'placeholder' => 'Entrez le PDT', 'data-type_object'=> 'pdts'],
                 'required' => false
 
             ])

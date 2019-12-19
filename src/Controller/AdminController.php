@@ -3,28 +3,26 @@
 namespace App\Controller;
 
 use App\Entity\Activite;
+use App\Entity\ActiviteProto;
 use App\Entity\CentreProduction;
 use App\Entity\Departement;
 use App\Entity\GammeEnveloppe;
 use App\Entity\LinkRegleOperation;
 use App\Entity\Operation;
 use App\Entity\PosteTravail;
+use App\Entity\PosteTravailProto;
 use App\Entity\Question;
 use App\Entity\Regle;
 use App\Entity\Reponse;
-use App\Entity\User;
 use App\Form\GammeEnveloppeType;
-use App\Form\UserType;
 use Doctrine\ORM\EntityManager;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Symfony\Component\Asset\UrlPackage;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Asset\Package;
-use Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AdminController extends EasyAdminController
@@ -240,7 +238,7 @@ class AdminController extends EasyAdminController
         $fileimport = $request->files->get('importfile');
         $jumpFirstLine = !$request->get('firstline');
         $pdtExistants = $this->getDoctrine()
-            ->getRepository(PosteTravail::class)
+            ->getRepository(PosteTravailProto::class)
             ->findAll();
 
         if($fileimport) {
@@ -252,41 +250,63 @@ class AdminController extends EasyAdminController
                     $dDep = trim($getData[1]);
                     $cCP = trim($getData[2]);
                     $dCP = trim($getData[3]);
-                    $cPDT = trim($getData[4]);
-                    $dPDT = trim($getData[5]);
-                    $cAct = trim($getData[6]);
-                    $dAct = trim($getData[7]);
-                    $cPDTPROTO = trim($getData[8]);
-                    $cActPROTO = trim($getData[9]);
+                    $cPDTPROTO = trim($getData[4]);
+                    $dPDTPROTO = trim($getData[5]);
+                    $cActPROTO = trim($getData[6]);
+                    $dActPROTO = trim($getData[7]);
+                    $cPDT = trim($getData[8]);
+                    $cAct = trim($getData[9]);
 
-                    if ($cAct !== "") {
+                    if ($cActPROTO !== "") {
 
-                        $activite = $this->getDoctrine()
-                            ->getRepository(Activite::class)
-                            ->findOneByReference($cAct);
+                        $activiteProto = $this->getDoctrine()
+                            ->getRepository(ActiviteProto::class)
+                            ->findOneByReference($cActPROTO);
 
-                        if (!$activite) {
-                            $activite = new Activite();
-                            $activite->setReference($cAct);
+                        if (!$activiteProto) {
+                            $activiteProto = new ActiviteProto();
+                            $activiteProto->setReference($cActPROTO);
                         }
 
-                        $activite->setDescription($dAct);
+                        $activiteProto->setDescription($dActPROTO);
+
+                        if ($cAct !== "") {
+                            $activite = $this->getDoctrine()
+                                ->getRepository(Activite::class)
+                                ->findOneByReference($cAct);
+
+                            if($activite)
+                                $activiteProto->setActivite($activite);
+
+                        }
                     }
 
-                    $posteTravail = $this->getDoctrine()
-                        ->getRepository(PosteTravail::class)
-                        ->findOneByReference($cPDT);
+                    if($cPDTPROTO !== "") {
+                        $posteTravailProto = $this->getDoctrine()
+                            ->getRepository(PosteTravailProto::class)
+                            ->findOneByReference($cPDTPROTO);
 
-                    if ($cPDT !== "") {
-                        if (!$posteTravail) {
-                            $posteTravail = new PosteTravail();
-                            $posteTravail->setReference($cPDT);
+                        if ($cPDTPROTO !== "") {
+                            if (!$posteTravailProto) {
+                                $posteTravailProto = new PosteTravailProto();
+                                $posteTravailProto->setReference($cPDTPROTO);
 
+                            }
+
+                            $posteTravailProto->setDescription($dPDTPROTO);
+                            if ($activiteProto !== null)
+                                $posteTravailProto->addActivitesproto($activiteProto);
+
+                            if($cPDT !== "") {
+                                $pdt = $this->getDoctrine()
+                                    ->getRepository(PosteTravail::class)
+                                    ->findOneByReference($cPDT);
+
+                                if($pdt)
+                                    $posteTravailProto->setPdt($pdt);
+
+                            }
                         }
-
-                        $posteTravail->setDescription($dPDT);
-                        if ($activite !== null)
-                            $posteTravail->addActivite($activite);
                     }
 
                     $centreProduction = $this->getDoctrine()
@@ -301,8 +321,8 @@ class AdminController extends EasyAdminController
                         }
 
                         $centreProduction->setDesignation($dCP);
-                        if ($posteTravail !== null)
-                            $centreProduction->addPdt($posteTravail);
+                        if ($posteTravailProto !== null)
+                            $centreProduction->addPdtsproto($posteTravailProto);
                     }
 
                     if ($cDep !== "") {
@@ -320,12 +340,12 @@ class AdminController extends EasyAdminController
                             $departement->addCentreproduction($centreProduction);
                     }
 
-                    if ($activite !== null)
-                        $em->persist($activite);
+                    if ($activiteProto !== null)
+                        $em->persist($activiteProto);
 
-                    if ($posteTravail !== null) {
-                        $em->persist($posteTravail);
-                        $pdts[] = $posteTravail;
+                    if ($posteTravailProto !== null) {
+                        $em->persist($posteTravailProto);
+                        $pdtsProto[] = $posteTravailProto;
                     }
 
 
@@ -343,8 +363,8 @@ class AdminController extends EasyAdminController
 
             foreach ($pdtExistants as $pdtExistant) {
                 $check = true;
-                foreach ($pdts as $pdt) {
-                    if ($pdtExistant->getReference() === $pdt->getReference())
+                foreach ($pdtsProto as $pdtProto) {
+                    if ($pdtExistant->getReference() === $pdtProto->getReference())
                         $check = false;
                 }
 
@@ -353,7 +373,6 @@ class AdminController extends EasyAdminController
                     $em->flush();
                 }
             }
-
 
             $urlPackage = $this->getUrlPackage();
             return $this->render('admin/import/data.html.twig', [
@@ -568,33 +587,25 @@ class AdminController extends EasyAdminController
     }
 
     /**
-     * @Route("/api/ge/{type_object}/{constraint}", name="get_pdts")
+     * @Route("/api/ge/{type_object}/{constraint}", name="get_objects")
      */
-    public function getPDTS($type_object, $constraint) {
+    public function getDatas($type_object, $constraint) {
+        $objectsArray = array();
         if ($type_object === 'activites')
-            $objects = $this->getDoctrine()->getRepository(PosteTravail::class)->findAll();
+            $objects = $this->getEM()->find(Activite::class)->find($constraint)->getPdts();
         elseif ($type_object === 'pdts')
-            $objects = $this->getDoctrine()->getRepository(Activite::class)->findAll();
+            $objects = $this->getDoctrine()->getRepository(PosteTravail::class)->find($constraint)->getActivites();
+        elseif ($type_object === 'regles')
+            $objects = $this->getDoctrine()->getRepository(Regle::class)->findByGE($constraint);
 
-        $objectsData = array();
 
-        if (isset($objects) && $constraint !== 'null') {
-            foreach($objects as $object) {
-
-                if ($type_object === 'activites')
-                    $tmpObjects = $object->getActivites();
-                elseif ($type_object === 'pdts')
-                    $tmpObjects = $object->getpdts();
-
-                foreach ($tmpObjects as $tmpObject) {
-                    if ($tmpObject->getId() === (integer)$constraint)
-                        $objectsData[] = $object;
-                }
-            }
-            $objects = $objectsData;
+        foreach ($objects as $object) {
+            $objectsArray[] = $object;
         }
 
-        if ($objects) {
+        $objects = $objectsArray;
+
+        if (isset($objects) && $objects) {
             return new JsonResponse(
                 [
                     'success' => true,

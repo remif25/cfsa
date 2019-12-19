@@ -156,10 +156,12 @@ easy_admin:
                     - { property: 'question', label: 'Question' }
                     - { property: 'aide', label: 'Aide' }
                     - { property: 'linkRegleOperations', label: 'Liens avec des opérations'}
+                    - { property: 'ge', label: 'GE lié'}
             form:
                 fields:
                     - { property: 'question', label: 'Question' }
                     - { property: 'aide', label: 'Aide' }
+                    - { property: 'ge', label: 'GE lié'}
              
         Operation:
             class: App\Entity\Operation

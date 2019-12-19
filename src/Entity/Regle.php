@@ -34,6 +34,11 @@ class Regle implements JsonSerializable
      */
     private $linkRegleOperations;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\GammeEnveloppe", inversedBy="regles", fetch="EAGER")
+     */
+    private $ge;
+
     public function __construct()
     {
         $this->linkRegleOperations = new ArrayCollection();
@@ -101,7 +106,7 @@ class Regle implements JsonSerializable
 
     public function __toString()
     {
-        return (string)$this->question;
+        return strlen($this->question) > 43 ? substr($this->question, 0, 40) . '...' : (string)$this->question;
     }
 
     public function jsonSerialize()
@@ -110,6 +115,19 @@ class Regle implements JsonSerializable
             'id' => $this->getId(),
             'question' => $this->getQuestion(),
             'aide' => $this->getAide(),
+            'text' => $this->__toString()
         ];
+    }
+
+    public function getGe(): ?GammeEnveloppe
+    {
+        return $this->ge;
+    }
+
+    public function setGe(?GammeEnveloppe $ge): self
+    {
+        $this->ge = $ge;
+
+        return $this;
     }
 }

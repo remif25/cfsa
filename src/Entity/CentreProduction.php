@@ -43,9 +43,15 @@ class CentreProduction
      */
     private $departement;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PosteTravailProto", mappedBy="centreProduction")
+     */
+    private $pdtsproto;
+
     public function __construct()
     {
         $this->pdts = new ArrayCollection();
+        $this->pdtsproto = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -135,5 +141,36 @@ class CentreProduction
     public function __toString()
     {
         return $this->reference . ' - ' .$this->designation;
+    }
+
+    /**
+     * @return Collection|PosteTravailProto[]
+     */
+    public function getPdtsproto(): Collection
+    {
+        return $this->pdtsproto;
+    }
+
+    public function addPdtsproto(PosteTravailProto $pdtsproto): self
+    {
+        if (!$this->pdtsproto->contains($pdtsproto)) {
+            $this->pdtsproto[] = $pdtsproto;
+            $pdtsproto->setCentreProduction($this);
+        }
+
+        return $this;
+    }
+
+    public function removePdtsproto(PosteTravailProto $pdtsproto): self
+    {
+        if ($this->pdtsproto->contains($pdtsproto)) {
+            $this->pdtsproto->removeElement($pdtsproto);
+            // set the owning side to null (unless already changed)
+            if ($pdtsproto->getCentreProduction() === $this) {
+                $pdtsproto->setCentreProduction(null);
+            }
+        }
+
+        return $this;
     }
 }

@@ -19,22 +19,21 @@ class RegleRepository extends ServiceEntityRepository
         parent::__construct($registry, Regle::class);
     }
 
-    // /**
-    //  * @return Regle[] Returns an array of Regle objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+      * @return Regle[] Returns an array of Regle objects
+      */
+
+    public function findByGE($value)
     {
         return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
+            ->andWhere('r.ge = :val')
             ->setParameter('val', $value)
             ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Regle

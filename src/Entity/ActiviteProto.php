@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,16 @@ class ActiviteProto
      * @ORM\OneToOne(targetEntity="App\Entity\Activite", inversedBy="activiteProto", cascade={"persist", "remove"})
      */
     private $activite;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\PosteTravailProto", mappedBy="activitesproto")
+     */
+    private $posteTravailProtos;
+
+    public function __construct()
+    {
+        $this->posteTravailProtos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -68,6 +80,34 @@ class ActiviteProto
     public function setActivite(?Activite $activite): self
     {
         $this->activite = $activite;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PosteTravailProto[]
+     */
+    public function getPosteTravailProtos(): Collection
+    {
+        return $this->posteTravailProtos;
+    }
+
+    public function addPosteTravailProto(PosteTravailProto $posteTravailProto): self
+    {
+        if (!$this->posteTravailProtos->contains($posteTravailProto)) {
+            $this->posteTravailProtos[] = $posteTravailProto;
+            $posteTravailProto->addActivitesproto($this);
+        }
+
+        return $this;
+    }
+
+    public function removePosteTravailProto(PosteTravailProto $posteTravailProto): self
+    {
+        if ($this->posteTravailProtos->contains($posteTravailProto)) {
+            $this->posteTravailProtos->removeElement($posteTravailProto);
+            $posteTravailProto->removeActivitesproto($this);
+        }
 
         return $this;
     }

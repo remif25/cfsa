@@ -47,7 +47,6 @@ $(document).ready(function() {
     let gamme_enveloppe_id = $('#gamme_enveloppe_id').val();
 
      $('.select2-form').change( async function () {
-
         let type_object = $(this).data('type_object');
         let id_op = $(this).closest('tr').attr('class').split('ligne-')[1];
         let tmpString = '';
@@ -55,13 +54,17 @@ $(document).ready(function() {
 
         if (type_object === 'pdts')
             tmpString = 'activites';
-        else
+        else if (type_object === 'activites')
             tmpString = 'pdts';
+        else
+            tmpString = 'linkregleoperation_' + type_object;
 
-         let select2_ = '#gamme_enveloppe_operations_' + id_op + '_' + tmpString.slice(0, -1);
+        let select2_ = '#gamme_enveloppe_operations_' + id_op + '_' + tmpString.slice(0, -1);
 
-        if ($(this).val())
+        if ($(this).val() && tmpString !== 'regles')
             constraint = $(this).children('option:selected').val();
+        else if (tmpString === 'regles')
+            constraint = $('#gamme_enveloppe_id').val();
         else {
             constraint = 'null';
             try {
@@ -91,9 +94,10 @@ $(document).ready(function() {
         dataAdapter: customAdapter,
         placeholder: {
             id: '', // the value of the option
-            text: 'Choisir une option'
+            text: 'Choisissez une option'
         },
         allowClear: true,
+        multiple: false
     });
     //$('.select2-form').select2('data');
 

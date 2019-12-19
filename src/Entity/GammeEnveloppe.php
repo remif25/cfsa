@@ -60,11 +60,17 @@ class GammeEnveloppe implements JsonSerializable
      */
     private $slug;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Regle", mappedBy="ge")
+     */
+    private $regles;
+
     public function __construct()
     {
         $this->gammes = new ArrayCollection();
         $this->operations = new ArrayCollection();
         $this->reponses = new ArrayCollection();
+        $this->regles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -291,7 +297,38 @@ class GammeEnveloppe implements JsonSerializable
             'reference' => $this->getReference(),
             'nom' => $this->getNom(),
             'operations' => $this->getOperationsSerialize(),
-            'configurations' => $this->configurations
+            'configurations' => isset($this->configurations) ? $this->configurations : null
         ];
+    }
+
+    /**
+     * @return Collection|Regle[]
+     */
+    public function getRegles(): Collection
+    {
+        return $this->regles;
+    }
+
+    public function addRegle(Regle $regle): self
+    {
+        if (!$this->regles->contains($regle)) {
+            $this->regles[] = $regle;
+            $regle->setGe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRegle(Regle $regle): self
+    {
+        if ($this->regles->contains($regle)) {
+            $this->regles->removeElement($regle);
+            // set the owning side to null (unless already changed)
+            if ($regle->getGe() === $this) {
+                $regle->setGe(null);
+            }
+        }
+
+        return $this;
     }
 }

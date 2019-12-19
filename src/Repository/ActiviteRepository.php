@@ -19,22 +19,21 @@ class ActiviteRepository extends ServiceEntityRepository
         parent::__construct($registry, Activite::class);
     }
 
-    // /**
-    //  * @return Activite[] Returns an array of Activite objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    ///**
+    //* @return Activite[] Returns an array of Activite objects
+    //*/
+
+    /* public function findByPDT($pdt)
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.id = :id')
+            ->setParameter('id', $pdt)
+            ->leftJoin('p.pdts', 'j')
+            ->orderBy('p.id', 'ASC')
             ->getQuery()
             ->getResult()
         ;
-    }
-    */
+    }*/
 
 
     public function findOneByReference($value): ?Activite

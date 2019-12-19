@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,21 @@ class PosteTravailProto
      * @ORM\OneToOne(targetEntity="App\Entity\PosteTravail", inversedBy="posteTravailProto")
      */
     private $pdt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\CentreProduction", inversedBy="pdtsproto")
+     */
+    private $centreProduction;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\ActiviteProto", inversedBy="posteTravailProtos")
+     */
+    private $activitesproto;
+
+    public function __construct()
+    {
+        $this->activitesproto = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -68,6 +85,44 @@ class PosteTravailProto
     public function setPdt(?PosteTravail $pdt): self
     {
         $this->pdt = $pdt;
+
+        return $this;
+    }
+
+    public function getCentreProduction(): ?CentreProduction
+    {
+        return $this->centreProduction;
+    }
+
+    public function setCentreProduction(?CentreProduction $centreProduction): self
+    {
+        $this->centreProduction = $centreProduction;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ActiviteProto[]
+     */
+    public function getActivitesproto(): Collection
+    {
+        return $this->activitesproto;
+    }
+
+    public function addActivitesproto(ActiviteProto $activitesproto): self
+    {
+        if (!$this->activitesproto->contains($activitesproto)) {
+            $this->activitesproto[] = $activitesproto;
+        }
+
+        return $this;
+    }
+
+    public function removeActivitesproto(ActiviteProto $activitesproto): self
+    {
+        if ($this->activitesproto->contains($activitesproto)) {
+            $this->activitesproto->removeElement($activitesproto);
+        }
 
         return $this;
     }

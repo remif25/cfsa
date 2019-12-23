@@ -16,9 +16,13 @@ class HomeController extends AbstractController
         if (!$hasAccess)
             return $this->redirectToRoute('app_login');
 
+        $user = $this->getUser();
+
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'hasAccess' => $hasAccess
+            'hasAccess' => $hasAccess,
+            'user' => $user
         ]);
     }
 

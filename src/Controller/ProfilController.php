@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProfilController extends AbstractController
 {
     /**
-     * @Route("/profil", name="profil")
+     * @Route("/profil/{slug}/{id}", name="profil")
      */
     public function index()
     {

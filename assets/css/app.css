@@ -16,6 +16,9 @@ footer {
     right: 0px;
     margin-bottom: 0px;
 }
+footer .container {
+    text-align: center;
+}
 .form-group label, .form-group legend.col-form-label {
     text-align: right!important;
 }

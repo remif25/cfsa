@@ -15,7 +15,7 @@ class LinkRegleOperationType extends AbstractType
     {
         $builder
             ->add('regle',null, [
-                'attr' => ['class' => 'form-control select2-form', 'data-type_object'=> 'regles'],
+                'attr' => ['class' => 'form-control select2-form select2-form-regle', 'data-type_object'=> 'regles'],
                 'required' => false
 
             ])

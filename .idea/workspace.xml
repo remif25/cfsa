@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e786d1e-7018-4f0c-8565-42becfa75a2e" name="Default" comment="" />
+    <list default="true" id="6e786d1e-7018-4f0c-8565-42becfa75a2e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,12 +37,12 @@
     <window id="1">
       <content type="file-editors">
         <state>
-          <leaf>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
             <file leaf-file-name="Operation.php" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/Entity/Operation.php">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="141">
-                    <caret line="123" column="41" lean-forward="true" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="41" />
+                    <caret line="123" column="41" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="41" />
                   </state>
                 </provider>
               </entry>
@@ -55,8 +57,8 @@
       <file leaf-file-name="easy_admin.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="44" column="85" lean-forward="true" selection-start-line="44" selection-start-column="85" selection-end-line="44" selection-end-column="85" />
+            <state relative-caret-position="748">
+              <caret line="44" column="85" selection-start-line="44" selection-start-column="85" selection-end-line="44" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -64,17 +66,17 @@
       <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="476">
               <caret line="50" column="40" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConfigurateurController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConfigurateurController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ConfigurateurController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="243" lean-forward="true" selection-start-line="243" selection-end-line="243" />
+            <state relative-caret-position="695">
+              <caret line="243" selection-start-line="243" selection-end-line="243" />
               <folding>
                 <element signature="e#34#61#0#PHP" expanded="true" />
               </folding>
@@ -82,10 +84,28 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1105">
+              <caret line="65" column="98" selection-start-line="65" selection-start-column="98" selection-end-line="65" selection-end-column="98" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="LinkRegleOperation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/LinkRegleOperation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="1207">
               <caret line="72" column="32" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="32" />
             </state>
           </provider>
@@ -94,7 +114,7 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/configurateur/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="646">
               <caret line="38" column="98" selection-start-line="38" selection-start-column="97" selection-end-line="38" selection-end-column="98" />
             </state>
           </provider>
@@ -102,20 +122,6 @@
       </file>
       <file leaf-file-name="GammeRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Repository/GammeRepository.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="PosteTravailProto.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/PosteTravailProto.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1768">
-              <caret line="106" column="37" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActiviteProto.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/ActiviteProto.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -131,8 +137,8 @@
       <file leaf-file-name="LinkRegleOperationType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Form/LinkRegleOperationType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="32" column="61" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="61" />
+            <state relative-caret-position="459">
+              <caret line="32" column="61" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -210,7 +216,6 @@
         <option value="$PROJECT_DIR$/src/Entity/Operation.php" />
         <option value="$PROJECT_DIR$/src/Entity/LinkRegleOperation.php" />
         <option value="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" />
-        <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/Entity/Departement.php" />
         <option value="$PROJECT_DIR$/src/Entity/Activite.php" />
         <option value="$PROJECT_DIR$/src/Entity/PosteTravail.php" />
@@ -257,6 +262,7 @@
         <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
         <option value="$PROJECT_DIR$/templates/configurateur/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/ConfigurateurController.php" />
+        <option value="$PROJECT_DIR$/webpack.config.js" />
       </list>
     </option>
   </component>
@@ -416,6 +422,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -432,31 +439,14 @@
               <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
               <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
               <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="logo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="naviquiz" type="b2602c69:ProjectViewProjectNode" />
@@ -545,7 +535,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -665,12 +654,13 @@
       <workItem from="1577913741529" duration="3210000" />
       <workItem from="1578300816025" duration="8279000" />
       <workItem from="1578379762231" duration="10672000" />
-      <workItem from="1578395351615" duration="1818000" />
+      <workItem from="1578395351615" duration="1997000" />
+      <workItem from="1578400478226" duration="780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="452237000" />
+    <option name="totallyTimeSpent" value="453196000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -687,17 +677,17 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32897604" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.11940298" side_tool="true" weight="0.33006537" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.880597" weight="0.33006537" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
+      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.880597" visible="true" weight="0.33006537" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.84463894" visible="true" weight="0.26143792" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.84463894" weight="0.15359478" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.66411376" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.87479675" visible="true" weight="0.15085287" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.87479675" visible="true" weight="0.15245202" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.5074627" />
       <window_info id="Structure" order="1" sideWeight="0.12520325" side_tool="true" weight="0.1609808" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.64445627" weight="0.39542484" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -717,14 +707,14 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32897604" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32461873" />
       <window_info anchor="right" id="Database" order="4" weight="0.5074627" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.84463894" weight="0.2618262" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.64445627" weight="0.39542484" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.880597" visible="true" weight="0.33006537" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -751,9 +741,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../omnialib/app/config/parameters.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/RegleType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -763,13 +750,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/LinkRegleOperationRepository.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="65" column="98" selection-start-line="65" selection-start-column="98" selection-end-line="65" selection-end-column="98" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1014,7 +994,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/configurateur/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="646">
           <caret line="38" column="98" selection-start-line="38" selection-start-column="97" selection-end-line="38" selection-end-column="98" />
         </state>
       </provider>
@@ -1028,28 +1008,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="476">
           <caret line="50" column="40" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="44" column="85" lean-forward="true" selection-start-line="44" selection-start-column="85" selection-end-line="44" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Operation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="123" column="41" lean-forward="true" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="41" />
+        <state relative-caret-position="748">
+          <caret line="44" column="85" selection-start-line="44" selection-start-column="85" selection-end-line="44" selection-end-column="85" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/LinkRegleOperation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="1207">
           <caret line="72" column="32" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="32" />
         </state>
       </provider>
@@ -1063,18 +1036,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/LinkRegleOperationType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="32" column="61" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="61" />
+        <state relative-caret-position="459">
+          <caret line="32" column="61" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ConfigurateurController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="243" lean-forward="true" selection-start-line="243" selection-end-line="243" />
+        <state relative-caret-position="695">
+          <caret line="243" selection-start-line="243" selection-end-line="243" />
           <folding>
             <element signature="e#34#61#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Operation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="123" column="41" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="98" selection-start-line="65" selection-start-column="98" selection-end-line="65" selection-end-column="98" />
         </state>
       </provider>
     </entry>

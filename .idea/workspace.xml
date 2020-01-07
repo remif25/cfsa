@@ -1,48 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e786d1e-7018-4f0c-8565-42becfa75a2e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/bootstrap-datepicker/css/bootstrap-datepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bootstrap-datepicker/js/bootstrap-datepicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fr.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/git" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/admin/ge/config.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/admin/ge/config.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/admin/naviquiz.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/admin/naviquiz.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/configurateur.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/configurateur.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/naviquiz.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/naviquiz.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/admin/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/admin/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/admin/naviquiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/admin/naviquiz.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/configurateur.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/configurateur.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/components/_radiobutton.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/components/_radiobutton.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/easy_admin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/easy_admin.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ConfigurateurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConfigurateurController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Reponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/TokenAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/TokenAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/export/structure.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/export/structure.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/naviquiz.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/naviquiz.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/configurateur/configurateur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/configurateur/configurateur.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/configurateur/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/configurateur/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profil/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil/index.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="6e786d1e-7018-4f0c-8565-42becfa75a2e" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +73,7 @@
       <file leaf-file-name="ConfigurateurController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/ConfigurateurController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
+            <state relative-caret-position="409">
               <caret line="243" lean-forward="true" selection-start-line="243" selection-end-line="243" />
               <folding>
                 <element signature="e#34#61#0#PHP" expanded="true" />
@@ -706,12 +665,12 @@
       <workItem from="1577913741529" duration="3210000" />
       <workItem from="1578300816025" duration="8279000" />
       <workItem from="1578379762231" duration="10672000" />
-      <workItem from="1578395351615" duration="1573000" />
+      <workItem from="1578395351615" duration="1818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="451992000" />
+    <option name="totallyTimeSpent" value="452237000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -724,17 +683,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32897604" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.11940298" side_tool="true" weight="0.33006537" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.880597" visible="true" weight="0.33006537" />
+      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.880597" weight="0.33006537" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.84463894" weight="0.26143792" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.84463894" visible="true" weight="0.26143792" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.66411376" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.87479675" visible="true" weight="0.15085287" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.87479675" visible="true" weight="0.15085287" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.5074627" />
       <window_info id="Structure" order="1" sideWeight="0.12520325" side_tool="true" weight="0.1609808" />
@@ -1112,7 +1070,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ConfigurateurController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
+        <state relative-caret-position="409">
           <caret line="243" lean-forward="true" selection-start-line="243" selection-end-line="243" />
           <folding>
             <element signature="e#34#61#0#PHP" expanded="true" />

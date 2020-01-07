@@ -1,5 +1,15 @@
 easy_admin:
+    user:
+        # this method/property must return the string representation of the user
+        # (Symfony will look for getFullName(), isFullName(), ..., and 'fullName' property)
+        name_property_path: 'fullName'
     design:
+        assets:
+                # all kinds of assets are supported and linked accordingly
+            css:
+                    - '/build/admin.css'
+            js:
+                    - '/build/admin.js'
         menu:
             - label: 'Données PROD'
               icon: 'project-diagram'
@@ -38,7 +48,7 @@ easy_admin:
               icon: 'cloud-download-alt'
               children:
                 - {label: 'Export structure',icon: 'inbox', route: 'export_structure'}
-                - {label: 'Export GE',icon: 'inbox', route: 'export_ge'}
+                - {label: 'Export GE',icon: 'inbox', route: 'configurateur_index'}
             - {entity: 'User', icon: 'users', permission: 'ROLE_ADMIN'}
 
     entities:
@@ -137,9 +147,9 @@ easy_admin:
                 fields:
                     - { property: 'nom', label: 'Titre' }
                     - { property: 'reference', label: 'Référence' }
-                    - { property: 'gammes', label: 'Gammes'}
-                    - { property: 'gammes', label: 'Opérations'}
-                    - { property: 'gammes', label: 'Réponses'}
+                    - { property: 'regles', label: 'Règles'}
+                    - { property: 'operations', label: 'Opérations'}
+                    - { property: 'reponses', label: 'Réponses'}
 
             controller: App\Controller\AdminController
             form:
@@ -217,11 +227,27 @@ easy_admin:
                 fields:
                     - { property: 'email', label: 'Email' }
                     - { property: 'roles', label: 'Roles' }
-            form:
+            new:
                 fields:
+                    - { type: 'section', label: 'Informations obligatoires' }
                     - { property: 'email', label: 'Email' }
-                    - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                    - { property : 'alias', label: 'Alias' }
+                    - { property: 'plainPassword', label: 'Mot de passe (Si vide : Patek1839)', type: 'text', type_options: { required: false } }
                     - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_LECTEUR': 'ROLE_LECTEUR','ROLE_MODIFICATEUR': 'ROLE_MODIFICATEUR', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
-
+                    - { type: 'section', label: 'Informations complémentaire' }
+                    - { property: 'firstname', label: 'Prénom' }
+                    - { property: 'lastname', label: 'Nom' }
+                    - { property: 'birthday', label: 'Date de naissance', type_options: { widget: 'single_text', 'format': 'dd/MM/yyyy', 'attr': {'class': 'js-datepicker'} } }
+            edit:
+                fields:
+                    - { type: 'section', label: 'Informations obligatoires' }
+                    - { property: 'email', label: 'Email' }
+                    - { property : 'alias', label: 'Alias' }
+                    - { property: 'plainPassword', label: 'Mot de passe (Si vide, mot de passe inchangé)', type: 'text', type_options: { required: false } }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_LECTEUR': 'ROLE_LECTEUR','ROLE_MODIFICATEUR': 'ROLE_MODIFICATEUR', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+                    - { type: 'section', label: 'Informations complémentaire' }
+                    - { property: 'firstname', label: 'Prénom' }
+                    - { property: 'lastname', label: 'Nom' }
+                    - { property: 'birthday', label: 'Date de naissance',  type_options: { widget: 'single_text', 'format': 'dd/MM/yyyy', 'attr': {'class': 'js-datepicker'} } }
 
     site_name: '<a href="https://cfsa.repliqa.fr">Cadrans Fluckiger SA - Back-office</a>'

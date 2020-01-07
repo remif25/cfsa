@@ -14,6 +14,7 @@ use App\Entity\PosteTravailProto;
 use App\Entity\Question;
 use App\Entity\Regle;
 use App\Entity\Reponse;
+use App\Entity\User;
 use App\Form\GammeEnveloppeType;
 use Doctrine\ORM\EntityManager;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
@@ -625,13 +626,37 @@ class AdminController extends EasyAdminController
 
     public function persistUserEntity($user)
     {
-        $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPlainPassword()));
+        $currentUser = $this->getUser();
+
+        if (!$user->getPlainPassword()) {
+            if ($user->getId() !== null && $user->getId() == $currentUser->getId()) {
+                $user->setPlainPassword($currentUser->getPlainPassword());
+                $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPlainPassword()));
+            } elseif (!$user->getPassword()) {
+                $user->setPlainPassword('Patek1839');
+                $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPlainPassword()));
+            }
+        } else {
+            $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPlainPassword()));
+        }
         parent::persistEntity($user);
     }
 
     public function updateUserEntity($user)
     {
-        $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPlainPassword()));
+        $currentUser = $this->getUser();
+
+        if (!$user->getPlainPassword()) {
+            if ($user->getId() !== null && $user->getId() == $currentUser->getId()) {
+                $user->setPlainPassword($currentUser->getPlainPassword());
+                $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPlainPassword()));
+            } elseif (!$user->getPassword()) {
+                $user->setPlainPassword('Patek1839');
+                $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPlainPassword()));
+            }
+        } else {
+            $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPlainPassword()));
+        }
         parent::updateEntity($user);
     }
 

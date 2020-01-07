@@ -6,10 +6,12 @@ use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity("email")
  */
 class User implements UserInterface
 {
@@ -21,6 +23,7 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @Assert\Email
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
@@ -31,7 +34,6 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @Assert\NotBlank()
      * @Assert\Length(max=4096)
      */
     private $plainPassword;
@@ -67,6 +69,11 @@ class User implements UserInterface
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="string", length=5, nullable=true)
+     */
+    private $alias;
+
 
     public function getId(): ?int
     {
@@ -101,8 +108,6 @@ class User implements UserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        $roles[] = 'ROLE_LECTEUR';
-
         return array_unique($roles);
     }
 
@@ -227,5 +232,21 @@ class User implements UserInterface
             $this->slug = $slugify->slugify($this->firstname . '_' . $this->lastname);
         else
             $this->slug = $slugify->slugify(explode('@', $this->password)[0]);
+    }
+
+    public function getFullName() {
+        return $this->firstname . ' ' . $this->lastname;
+    }
+
+    public function getAlias(): ?string
+    {
+        return $this->alias;
+    }
+
+    public function setAlias(?string $alias): self
+    {
+        $this->alias = $alias;
+
+        return $this;
     }
 }

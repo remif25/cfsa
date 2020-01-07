@@ -34,13 +34,16 @@ class HomeController extends AbstractController
     {
         $error = "Vous n'avez pas accès au back-office";
         $hasAccess = $this->isGranted('ROLE_LECTEUR');
+        $user = $this->getUser();
+
         if (!$hasAccess)
             return $this->redirectToRoute('app_login');
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'hasAccess' => $hasAccess,
-            'error' => $error
+            'error' => $error,
+            'user' => $user
         ]);
     }
 }

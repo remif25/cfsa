@@ -36,7 +36,8 @@
 .line-radio-button {
 
 }
-th.col-1  {
+
+th.col-1, thead tr th  {
     text-align: center;
 }
 .no-selected {
@@ -91,4 +92,10 @@ form {
 input[id*="regle"] {
     visibility: hidden;
     height: 0;
+}
+
+/* For Google Chrome - Solve the problem of displaying tables */
+.my-table {
+    table-layout: fixed;
+    word-wrap: break-word;
 }

@@ -2,9 +2,7 @@
 
 {% block head_stylesheets %}
     {{ parent() }}
-{#
-    {{ encore_entry_link_tags('app') }}
-#}
+
     {{ encore_entry_link_tags('admin_naviquiz') }}
 {% endblock %}
 
@@ -16,8 +14,8 @@
     <div class="container">
         <div class="row">
             <div class="col-9">
-                <button class="btn-primary expand-all">Dérouller tout</button>
-                <button class="btn-primary expand-all" style="display: none">Enrouller tout</button>
+                <button class="btn-primary expand-all">Dérouler tout</button>
+                <button class="btn-primary expand-all" style="display: none">Enrouler tout</button>
                 <div id="tree"></div>
             </div>
             <div class="col-3">
@@ -35,8 +33,5 @@
 
 {% block body_javascript %}
     {{ parent() }}
-{#
-    {{ encore_entry_script_tags('app') }}
-#}
     {{ encore_entry_script_tags('admin_naviquiz') }}
 {% endblock %}

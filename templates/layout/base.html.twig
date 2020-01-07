@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Patek Philippe{% endblock %}</title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
@@ -13,6 +14,11 @@
     <div class="navbar-brand" ><a href="{{ path('home') }}">Patek Philippe</a></div>
     <a class="deco" href="/logout" ><i class="fas fa-sign-out-alt"></i>Déconnexion</a>
 </nav>
+<h3>
+    {% block subtitle %}
+    {% endblock %}
+</h3>
+
 {% block body %}
 {% endblock %}
 </body>

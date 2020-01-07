@@ -27,3 +27,7 @@ nav .deco {
     right: 20px;
     position: absolute;
 }
+h3 {
+    text-align: center;
+    margin: 1em 0;
+}

@@ -123,7 +123,7 @@ class Reponse implements JsonSerializable
             'url' => $this->getUrl(),
             'key' => $this->getId(),
             'title' => $this->getShort(),
-            'icon' => "fab fa-sticker-mule",
+            'icon' => "fas fa-comment-dots",
             'gammeEnveloppe' => $ge
         ];
     }

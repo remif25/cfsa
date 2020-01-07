@@ -6,7 +6,6 @@ import '../scss/main.scss'
 
 $(document).ready(function() {
 
-
     $('.has-regle').hover(function() {
         let id_regle = $(this).data('regle_id');
         $('.regle_id-' + id_regle).toggleClass('selected-regle');

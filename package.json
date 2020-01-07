@@ -29,6 +29,7 @@
         "jquery.fancytree": "^2.33.0",
         "less": "^3.10.3",
         "popper": "^1.0.1",
+        "popper.js": "^1.14.3",
         "select2": "^4.0.12",
         "webpack-jquery-ui": "^2.0.1"
     }

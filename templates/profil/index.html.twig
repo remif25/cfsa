@@ -5,13 +5,86 @@
     {{ encore_entry_link_tags('home') }}
 {% endblock %}
 
-{% block title %}Profil utilisateur{% endblock %}
+{% block subtitle %}Profil utilisateur{% endblock %}
 
 
 {% block body %}
+
     <div class="container">
         <div class="row justify-content-center">
+            <div class="col-10">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {{ form_start(form) }}
 
+                <div class="form-group">
+                    <i class="far fa-envelope"></i> {{ form_label(form.email) }}
+                    {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+
+                  {#  <small>{{ form_help(form.email) }}</small>
+
+                    <div class="form-error">
+                        {{ form_errors(form.email) }}
+                    </div>#}
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-key"></i> {{ form_label(form.plainPassword) }}
+                    {{ form_widget(form.plainPassword, { 'attr': {'class': 'form-control'} }) }}
+
+                   {# <small>{{ form_help(form.plainPassword) }}</small>
+
+                    <div class="form-error">
+                        {{ form_errors(form.plainPassword) }}
+                    </div>#}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.firstname) }}
+                    {{ form_widget(form.firstname, { 'attr': {'class': 'form-control'} }) }}
+
+                    <small>{{ form_help(form.firstname) }}</small>
+
+                    <div class="form-error">
+                        {{ form_errors(form.firstname) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.lastname) }}
+                    {{ form_widget(form.lastname, { 'attr': {'class': 'form-control'} }) }}
+
+                    <small>{{ form_help(form.lastname) }}</small>
+
+                    <div class="form-error">
+                        {{ form_errors(form.lastname) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.birthday) }}
+                    {{ form_widget(form.birthday, { 'attr': {'class': 'form-control js-datepicker'} } ) }}
+
+                    <small>{{ form_help(form.birthday) }}</small>
+
+                    <div class="form-error">
+                        {{ form_errors(form.birthday) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.roles) }}
+                    {{ form_widget(form.roles, {'attr': {'disabled': 'false'} }) }}
+
+                    <small>{{ form_help(form.roles) }}</small>
+
+                    <div class="form-error">
+                        {{ form_errors(form.roles) }}
+                    </div>
+                </div>
+
+
+                {{ form_end(form) }}
+            </div>
         </div>
     </div>
 

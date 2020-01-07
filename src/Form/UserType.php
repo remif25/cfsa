@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,23 +17,45 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('lastname')
-            ->add('firstname')
-            ->add('birthday')
+            ->add('lastname', null, [
+                'label' => 'Nom'
+            ])
+            ->add('firstname', null, [
+                'label' => 'Prénom'
+            ])
+            ->add('birthday',  DateType::class, [
+                'label' => "Date d'anniversaire",
+                'widget' => 'single_text',
+                'format' => 'dd/MM/yyyy',
+                'input_format' => 'dd/MM/yyyy',
+
+                // prevents rendering it as type="date", to avoid HTML5 date pickers
+                'html5' => false,
+
+                // adds a class that can be selected in JavaScript
+                'attr' => ['class' => 'js-datepicker'],
+            ])
             ->add('email')
-            ->add('password', PasswordType::class)
+            ->add('plainPassword', PasswordType::class, [
+                'label' => 'Mot de passe'
+            ])
             ->add('roles', ChoiceType::class, array(
+                'label' => 'Rôle',
                 'expanded' => false,
                 'multiple' => false,
                 'choices' => $this->getChoices(),
-                'attr' => ['class' => 'class="form-control']
-                ))
+                'attr' => ['class' => 'form-control'],
+                'data' => $options['data']->getRoles()
+            ))
             ->add('save', SubmitType::class, ['label' => 'Sauvegarder', 'attr' => ['class'=> 'btn btn-primary']])
             ->get('roles')
             ->addModelTransformer(new CallbackTransformer(
                 function ($rolesAsArray) {
                     if ($rolesAsArray === null)
                         return "";
+
+                    if (!is_array($rolesAsArray))
+                        return $rolesAsArray;
                     // transform the array to a string
                     return implode('-', $rolesAsArray);
                 },
@@ -50,12 +73,6 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'choices' => $this->getChoices(),
-            'choices_as_values' => true,
-            'choice_value' => function (User $object) {
-                // Use the string representation as values
-                return (string) $object;
-            },
         ]);
     }
 

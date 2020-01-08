@@ -130,8 +130,8 @@ class ConfigurateurController extends AbstractController
         $datas[11] = 8;
         $datas[12] = 2;
         $datas[13] = ''; // surplus
-        $datas[14] = ''; // Saisie quantité
-        $datas[15] = ''; // Suivie des temps
+        $datas[14] = 1; // Saisie quantité
+        $datas[15] = 1; // Suivie des temps
         $datas[16] = 'a';
         $datas[17] = 'b';
 

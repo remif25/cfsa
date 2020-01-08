@@ -5,7 +5,8 @@
     {{ encore_entry_link_tags('configurateur') }}
 {% endblock %}
 
-{% block title %}Configurateur GE{% endblock %}
+{% block title %}Configurateur GE {% endblock %}
+
 
 
 {% block body %}
@@ -16,7 +17,8 @@
         </div>
     {% else %}
 
-        <h3>Configurateur</h3>
+        <h3>Configurateur : {{ ge.reference }}</h3>
+        <h4>{{ ge.nom }}</h4>
 
         <div class="container-fluid main configurateur" data-configurations="{{ configurations }}">
             <div class="row">

@@ -79,9 +79,9 @@ th.col-1, thead tr th  {
 .question-reponse svg {
     vertical-align: top;
 }
-h3 {
+h3, h4 {
     text-align: center;
-    margin: 1em!important;
+    margin-top: 1em!important;
 }
 .index th{
     text-align: center;

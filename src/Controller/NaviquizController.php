@@ -17,17 +17,10 @@ class NaviquizController extends AbstractController
      */
     public function index(Request $request)
     {
-        if ($request->query->get('pw') === "eb70aa6ff6792225e8e4f7467d9982ac") {
-
-            return $this->render('naviquiz/index.html.twig', [
-                'controller_name' => 'Naviquiz',
-                'tree' => json_encode($this->getTree(), JSON_UNESCAPED_UNICODE),
-            ]);
-        } else {
-            return $this->render('naviquiz/index.html.twig', [
-                'permission_refused' => 1,
-            ]);
-        }
+        return $this->render('naviquiz/index.html.twig', [
+            'controller_name' => 'Naviquiz',
+            'tree' => json_encode($this->getTree(), JSON_UNESCAPED_UNICODE),
+        ]);
     }
 
     /**

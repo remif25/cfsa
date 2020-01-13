@@ -5,15 +5,17 @@
     {{ encore_entry_link_tags('home') }}
 {% endblock %}
 
-{% block title %}Naviquiz{% endblock %}
+{% block title %}Menu{% endblock %}
 
 
 {% block body %}
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 icon-cfsa">
-                <img src="{{ asset('build/logo/cfsa.jpg') }}" alt="">
-            </div>
+            {% if last_username is not defined %}
+                <div class="col-12 icon-cfsa">
+                    <img src="{{ asset('build/logo/cfsa.jpg') }}" alt="">
+                </div>
+            {% endif %}
             {% if hasAccess is not defined %}
                 <div class="col-8 login">
                     <form method="post">
@@ -73,13 +75,6 @@
 
 {% endblock %}
 
-    {% block footer %}
-        <footer class="footer mt-auto py-3">
-            <div class="container">
-                <span class="text-muted">Patek Philippe - Projet de création du référentiel : Rémi Fongaufier & Andréa Sester</span>
-            </div>
-        </footer>
-    {% endblock %}
 
     {% block javascripts %}
         {{ parent() }}

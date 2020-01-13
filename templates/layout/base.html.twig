@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block title %}Patek Philippe{% endblock %}</title>
+    <title>{% block title %}{% if last_username is not defined %}Patek Philippe{% endif %}{% endblock %}</title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
@@ -11,7 +11,9 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    {% if last_username is not defined %}
     <div class="navbar-brand" ><a href="{{ path('home') }}">Patek Philippe</a></div>
+    {% endif %}
     <a class="deco" href="/logout" ><i class="fas fa-sign-out-alt"></i>Déconnexion</a>
 </nav>
 <h3>
@@ -26,7 +28,9 @@
 {% block footer %}
     <footer class="footer mt-auto py-3">
         <div class="container">
+            {% if last_username is not defined %}
             <span class="text-muted">Patek Philippe - Projet de création du référentiel : Rémi Fongaufier & Andréa Sester</span>
+            {% endif %}
         </div>
     </footer>
 {% endblock %}

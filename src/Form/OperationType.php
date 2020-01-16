@@ -20,7 +20,7 @@ class OperationType extends AbstractType
         $builder
             ->add('id', HiddenType::class)
             ->add('numero', IntegerType::class, [
-                'attr' => ['min' => '10', 'max' => '500', 'step' => '10', 'class' => 'form-control', 'data-type_object' => 'activites'],
+                'attr' => ['min' => '10', 'max' => '500', 'step' => '10', 'class' => 'form-control'],
                 'required' => false
             ])
             //Workplace
@@ -31,7 +31,7 @@ class OperationType extends AbstractType
             ])
             //Activity
             ->add('activite',null, [
-                'attr' => ['class' => 'form-control select2-form', 'placeholder' => 'Entrez le activité'],
+                'attr' => ['class' => 'form-control select2-form', 'placeholder' => 'Entrez le activité', 'data-type_object' => 'activites'],
                 'required' => false
 
             ])

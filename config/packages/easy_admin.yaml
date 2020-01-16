@@ -121,6 +121,11 @@ easy_admin:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
                     - { property: 'pdts', label: 'Poste de travail' }
+            form:
+                fields:
+                    - { property: 'reference', label: 'Référence'}
+                    - { property: 'description', label: 'Description' }
+                    - { property: 'pdts', label: "PDT lié" }
 
             
         Question:

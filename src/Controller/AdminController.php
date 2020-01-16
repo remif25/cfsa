@@ -591,9 +591,10 @@ class AdminController extends EasyAdminController
      * @Route("/api/ge/{type_object}/{constraint}", name="get_objects")
      */
     public function getDatas($type_object, $constraint) {
+
         $objectsArray = array();
         if ($type_object === 'activites')
-            $objects = $this->getEM()->find(Activite::class)->find($constraint)->getPdts();
+            $objects = $this->getDoctrine()->getRepository(Activite::class)->find($constraint)->getPdts();
         elseif ($type_object === 'pdts')
             $objects = $this->getDoctrine()->getRepository(PosteTravail::class)->find($constraint)->getActivites();
         elseif ($type_object === 'regles')

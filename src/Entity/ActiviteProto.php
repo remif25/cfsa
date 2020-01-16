@@ -84,6 +84,10 @@ class ActiviteProto
         return $this;
     }
 
+    public function __toString() {
+        return $this->reference . ' - ' . $this->description;
+    }
+
     /**
      * @return Collection|PosteTravailProto[]
      */

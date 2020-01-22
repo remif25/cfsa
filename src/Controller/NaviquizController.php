@@ -92,7 +92,7 @@ class NaviquizController extends AbstractController
             foreach ($arraydatas as &$arraydata) {
                 $children = self::getChildren($arraydata);
 
-                if(count($children)  > 0) {
+                if(is_countable($children) && count($children)  > 0) {
                     $arraydata['children'] = $this->recursive($children);
                 }
             }
@@ -105,7 +105,7 @@ class NaviquizController extends AbstractController
             foreach ($arraydatas as &$arraydata) {
                 $children = self::getChildrenForFancytree($arraydata);
 
-                if(count($children)  > 0) {
+                if(is_countable($children) && count($children)  > 0) {
                     $arraydata['children'] = $this->recursive($children);
                 }
             }

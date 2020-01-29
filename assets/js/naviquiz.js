@@ -124,40 +124,78 @@ function displayBigQuestions(tmpData, lvl) {
 
     let children = tmpData[0].children;
     let nChildren = children.length;
+    console.log(nChildren);
+    console.log(nChildren > 4);
 
-    children.forEach(function(child) {
-        console.log(child);
-        console.log(child.gammeEnveloppe);
+    children.forEach(function(child, index) {
         if (child.gammeEnveloppe) {
-            $('.questions').append(' <a href="/configurateur/config/' + child.gammeEnveloppe + '" class="col-md-' + 12 / nChildren + ' big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '" target="_blank">\n' +
-                '                                    <div class="card text-white bg-success mb-3">\n' +
-                '                                        <div class="card-header">\n' +
-                '                                            <h5 class="card-title">' + child.short + '</h5>\n' +
-                '                                        </div>\n' +
-                '                                        <div class="card-body">\n' +
-                '                                            <p class="card-text"> ' + child.information + '</p>\n' +
-                '                                        </div>\n' +
-                '                                        <div class="card-footer">\n' +
-                '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' +  child.img + '" class="card-img-top" ></div></div>\n' +
-                '                                            \n' +
-                '                                        </div>\n' +
-                '                                    </div>\n' +
-                '                                </a>');
+            if (nChildren > 4) {
+                $('.questions').append(' <div class="col-md-4 big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '">\n' +
+                    '                                    <div class="card text-white bg-success mb-3">\n' +
+                    '                                        <div class="card-header">\n' +
+                    '                                            <h5 class="card-title">' + child.short + '</h5>\n' +
+                    '                                        </div>\n' +
+                    '                                        <div class="card-body">\n' +
+                    '                                            <p class="card-text"> ' + child.information + '</p>\n' +
+                    '                                        </div>\n' +
+                    '                                        <div class="card-footer">\n' +
+                    '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' + child.img + '" class="card-img-top" ></div></div>\n' +
+                    '                                            \n' +
+                    '                                        </div>\n' +
+                    '                                    </div>\n' +
+                    '                                </div>');
+            }
+            else {
+                $('.questions').append(' <a href="/configurateur/config/' + child.gammeEnveloppe + '" class="col-md-' + 12 / nChildren + ' big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '" target="_blank">\n' +
+                    '                                    <div class="card text-white bg-success mb-3">\n' +
+                    '                                        <div class="card-header">\n' +
+                    '                                            <h5 class="card-title">' + child.short + '</h5>\n' +
+                    '                                        </div>\n' +
+                    '                                        <div class="card-body">\n' +
+                    '                                            <p class="card-text"> ' + child.information + '</p>\n' +
+                    '                                        </div>\n' +
+                    '                                        <div class="card-footer">\n' +
+                    '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' +  child.img + '" class="card-img-top" ></div></div>\n' +
+                    '                                            \n' +
+                    '                                        </div>\n' +
+                    '                                    </div>\n' +
+                    '                                </a>');
+            }
+
         } else {
-            $('.questions').append(' <div class="col-md-' + 12 / nChildren + ' big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '">\n' +
-                '                                    <div class="card text-white bg-success mb-3">\n' +
-                '                                        <div class="card-header">\n' +
-                '                                            <h5 class="card-title">' + child.short + '</h5>\n' +
-                '                                        </div>\n' +
-                '                                        <div class="card-body">\n' +
-                '                                            <p class="card-text"> ' + child.information + '</p>\n' +
-                '                                        </div>\n' +
-                '                                        <div class="card-footer">\n' +
-                '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' +  child.img + '" class="card-img-top" ></div></div>\n' +
-                '                                            \n' +
-                '                                        </div>\n' +
-                '                                    </div>\n' +
-                '                                </div>');
+            if (nChildren > 4) {
+                $('.questions').append(' <div class="col-md-4 big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '">\n' +
+                    '                                    <div class="card text-white bg-success mb-3">\n' +
+                    '                                        <div class="card-header">\n' +
+                    '                                            <h5 class="card-title">' + child.short + '</h5>\n' +
+                    '                                        </div>\n' +
+                    '                                        <div class="card-body">\n' +
+                    '                                            <p class="card-text"> ' + child.information + '</p>\n' +
+                    '                                        </div>\n' +
+                    '                                        <div class="card-footer">\n' +
+                    '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' + child.img + '" class="card-img-top" ></div></div>\n' +
+                    '                                            \n' +
+                    '                                        </div>\n' +
+                    '                                    </div>\n' +
+                    '                                </div>');
+
+            } else {
+
+                $('.questions').append(' <div class="col-md-' + 12 / nChildren + ' big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '">\n' +
+                    '                                    <div class="card text-white bg-success mb-3">\n' +
+                    '                                        <div class="card-header">\n' +
+                    '                                            <h5 class="card-title">' + child.short + '</h5>\n' +
+                    '                                        </div>\n' +
+                    '                                        <div class="card-body">\n' +
+                    '                                            <p class="card-text"> ' + child.information + '</p>\n' +
+                    '                                        </div>\n' +
+                    '                                        <div class="card-footer">\n' +
+                    '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' + child.img + '" class="card-img-top" ></div></div>\n' +
+                    '                                            \n' +
+                    '                                        </div>\n' +
+                    '                                    </div>\n' +
+                    '                                </div>');
+            }
         }
 
     });

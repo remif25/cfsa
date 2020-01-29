@@ -9,6 +9,12 @@ nav {
     font-size: large;
     margin-bottom:  2.2em;
 }
+h3 {
+    margin-top: 0!important;
+}
+h5 {
+    margin-bottom: 0!important;
+}
 .left-navbar {
     height: 100%;
     padding: 1em;
@@ -23,7 +29,9 @@ nav {
 }
 .card:hover {
     text-decoration: none!important;
-}
+}.big-card-question {
+    margin-bottom: 1em;
+ }
 a.big-card-question {
     text-decoration: none!important;
 }
@@ -32,6 +40,9 @@ a.big-card-question {
 }
 .card img {
     padding: 0.5em;
+}
+.card-body {
+    padding: 0.5em 1em!important;
 }
 .card-footer {
     height: 100%;

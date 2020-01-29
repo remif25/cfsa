@@ -592,13 +592,24 @@ class AdminController extends EasyAdminController
      */
     public function getDatas($type_object, $constraint) {
 
+        $objects= array();
         $objectsArray = array();
-        if ($type_object === 'activites')
-            $objects = $this->getDoctrine()->getRepository(Activite::class)->find($constraint)->getPdts();
-        elseif ($type_object === 'pdts')
-            $objects = $this->getDoctrine()->getRepository(PosteTravail::class)->find($constraint)->getActivites();
-        elseif ($type_object === 'regles')
-            $objects = $this->getDoctrine()->getRepository(Regle::class)->findByGE($constraint);
+
+        if ($constraint !== 'null') {
+            if ($type_object === 'activites')
+                $objects = $this->getDoctrine()->getRepository(Activite::class)->find($constraint)->getPdts();
+            elseif ($type_object === 'pdts')
+                $objects = $this->getDoctrine()->getRepository(PosteTravail::class)->find($constraint)->getActivites();
+            elseif ($type_object === 'regles')
+                $objects = $this->getDoctrine()->getRepository(Regle::class)->findByGE($constraint);
+        } else {
+            if ($type_object === 'activites')
+                $objects = $this->getDoctrine()->getRepository(PosteTravail::class)->findAll();
+            elseif ($type_object === 'pdts')
+                $objects = $this->getDoctrine()->getRepository(Activite::class)->findAll();
+            elseif ($type_object === 'regles')
+                $objects = $this->getDoctrine()->getRepository(Regle::class)->findAll();
+        }
 
 
         foreach ($objects as $object) {

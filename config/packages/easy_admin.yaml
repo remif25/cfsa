@@ -31,13 +31,13 @@ easy_admin:
               children:
                 - {entity: 'Question',icon: 'inbox', label: 'Question'}
                 - {entity: 'Reponse', icon: 'inbox', label: 'Réponse'}
+                - {label: 'Structure', route: 'config_naviquiz', icon: 'tree' }
 
             - label: 'Configurateur'
               icon: 'cogs'
               children:
                 - {entity: 'GammeEnveloppe', icon: 'inbox', label: 'Gamme enveloppe'}
                 - {entity: 'Regle',icon: 'inbox', label: 'Règle'}
-            - { label: 'Naviquiz', route: 'config_naviquiz', icon: 'tree' }
             - label: 'Import données'
               icon: 'cloud-download-alt'
               children:
@@ -148,7 +148,7 @@ easy_admin:
             label: 'Gamme enveloppe'
             list:
                 actions:
-                    - { name: 'configGE', icon: 'cubes', label: 'Mise à jour' }
+                    - { name: 'configGE', icon: 'cubes', label: 'Séquence' }
                 fields:
                     - { property: 'nom', label: 'Titre' }
                     - { property: 'reference', label: 'Référence' }

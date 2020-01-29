@@ -130,7 +130,7 @@ function displayBigQuestions(tmpData, lvl) {
     children.forEach(function(child, index) {
         if (child.gammeEnveloppe) {
             if (nChildren > 4) {
-                $('.questions').append(' <div class="col-md-4 big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '">\n' +
+                $('.questions').append(' <a href="/configurateur/config/' + child.gammeEnveloppe + '" class="col-md-4 big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '" target="_blank">\n' +
                     '                                    <div class="card text-white bg-success mb-3">\n' +
                     '                                        <div class="card-header">\n' +
                     '                                            <h5 class="card-title">' + child.short + '</h5>\n' +
@@ -139,11 +139,11 @@ function displayBigQuestions(tmpData, lvl) {
                     '                                            <p class="card-text"> ' + child.information + '</p>\n' +
                     '                                        </div>\n' +
                     '                                        <div class="card-footer">\n' +
-                    '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' + child.img + '" class="card-img-top" ></div></div>\n' +
+                    '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' +  child.img + '" class="card-img-top" ></div></div>\n' +
                     '                                            \n' +
                     '                                        </div>\n' +
                     '                                    </div>\n' +
-                    '                                </div>');
+                    '                                </a>');
             }
             else {
                 $('.questions').append(' <a href="/configurateur/config/' + child.gammeEnveloppe + '" class="col-md-' + 12 / nChildren + ' big-card-question" data-card_id="' + child.id + '" data-lvl="' + lvl + '" target="_blank">\n' +

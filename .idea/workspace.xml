@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e786d1e-7018-4f0c-8565-42becfa75a2e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/configurateur.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/configurateur.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/naviquiz.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/naviquiz.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/admin/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/admin/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/naviquiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/naviquiz.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/easy_admin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/easy_admin.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/naviquiz.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/naviquiz.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="6e786d1e-7018-4f0c-8565-42becfa75a2e" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,8 +96,8 @@
       <file leaf-file-name="naviquiz.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/css/naviquiz.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+            <state relative-caret-position="232">
+              <caret line="78" column="31" lean-forward="true" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -145,7 +137,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>configFe</find>
       <find>.form-group label</find>
       <find>LoginFormAuthenticato</find>
       <find>home/login.html.twig</find>
@@ -175,6 +166,7 @@
       <find>doc</find>
       <find>admin</find>
       <find>consol</find>
+      <find>img</find>
     </findStrings>
     <replaceStrings>
       <replace>#6F5F59</replace>
@@ -399,7 +391,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="341" />
     <option name="y" value="-8" />
     <option name="width" value="974" />
@@ -637,12 +629,12 @@
       <workItem from="1580300286410" duration="2879000" />
       <workItem from="1580377431262" duration="2284000" />
       <workItem from="1580482513491" duration="1231000" />
-      <workItem from="1580804585779" duration="1753000" />
+      <workItem from="1580804585779" duration="2384000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="474611000" />
+    <option name="totallyTimeSpent" value="475242000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -655,20 +647,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32897604" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.11940298" side_tool="true" weight="0.33006537" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.880597" visible="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.880597" weight="0.32897604" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.84463894" weight="0.14705883" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.84463894" visible="true" weight="0.40958604" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.66411376" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6883117" visible="true" weight="0.24786781" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6881919" visible="true" weight="0.24786781" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.5074627" />
-      <window_info id="Structure" order="1" sideWeight="0.3116883" side_tool="true" visible="true" weight="0.24786781" />
+      <window_info id="Structure" order="1" sideWeight="0.3118081" side_tool="true" visible="true" weight="0.24786781" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.64445627" weight="0.39542484" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1043,8 +1034,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/naviquiz.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+        <state relative-caret-position="232">
+          <caret line="78" column="31" lean-forward="true" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
         </state>
       </provider>
     </entry>

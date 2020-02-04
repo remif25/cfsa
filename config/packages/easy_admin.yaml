@@ -33,7 +33,7 @@ easy_admin:
                 - {entity: 'GammeEnveloppe', icon: 'inbox', label: 'Gamme enveloppe'}
                 - {entity: 'Regle',icon: 'inbox', label: 'Règle'}
             - label: 'Import données'
-              icon: 'cloud-download-alt'
+              icon: 'cloud-upload-alt'
               children:
                 - { label: 'Données PROD',icon: 'inbox', route: 'import_data'}
                 - { label: 'PDT PROTO',icon: 'inbox', route: 'import_data_pdt_proto'}

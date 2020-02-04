@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e786d1e-7018-4f0c-8565-42becfa75a2e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/configurateur.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/configurateur.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/naviquiz.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/naviquiz.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/admin/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/admin/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/naviquiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/naviquiz.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/easy_admin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/easy_admin.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/naviquiz/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/naviquiz/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/naviquiz.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/naviquiz.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,70 +41,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NaviquizController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/NaviquizController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1802">
-              <caret line="112" column="5" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="framework.yaml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="easy_admin.yaml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2805">
-              <caret line="165" column="14" selection-start-line="165" selection-start-column="14" selection-end-line="165" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10013">
-              <caret line="611" column="9" selection-start-line="611" selection-start-column="9" selection-end-line="611" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/admin/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/naviquiz/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="27" column="65" lean-forward="true" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConfigurateurController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ConfigurateurController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2159">
-              <caret line="134" column="25" selection-start-line="134" selection-start-column="25" selection-end-line="134" selection-end-column="25" />
+            <state relative-caret-position="102">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,8 +56,8 @@
       <file leaf-file-name="naviquiz.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/naviquiz.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="145" column="62" selection-start-line="145" selection-start-column="62" selection-end-line="145" selection-end-column="62" />
+            <state relative-caret-position="208">
+              <caret line="141" column="136" selection-start-line="141" selection-start-column="136" selection-end-line="141" selection-end-column="136" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -122,11 +65,70 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ge.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/export/ge.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="structure.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/export/structure.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="naviquiz.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/naviquiz.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="naviquiz.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/admin/naviquiz.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-34">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="naviquiz.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/css/naviquiz.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+            <state relative-caret-position="197">
+              <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="configurateur.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/configurateur.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="configurateur.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/configurateur.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1785">
+              <caret line="105" column="33" lean-forward="true" selection-start-line="104" selection-start-column="28" selection-end-line="105" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/naviquiz/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="27" column="65" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -200,7 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/admin/import/pdtproto.html.twig" />
         <option value="$PROJECT_DIR$/templates/admin/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/GammeEnveloppeType.php" />
         <option value="$PROJECT_DIR$/src/Repository/PosteTravailRepository.php" />
@@ -226,13 +227,10 @@
         <option value="$PROJECT_DIR$/src/Entity/Reponse.php" />
         <option value="$PROJECT_DIR$/assets/css/app.css" />
         <option value="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" />
-        <option value="$PROJECT_DIR$/templates/admin/naviquiz.html.twig" />
-        <option value="$PROJECT_DIR$/templates/admin/export/structure.html.twig" />
         <option value="$PROJECT_DIR$/templates/configurateur/index.html.twig" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
         <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/assets/css/configurateur.css" />
         <option value="$PROJECT_DIR$/templates/configurateur/configurateur.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/ConfigurateurController.php" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -242,14 +240,18 @@
         <option value="$PROJECT_DIR$/src/Entity/ActiviteProto.php" />
         <option value="$PROJECT_DIR$/src/Entity/PosteTravailProto.php" />
         <option value="$PROJECT_DIR$/src/Form/OperationType.php" />
-        <option value="$PROJECT_DIR$/assets/js/admin/admin.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/Controller/NaviquizController.php" />
-        <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
         <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/templates/naviquiz/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/admin/naviquiz.html.twig" />
+        <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
+        <option value="$PROJECT_DIR$/assets/js/admin/admin.js" />
+        <option value="$PROJECT_DIR$/templates/admin/export/structure.html.twig" />
+        <option value="$PROJECT_DIR$/templates/admin/export/ge.html.twig" />
         <option value="$PROJECT_DIR$/assets/js/naviquiz.js" />
+        <option value="$PROJECT_DIR$/assets/css/configurateur.css" />
         <option value="$PROJECT_DIR$/assets/css/naviquiz.css" />
       </list>
     </option>
@@ -398,7 +400,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+    <option name="x" value="341" />
+    <option name="y" value="-8" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -410,6 +413,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -437,6 +441,17 @@
             <path>
               <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfsa" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -454,13 +469,39 @@
               <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfsa" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="export" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="ge" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="import" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="naviquiz" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -593,12 +634,15 @@
       <workItem from="1580226200768" duration="10000" />
       <workItem from="1580226361518" duration="2093000" />
       <workItem from="1580282980892" duration="593000" />
-      <workItem from="1580300286410" duration="1375000" />
+      <workItem from="1580300286410" duration="2879000" />
+      <workItem from="1580377431262" duration="2284000" />
+      <workItem from="1580482513491" duration="1231000" />
+      <workItem from="1580804585779" duration="1753000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="467839000" />
+    <option name="totallyTimeSpent" value="474611000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -610,7 +654,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32897604" />
@@ -619,12 +663,12 @@
       <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.880597" visible="true" weight="0.32897604" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.84463894" weight="0.1906318" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.84463894" weight="0.14705883" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.66411376" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6931818" visible="true" weight="0.23720682" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6883117" visible="true" weight="0.24786781" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.5074627" />
-      <window_info id="Structure" order="1" sideWeight="0.3068182" side_tool="true" visible="true" weight="0.23720682" />
+      <window_info id="Structure" order="1" sideWeight="0.3116883" side_tool="true" visible="true" weight="0.24786781" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.64445627" weight="0.39542484" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -647,14 +691,14 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32897604" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32461873" />
       <window_info anchor="right" id="Database" order="4" weight="0.5074627" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.84463894" weight="0.2618262" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.64445627" weight="0.39542484" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.880597" visible="true" weight="0.33006537" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -691,27 +735,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/packages/translation.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ProfilController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="39" column="33" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/UserType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../playcoop/config/config.js" />
     <entry file="file://$PROJECT_DIR$/../playcoop/config/env/development.js" />
     <entry file="file://$PROJECT_DIR$/src/Entity/Regle.php">
@@ -739,13 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="71" column="92" lean-forward="true" selection-start-line="71" selection-start-column="92" selection-end-line="71" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/naviquiz.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -777,13 +793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1207">
           <caret line="72" column="32" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/export/structure.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -822,13 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/configurateur.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -909,13 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -935,7 +930,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="918">
           <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
         </state>
       </provider>
@@ -949,13 +944,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2805">
-          <caret line="165" column="14" selection-start-line="165" selection-start-column="14" selection-end-line="165" selection-end-column="14" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ConfigurateurController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -971,44 +959,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/naviquiz/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="27" column="65" lean-forward="true" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
+        <state relative-caret-position="1122">
+          <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/admin/naviquiz.js">
+    <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1156">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/admin/admin.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/admin/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
-            <element signature="e#284#303#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/admin/admin.js">
+    <entry file="file://$PROJECT_DIR$/templates/admin/export/structure.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        <state relative-caret-position="323">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/export/ge.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/naviquiz.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/naviquiz.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="145" column="62" selection-start-line="145" selection-start-column="62" selection-end-line="145" selection-end-column="62" />
+        <state relative-caret-position="208">
+          <caret line="141" column="136" selection-start-line="141" selection-start-column="136" selection-end-line="141" selection-end-column="136" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/naviquiz/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="27" column="65" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/admin/naviquiz.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/configurateur.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/configurateur.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="105" column="33" lean-forward="true" selection-start-line="104" selection-start-column="28" selection-end-line="105" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/naviquiz.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        <state relative-caret-position="197">
+          <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
         </state>
       </provider>
     </entry>

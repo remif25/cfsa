@@ -4,12 +4,6 @@ easy_admin:
         # (Symfony will look for getFullName(), isFullName(), ..., and 'fullName' property)
         name_property_path: 'fullName'
     design:
-        assets:
-                # all kinds of assets are supported and linked accordingly
-            css:
-                    - '/build/admin.css'
-            js:
-                    - '/build/admin.js'
         menu:
             - label: 'Données PROD'
               icon: 'project-diagram'

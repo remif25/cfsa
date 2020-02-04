@@ -99,3 +99,14 @@ input[id*="regle"] {
     table-layout: fixed;
     word-wrap: break-word;
 }
+
+@media screen and (min-width: 1900px) {
+    .col-2 {
+        flex: 15%!important;
+        max-width: 15%!important;
+    }
+    .col-1 {
+        flex: 9.5%!important;
+        max-width: 9.5%!important;
+    }
+}

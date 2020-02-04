@@ -139,7 +139,7 @@ function displayBigQuestions(tmpData, lvl) {
                     '                                            <p class="card-text"> ' + child.information + '</p>\n' +
                     '                                        </div>\n' +
                     '                                        <div class="card-footer">\n' +
-                    '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' +  child.img + '" class="card-img-top" ></div></div>\n' +
+                    '                                            <div class="row justify-content-center"> <div class="col-10 text-center"><img src="../uploads/images/reponse/' +  child.img + '" class="card-img-top" ></div></div>\n' +
                     '                                            \n' +
                     '                                        </div>\n' +
                     '                                    </div>\n' +
@@ -155,7 +155,7 @@ function displayBigQuestions(tmpData, lvl) {
                     '                                            <p class="card-text"> ' + child.information + '</p>\n' +
                     '                                        </div>\n' +
                     '                                        <div class="card-footer">\n' +
-                    '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' +  child.img + '" class="card-img-top" ></div></div>\n' +
+                    '                                            <div class="row justify-content-center"> <div class="col-10 text-center"><img src="../uploads/images/reponse/' +  child.img + '" class="card-img-top" ></div></div>\n' +
                     '                                            \n' +
                     '                                        </div>\n' +
                     '                                    </div>\n' +
@@ -173,7 +173,7 @@ function displayBigQuestions(tmpData, lvl) {
                     '                                            <p class="card-text"> ' + child.information + '</p>\n' +
                     '                                        </div>\n' +
                     '                                        <div class="card-footer">\n' +
-                    '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' + child.img + '" class="card-img-top" ></div></div>\n' +
+                    '                                            <div class="row justify-content-center"> <div class="col-10 text-center"><img src="../uploads/images/reponse/' + child.img + '" class="card-img-top" ></div></div>\n' +
                     '                                            \n' +
                     '                                        </div>\n' +
                     '                                    </div>\n' +
@@ -190,7 +190,7 @@ function displayBigQuestions(tmpData, lvl) {
                     '                                            <p class="card-text"> ' + child.information + '</p>\n' +
                     '                                        </div>\n' +
                     '                                        <div class="card-footer">\n' +
-                    '                                            <div class="row justify-content-center"> <div class="col-8"><img src="../uploads/images/reponse/' + child.img + '" class="card-img-top" ></div></div>\n' +
+                    '                                            <div class="row justify-content-center"> <div class="col-10 text-center"><img src="../uploads/images/reponse/' + child.img + '" class="card-img-top" ></div></div>\n' +
                     '                                            \n' +
                     '                                        </div>\n' +
                     '                                    </div>\n' +

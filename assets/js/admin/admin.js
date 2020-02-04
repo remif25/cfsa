@@ -1,6 +1,9 @@
+/*
 import('../../css/bootstrap.css');
+*/
 import('../../css/admin/admin.css');
 import('../../bootstrap-datepicker/css/bootstrap-datepicker.css');
+
 
 const $ = require('jquery');
 

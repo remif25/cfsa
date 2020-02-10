@@ -162,3 +162,8 @@ ul li:hover:nth-child(4) a:before{
 ul li:hover:nth-child(4) a:after{
     background: #0d82bf;
 }*/
+.reveal {
+    border-color: #ced4da;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

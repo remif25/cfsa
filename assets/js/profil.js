@@ -34,7 +34,7 @@ $(document).ready(function() {
                 $meter.value = 50;
                 break;
             case 3:
-                $meter.attr('class', 'progress-bar bg-info')
+                $meter.attr('class', 'progress-bar bg-warning')
                     .css('width', '75%').attr('aria-valuenow', '75%');
                 $meter.value = 75;
                 break;
@@ -46,7 +46,7 @@ $(document).ready(function() {
         }
 
         // We will treat the password as an invalid one if the score is less than 3
-        if (score < 2) {
+        if (score < 4) {
             password.className = 'form-control is-invalid';
             $('#user_save').attr('disabled', true);
             return {

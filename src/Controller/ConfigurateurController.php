@@ -77,7 +77,7 @@ class ConfigurateurController extends AbstractController
         }
 
         $filename = $is_prod ? 'export_' . $ge->getReference() .'_gamme_'. $gamme. '_PROD.csv' : 'export_' . $ge->getReference() .'_gamme_'. $gamme. '_PROTO.csv';
-        $head = "Gamme;Article;Séquence;Poste_travail;Activite;activite_suppl;TEMPS_MEO;TEMPS_MO;TEMPS_MA;Nombre_piece;UNITE;ACHEMINEMENT;UNITE;surplus;Saisie quantité; Suivi des temps; TargetH;TargetO";
+        $head = "Gamme;Article;Séquence;Poste_travail;Activite;activite_suppl;TEMPS_MEO;TEMPS_MO;TEMPS_MA;Nombre_piece;UNITE_PCE;ACHEMINEMENT;UNITE_ACH;surplus;Saisie quantité; Suivi des temps; TargetH;TargetO";
 
         return $this->exportCSV($filename, $datas, $head);
     }
@@ -132,8 +132,8 @@ class ConfigurateurController extends AbstractController
         $datas[13] = ''; // surplus
         $datas[14] = 1; // Saisie quantité
         $datas[15] = 1; // Suivie des temps
-        $datas[16] = 'a';
-        $datas[17] = 'b';
+        $datas[16] = '';
+        $datas[17] = '';
 
 
         return $datas;

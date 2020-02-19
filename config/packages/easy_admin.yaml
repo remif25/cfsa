@@ -12,7 +12,6 @@ easy_admin:
                 - {entity: 'CentreProduction', icon: 'inbox'}
                 - {entity: 'PosteTravail', icon: 'inbox'}
                 - {entity: 'Activite', icon: 'inbox'}
-                - {entity: 'Operation', icon: 'inbox'}
 
             - label: 'Données PROTO'
               icon: 'box-open'

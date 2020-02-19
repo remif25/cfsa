@@ -48,13 +48,13 @@
                                     Séq
                                 </div>
                                 <div class="col-2">
-                                    PDT
+                                    Code PDT
                                 </div>
                                 <div class="col-3">
                                     Désignation PDT
                                 </div>
                                 <div class="col-2">
-                                    Activité
+                                    Code activité
                                 </div>
                                 <div class="col-3">
                                     Désignation activité
@@ -66,10 +66,10 @@
                             {% for key, operation in ge.operations %}
                                 <div class="row py-2 operation-id-{{ operation.id }} ligne-{{ key }} {% if operation.linkregleoperation.regle is defined %}has-regle regle_id-{{ operation.linkregleoperation.regle.id }}{% endif %}" data-regle_id="{% if operation.linkregleoperation.regle is defined %}{{ operation.linkregleoperation.regle.id }}{% endif %}">
                                     <div class="col-1">{{ operation.numero }}</div>
-                                    <div class="col-2">{{ operation.activite.reference }}</div>
-                                    <div class="col-3">{{ operation.activite.description }}</div>
                                     <div class="col-2">{{ operation.pdt.reference }}</div>
                                     <div class="col-3">{{ operation.pdt.description }}</div>
+                                    <div class="col-2">{{ operation.activite.reference }}</div>
+                                    <div class="col-3">{{ operation.activite.description }}</div>
                                     <div class="col-1">{% if operation.linkregleoperation.regle is defined %}<i class="far fa-question-circle"></i> Regle n° {{ operation.linkregleoperation.regle.id }}{% endif %}</div>
                                 </div>
                             {% endfor %}

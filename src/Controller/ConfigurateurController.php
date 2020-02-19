@@ -113,8 +113,8 @@ class ConfigurateurController extends AbstractController
          *  13/ surplus : Quantité de rebut attendu à l'opération en pourcentage
          *  14/ Saisie quantité : ?
          *  15/ Suivi des temps : ?
-         *  16/ TargetH : ? (toujours mettre 'a')
-         *  17/ TargetO : ? (toujours mettre 'b')
+         *  16/ TargetH : ? (toujours vide)
+         *  17/ TargetO : ? (toujours vide)
          */
         $datas[0] = $gamme;
         $datas[1] = $article;

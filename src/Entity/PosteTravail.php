@@ -35,11 +35,6 @@ class PosteTravail implements JsonSerializable
     private $operations;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Activite", mappedBy="pdts")
-     */
-    private $activites;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\CentreProduction", inversedBy="pdts")
      */
     private $centreProduction;
@@ -49,10 +44,21 @@ class PosteTravail implements JsonSerializable
      */
     private $posteTravailProto;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ActivitePosteTravail", mappedBy="pdt")
+     */
+    private $activitePosteTravails;
+
+    /**
+     * @ORM\Column(type="string", length=12, nullable=true)
+     */
+    private $naturePdt;
+
     public function __construct()
     {
         $this->operations = new ArrayCollection();
         $this->activites = new ArrayCollection();
+        $this->activitePosteTravails = new ArrayCollection();
     }
 
 
@@ -119,7 +125,7 @@ class PosteTravail implements JsonSerializable
     /**
      * @return Collection|Activite[]
      */
-    public function getActivites(): Collection
+    /*public function getActivites(): Collection
     {
         return $this->activites;
     }
@@ -142,7 +148,7 @@ class PosteTravail implements JsonSerializable
         }
 
         return $this;
-    }
+    }*/
 
     public function __toString() {
         return $this->reference . ' - ' . $this->description;
@@ -184,6 +190,49 @@ class PosteTravail implements JsonSerializable
         if ($posteTravailProto->getPdt() !== $newPdt) {
             $posteTravailProto->setPdt($newPdt);
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ActivitePosteTravail[]
+     */
+    public function getActivitePosteTravails(): Collection
+    {
+        return $this->activitePosteTravails;
+    }
+
+    public function addActivitePosteTravail(ActivitePosteTravail $activitePosteTravail): self
+    {
+        if (!$this->activitePosteTravails->contains($activitePosteTravail)) {
+            $this->activitePosteTravails[] = $activitePosteTravail;
+            $activitePosteTravail->setPdt($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActivitePosteTravail(ActivitePosteTravail $activitePosteTravail): self
+    {
+        if ($this->activitePosteTravails->contains($activitePosteTravail)) {
+            $this->activitePosteTravails->removeElement($activitePosteTravail);
+            // set the owning side to null (unless already changed)
+            if ($activitePosteTravail->getPdt() === $this) {
+                $activitePosteTravail->setPdt(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getNaturePdt(): ?string
+    {
+        return $this->naturePdt;
+    }
+
+    public function setNaturePdt(?string $naturePdt): self
+    {
+        $this->naturePdt = $naturePdt;
 
         return $this;
     }

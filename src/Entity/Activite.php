@@ -35,19 +35,20 @@ class Activite implements JsonSerializable
     private $operations;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\PosteTravail", inversedBy="activites")
-     */
-    private $pdts;
-
-    /**
      * @ORM\OneToOne(targetEntity="App\Entity\ActiviteProto", mappedBy="activite", cascade={"persist", "remove"})
      */
     private $activiteProto;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ActivitePosteTravail", mappedBy="activite")
+     */
+    private $activitePosteTravails;
 
     public function __construct()
     {
         $this->operations = new ArrayCollection();
         $this->pdts = new ArrayCollection();
+        $this->activitePosteTravails = new ArrayCollection();
     }
 
 
@@ -114,7 +115,7 @@ class Activite implements JsonSerializable
     /**
      * @return Collection|PosteTravail[]
      */
-    public function getPdts(): Collection
+    /*public function getPdts(): Collection
     {
         return $this->pdts;
     }
@@ -135,7 +136,7 @@ class Activite implements JsonSerializable
         }
 
         return $this;
-    }
+    }*/
 
     public function __toString() {
         return $this->reference . ' - ' . $this->description;
@@ -164,6 +165,37 @@ class Activite implements JsonSerializable
         $newActivite = null === $activiteProto ? null : $this;
         if ($activiteProto->getActivite() !== $newActivite) {
             $activiteProto->setActivite($newActivite);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ActivitePosteTravail[]
+     */
+    public function getActivitePosteTravails(): Collection
+    {
+        return $this->activitePosteTravails;
+    }
+
+    public function addActivitePosteTravail(ActivitePosteTravail $activitePosteTravail): self
+    {
+        if (!$this->activitePosteTravails->contains($activitePosteTravail)) {
+            $this->activitePosteTravails[] = $activitePosteTravail;
+            $activitePosteTravail->setActivite($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActivitePosteTravail(ActivitePosteTravail $activitePosteTravail): self
+    {
+        if ($this->activitePosteTravails->contains($activitePosteTravail)) {
+            $this->activitePosteTravails->removeElement($activitePosteTravail);
+            // set the owning side to null (unless already changed)
+            if ($activitePosteTravail->getActivite() === $this) {
+                $activitePosteTravail->setActivite(null);
+            }
         }
 
         return $this;

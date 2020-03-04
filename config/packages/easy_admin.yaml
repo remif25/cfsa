@@ -12,6 +12,7 @@ easy_admin:
                 - {entity: 'CentreProduction', icon: 'inbox'}
                 - {entity: 'PosteTravail', icon: 'inbox'}
                 - {entity: 'Activite', icon: 'inbox'}
+                - {entity: 'ActivitePosteTravail', icon: 'inbox'}
 
             - label: 'Données PROTO'
               icon: 'box-open'
@@ -113,14 +114,33 @@ easy_admin:
                 fields:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
-                    - { property: 'pdts', label: 'Poste de travail' }
+                    - { property: 'activitePosteTravails', label: "Activité-PDT lié" }
+                    - { property: 'pdts', label: "PDT lié" }
             form:
                 fields:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
-                    - { property: 'pdts', label: "PDT lié" }
+                    - { property: 'activitePosteTravails', label: "Activité-PDT lié" }
 
-            
+
+        ActivitePosteTravail:
+            class: App\Entity\ActivitePosteTravail
+            label: 'Activité-Poste de Travail'
+            list:
+                fields:
+                    - { property: 'posteTravail', label: 'Poste de Travail'}
+                    - { property: 'activite', label: 'Activité' }
+                    - { property: 'tempsReglage', label: "Réglage" }
+                    - { property: 'tempsMO', label: "MO" }
+                    - { property: 'tempsMA', label: "MA" }
+            form:
+                fields:
+                    - { property: 'posteTravail', label: 'Poste de Travail'}
+                    - { property: 'activite', label: 'Activité' }
+                    - { property: 'tempsReglage', label: "Temps de réglage" }
+                    - { property: 'tempsMO', label: "Temps MO" }
+                    - { property: 'tempsMA', label: "Temps MA" }
+
         Question:
             class: App\Entity\Question
             label: 'Question'

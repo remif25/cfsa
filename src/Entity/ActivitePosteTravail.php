@@ -17,12 +17,12 @@ class ActivitePosteTravail
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Activite", inversedBy="activitePosteTravails")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Activite", inversedBy="activitePosteTravails", fetch="EAGER")
      */
     private $activite;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\PosteTravail", inversedBy="activitePosteTravails")
+     * @ORM\ManyToOne(targetEntity="App\Entity\PosteTravail", inversedBy="activitePosteTravails", fetch="EAGER")
      */
     private $posteTravail;
 
@@ -104,5 +104,21 @@ class ActivitePosteTravail
         $this->tempsMA = $tempsMA;
 
         return $this;
+    }
+
+    public function __toString() {
+        return $this->activite->__toString() . ' //  ' . $this->posteTravail->__toString();
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'activite' => $this->activite->__toString(),
+            'posteTravail' => $this->posteTravail->__toString(),
+            'tempsReglage' => $this->tempsReglage,
+            'tempsMO' => $this->tempsMO,
+            'tempsMA' => $this->tempsMA
+        ];
     }
 }

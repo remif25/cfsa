@@ -29,7 +29,8 @@ class Departement
     private $designation;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\CentreProduction", mappedBy="departement")
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\CentreProduction", mappedBy="departement", cascade={"detach"})
      *
      */
     private $centreproductions;

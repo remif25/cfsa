@@ -39,7 +39,7 @@ class CentreProduction
     private $pdts;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Departement", inversedBy="centreproductions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Departement", inversedBy="centreproductions", cascade={"detach"})
      */
     private $departement;
 

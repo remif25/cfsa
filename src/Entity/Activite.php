@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
 
@@ -34,13 +35,16 @@ class Activite implements JsonSerializable
      */
     private $operations;
 
+
+    private $pdts;
+
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\ActiviteProto", mappedBy="activite", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\ActiviteProto", mappedBy="activite")
      */
     private $activiteProto;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ActivitePosteTravail", mappedBy="activite")
+     * @ORM\OneToMany(targetEntity="App\Entity\ActivitePosteTravail", mappedBy="activite", cascade={"persist", "remove"}, fetch="EAGER")
      */
     private $activitePosteTravails;
 
@@ -117,20 +121,31 @@ class Activite implements JsonSerializable
      */
     /*public function getPdts(): Collection
     {
-        return $this->pdts;
+        $posteTravail = new ArrayCollection();
+        foreach ($this->activitePosteTravails as $activitePosteTravail) {
+            $posteTravail->add($activitePosteTravail->getPosteTravail());
+        }
+
+        return $posteTravail;
     }
 
     public function addPdt(PosteTravail $pdt): self
     {
-        if (!$this->pdts->contains($pdt)) {
-            $this->pdts[] = $pdt;
-        }
+        $activitePosteTravail = new ActivitePosteTravail();
+        $activitePosteTravail->setPosteTravail($pdt);
+        $activitePosteTravail->setActivite($this);
 
         return $this;
     }
 
     public function removePdt(PosteTravail $pdt): self
     {
+
+        foreach ($this->activitePosteTravails as $activitePosteTravail) {
+            if($activitePosteTravail->getPosteTravail() == $pdt) {
+            }
+            $posteTravail[] = $this->activitePosteTravails->getPosteTravail();
+        }
         if ($this->pdts->contains($pdt)) {
             $this->pdts->removeElement($pdt);
         }

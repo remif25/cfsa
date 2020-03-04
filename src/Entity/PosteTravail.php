@@ -45,7 +45,7 @@ class PosteTravail implements JsonSerializable
     private $posteTravailProto;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ActivitePosteTravail", mappedBy="pdt")
+     * @ORM\OneToMany(targetEntity="App\Entity\ActivitePosteTravail", mappedBy="pdt", cascade={"persist", "remove"})
      */
     private $activitePosteTravails;
 

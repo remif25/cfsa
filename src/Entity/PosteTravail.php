@@ -54,6 +54,36 @@ class PosteTravail implements JsonSerializable
      */
     private $naturePdt;
 
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $tempsReglage;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $tempsMO;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $tempsMA;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $acheminement;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $quantite;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $unite;
+
     public function __construct()
     {
         $this->operations = new ArrayCollection();
@@ -233,6 +263,78 @@ class PosteTravail implements JsonSerializable
     public function setNaturePdt(?string $naturePdt): self
     {
         $this->naturePdt = $naturePdt;
+
+        return $this;
+    }
+
+    public function getTempsReglage(): ?float
+    {
+        return $this->tempsReglage;
+    }
+
+    public function setTempsReglage(?float $tempsReglage): self
+    {
+        $this->tempsReglage = $tempsReglage;
+
+        return $this;
+    }
+
+    public function getTempsMO(): ?float
+    {
+        return $this->tempsMO;
+    }
+
+    public function setTempsMO(?float $tempsMO): self
+    {
+        $this->tempsMO = $tempsMO;
+
+        return $this;
+    }
+
+    public function getTempsMA(): ?float
+    {
+        return $this->tempsMA;
+    }
+
+    public function setTempsMA(?float $tempsMA): self
+    {
+        $this->tempsMA = $tempsMA;
+
+        return $this;
+    }
+
+    public function getAcheminement(): ?float
+    {
+        return $this->acheminement;
+    }
+
+    public function setAcheminement(?float $acheminement): self
+    {
+        $this->acheminement = $acheminement;
+
+        return $this;
+    }
+
+    public function getQuantite(): ?float
+    {
+        return $this->quantite;
+    }
+
+    public function setQuantite(?float $quantite): self
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    public function getUnite(): ?string
+    {
+        return $this->unite;
+    }
+
+    public function setUnite(?string $unite): self
+    {
+        $this->unite = $unite;
 
         return $this;
     }

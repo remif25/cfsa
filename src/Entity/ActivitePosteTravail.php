@@ -41,6 +41,21 @@ class ActivitePosteTravail
      */
     private $tempsMA;
 
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $acheminement;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $quantite;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $unite;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,5 +135,41 @@ class ActivitePosteTravail
             'tempsMO' => $this->tempsMO,
             'tempsMA' => $this->tempsMA
         ];
+    }
+
+    public function getAcheminement(): ?int
+    {
+        return $this->acheminement;
+    }
+
+    public function setAcheminement(?int $acheminement): self
+    {
+        $this->acheminement = $acheminement;
+
+        return $this;
+    }
+
+    public function getQuantite(): ?float
+    {
+        return $this->quantite;
+    }
+
+    public function setQuantite(?float $quantite): self
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    public function getUnite(): ?string
+    {
+        return $this->unite;
+    }
+
+    public function setUnite(?string $unite): self
+    {
+        $this->unite = $unite;
+
+        return $this;
     }
 }

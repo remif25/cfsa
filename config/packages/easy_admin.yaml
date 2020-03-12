@@ -44,6 +44,7 @@ easy_admin:
                 - {label: 'Export structure',icon: 'inbox', route: 'export_structure'}
                 - {label: 'Export GE',icon: 'inbox', route: 'configurateur_index'}
             - {entity: 'User', icon: 'users', permission: 'ROLE_ADMIN'}
+            - {entity: 'Time', icon: 'users'}
 
     entities:
         # List the entity class name you want to manage
@@ -127,7 +128,7 @@ easy_admin:
             class: App\Entity\ActivitePosteTravail
             label: 'Activité-Poste de Travail'
             templates:
-                show: 'admin/customizations/activitePosteTravail_show.html.twig'
+                edit: 'admin/customizations/activitePosteTravail_show.html.twig'
 
             list:
                 fields:
@@ -137,6 +138,17 @@ easy_admin:
                 fields:
                     - { property: 'posteTravail', label: 'Poste de Travail'}
                     - { property: 'activite', label: 'Activité' }
+                    - { property: 'time', type: 'App\Form\ActivitePosteTravailTimeType' }
+
+        Time:
+            class: App\Entity\Time
+            label: 'Temps'
+            templates:
+                edit: 'admin/customizations/activitePosteTravail_show.html.twig'
+                new: 'admin/customizations/activitePosteTravail_show.html.twig'
+            form:
+                fields:
+                     - { property: 'tempsMO', type: 'App\Form\ActivitePosteTravailTimeType' }
 
         Question:
             class: App\Entity\Question

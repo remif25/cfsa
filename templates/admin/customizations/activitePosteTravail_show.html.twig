@@ -1,1 +1,19 @@
-{{  dump() }}
+{% extends '@EasyAdmin/default/edit.html.twig' %}
+
+
+{% block main %}
+    {% block entity_form %}
+
+        {{ form_start(form) }}
+        {{ form_row(form.time.tempsReglage) }}
+        {{ form_row(form.time.tempsMO) }}
+        {{ form_row(form.time.tempsMA) }}
+        {{ form_row(form.time.quantite) }}
+        {{ form_row(form.time.acheminement) }}
+        {{ form_row(form.time.unite) }}
+        {{ form_end(form) }}
+
+    {% endblock entity_form %}
+    {{ dump() }}
+{% endblock %}
+

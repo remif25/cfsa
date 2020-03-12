@@ -3,7 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Time;
+use App\Entity\Unite;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,6 +20,9 @@ class ActivitePosteTravailTimeType extends AbstractType
             ->add('tempsMA', null, ['label' => 'Temps MA'])
             ->add('acheminement', null, ['label' => 'Acheminement'])
             ->add('quantite', null, ['label' => 'Quantité'])
+            /*->add('unite', EntityType::class, [
+                'class' => Unite::class,
+                'label' => 'Unité'])*/
             ->add('unite', null, ['label' => 'Unité'])
         ;
     }

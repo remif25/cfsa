@@ -128,7 +128,7 @@ easy_admin:
             class: App\Entity\ActivitePosteTravail
             label: 'Activité-Poste de Travail'
             templates:
-                edit: 'admin/customizations/activitePosteTravail_show.html.twig'
+                edit: 'admin/customizations/activitePosteTravail_edit.html.twig'
 
             list:
                 fields:
@@ -138,6 +138,7 @@ easy_admin:
                 fields:
                     - { property: 'posteTravail', label: 'Poste de Travail'}
                     - { property: 'activite', label: 'Activité' }
+                    - { type: 'section', label: 'User Details' }
                     - { property: 'time', type: 'App\Form\ActivitePosteTravailTimeType' }
 
         Time:

@@ -46,7 +46,7 @@ easy_admin:
             - {entity: 'User', icon: 'users', permission: 'ROLE_ADMIN'}
 
     entities:
-#        # List the entity class name you want to manage
+        # List the entity class name you want to manage
         Reponse:
             class: App\Entity\Reponse
             label: 'Réponse'
@@ -133,16 +133,10 @@ easy_admin:
                 fields:
                     - { property: 'posteTravail', label: 'Poste de Travail'}
                     - { property: 'activite', label: 'Activité' }
-                    - { property: 'tempsReglage', label: "Réglage" }
-                    - { property: 'tempsMO', label: "MO" }
-                    - { property: 'tempsMA', label: "MA" }
             form:
                 fields:
                     - { property: 'posteTravail', label: 'Poste de Travail'}
                     - { property: 'activite', label: 'Activité' }
-                    - { property: 'tempsReglage', label: "Temps de réglage" }
-                    - { property: 'tempsMO', label: "Temps MO" }
-                    - { property: 'tempsMA', label: "Temps MA" }
 
         Question:
             class: App\Entity\Question

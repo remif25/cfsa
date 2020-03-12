@@ -126,6 +126,8 @@ easy_admin:
         ActivitePosteTravail:
             class: App\Entity\ActivitePosteTravail
             label: 'Activité-Poste de Travail'
+            templates:
+                show: 'admin/customizations/activitePosteTravail_show.html.twig'
             list:
                 fields:
                     - { property: 'posteTravail', label: 'Poste de Travail'}

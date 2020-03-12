@@ -43,9 +43,15 @@ class PosteTravailProto
      */
     private $activitesproto;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ActiviteProtoPosteTravailProto", mappedBy="posteTravailProto")
+     */
+    private $activiteProtoPosteTravailProtos;
+
     public function __construct()
     {
         $this->activitesproto = new ArrayCollection();
+        $this->activiteProtoPosteTravailProtos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -126,6 +132,37 @@ class PosteTravailProto
     {
         if ($this->activitesproto->contains($activitesproto)) {
             $this->activitesproto->removeElement($activitesproto);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ActiviteProtoPosteTravailProto[]
+     */
+    public function getActiviteProtoPosteTravailProtos(): Collection
+    {
+        return $this->activiteProtoPosteTravailProtos;
+    }
+
+    public function addActiviteProtoPosteTravailProto(ActiviteProtoPosteTravailProto $activiteProtoPosteTravailProto): self
+    {
+        if (!$this->activiteProtoPosteTravailProtos->contains($activiteProtoPosteTravailProto)) {
+            $this->activiteProtoPosteTravailProtos[] = $activiteProtoPosteTravailProto;
+            $activiteProtoPosteTravailProto->setPosteTravailProto($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActiviteProtoPosteTravailProto(ActiviteProtoPosteTravailProto $activiteProtoPosteTravailProto): self
+    {
+        if ($this->activiteProtoPosteTravailProtos->contains($activiteProtoPosteTravailProto)) {
+            $this->activiteProtoPosteTravailProtos->removeElement($activiteProtoPosteTravailProto);
+            // set the owning side to null (unless already changed)
+            if ($activiteProtoPosteTravailProto->getPosteTravailProto() === $this) {
+                $activiteProtoPosteTravailProto->setPosteTravailProto(null);
+            }
         }
 
         return $this;

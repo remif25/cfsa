@@ -27,34 +27,10 @@ class ActivitePosteTravail
     private $posteTravail;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\OneToOne(targetEntity="App\Entity\Time", inversedBy="activitePosteTravail", cascade={"persist", "remove"})
      */
-    private $tempsReglage;
+    private $time;
 
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $tempsMO;
-
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $tempsMA;
-
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $acheminement;
-
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $quantite;
-
-    /**
-     * @ORM\Column(type="string", length=32, nullable=true)
-     */
-    private $unite;
 
     public function getId(): ?int
     {
@@ -85,42 +61,6 @@ class ActivitePosteTravail
         return $this;
     }
 
-    public function getTempsReglage(): ?float
-    {
-        return $this->tempsReglage;
-    }
-
-    public function setTempsReglage(?float $tempsReglage): self
-    {
-        $this->tempsReglage = $tempsReglage;
-
-        return $this;
-    }
-
-    public function getTempsMO(): ?float
-    {
-        return $this->tempsMO;
-    }
-
-    public function setTempsMO(?float $tempsMO): self
-    {
-        $this->tempsMO = $tempsMO;
-
-        return $this;
-    }
-
-    public function getTempsMA(): ?float
-    {
-        return $this->tempsMA;
-    }
-
-    public function setTempsMA(?float $tempsMA): self
-    {
-        $this->tempsMA = $tempsMA;
-
-        return $this;
-    }
-
     public function __toString() {
         return $this->activite->__toString() . ' //  ' . $this->posteTravail->__toString();
     }
@@ -131,45 +71,20 @@ class ActivitePosteTravail
             'id' => $this->getId(),
             'activite' => $this->activite->__toString(),
             'posteTravail' => $this->posteTravail->__toString(),
-            'tempsReglage' => $this->tempsReglage,
-            'tempsMO' => $this->tempsMO,
-            'tempsMA' => $this->tempsMA
+            'time' => $this->getTime() ? $this->getTime()->jsonSerialize() : null
         ];
     }
 
-    public function getAcheminement(): ?int
+    public function getTime(): ?Time
     {
-        return $this->acheminement;
+        return $this->time;
     }
 
-    public function setAcheminement(?int $acheminement): self
+    public function setTime(?Time $time): self
     {
-        $this->acheminement = $acheminement;
+        $this->time = $time;
 
         return $this;
     }
 
-    public function getQuantite(): ?float
-    {
-        return $this->quantite;
-    }
-
-    public function setQuantite(?float $quantite): self
-    {
-        $this->quantite = $quantite;
-
-        return $this;
-    }
-
-    public function getUnite(): ?string
-    {
-        return $this->unite;
-    }
-
-    public function setUnite(?string $unite): self
-    {
-        $this->unite = $unite;
-
-        return $this;
-    }
 }

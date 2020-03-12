@@ -33,14 +33,15 @@ class ActiviteProto
      */
     private $activite;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\PosteTravailProto", mappedBy="activitesproto")
+   /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ActiviteProtoPosteTravailProto", mappedBy="activiteProto")
      */
-    private $posteTravailProtos;
+    private $activiteProtoPosteTravailProtos;
 
     public function __construct()
     {
         $this->posteTravailProtos = new ArrayCollection();
+        $this->posteTravailProto = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -89,30 +90,35 @@ class ActiviteProto
     }
 
     /**
-     * @return Collection|PosteTravailProto[]
+     * @return Collection|ActiviteProtoPosteTravailProto[]
      */
-    public function getPosteTravailProtos(): Collection
+    public function getActivitePosteTravails(): Collection
     {
-        return $this->posteTravailProtos;
+        return $this->activiteProtoPosteTravailProtos;
     }
 
-    public function addPosteTravailProto(PosteTravailProto $posteTravailProto): self
+    public function addActivitePosteTravail(ActivitePosteTravail $activiteProtoPosteTravailProto): self
     {
-        if (!$this->posteTravailProtos->contains($posteTravailProto)) {
-            $this->posteTravailProtos[] = $posteTravailProto;
-            $posteTravailProto->addActivitesproto($this);
+        if (!$this->activiteProtoPosteTravailProtos->contains($activiteProtoPosteTravailProto)) {
+            $this->activiteProtoPosteTravailProtos[] = $activiteProtoPosteTravailProto;
+            $activiteProtoPosteTravailProto->setActiviteProto($this);
         }
 
         return $this;
     }
 
-    public function removePosteTravailProto(PosteTravailProto $posteTravailProto): self
+    public function removeActivitePosteTravail(ActivitePosteTravail $activiteProtoPosteTravailProto): self
     {
-        if ($this->posteTravailProtos->contains($posteTravailProto)) {
-            $this->posteTravailProtos->removeElement($posteTravailProto);
-            $posteTravailProto->removeActivitesproto($this);
+        if ($this->activiteProtoPosteTravailProtos->contains($activiteProtoPosteTravailProto)) {
+            $this->activiteProtoPosteTravailProtos->removeElement($activiteProtoPosteTravailProto);
+            // set the owning side to null (unless already changed)
+            if ($activiteProtoPosteTravailProto->getActiviteProto() === $this) {
+                $activiteProtoPosteTravailProto->setActiviteProto(null);
+            }
         }
 
         return $this;
     }
+
+   
 }

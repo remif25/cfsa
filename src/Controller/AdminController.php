@@ -15,6 +15,7 @@ use App\Entity\Question;
 use App\Entity\Regle;
 use App\Entity\Reponse;
 use App\Entity\User;
+use App\Form\ActiviteType;
 use App\Form\GammeEnveloppeType;
 use Doctrine\ORM\EntityManager;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
@@ -305,7 +306,6 @@ class AdminController extends EasyAdminController
 
                                 if($pdt)
                                     $posteTravailProto->setPdt($pdt);
-
                             }
                         }
                     }
@@ -635,6 +635,13 @@ class AdminController extends EasyAdminController
             );
         }
     }
+
+    /*protected function createActiviteEditForm($entity, array $entityProperties) {
+        $form = $this->createForm(ActiviteType::class, $entity);
+        return $form;
+    }*/
+
+
 
     public function persistUserEntity($user)
     {

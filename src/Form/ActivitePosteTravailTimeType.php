@@ -20,9 +20,6 @@ class ActivitePosteTravailTimeType extends AbstractType
             ->add('tempsMA', null, ['label' => 'Temps MA'])
             ->add('acheminement', null, ['label' => 'Acheminement'])
             ->add('quantite', null, ['label' => 'Quantité'])
-            /*->add('unite', EntityType::class, [
-                'class' => Unite::class,
-                'label' => 'Unité'])*/
             ->add('unite', null, ['label' => 'Unité'])
         ;
     }

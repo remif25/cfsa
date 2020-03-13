@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e786d1e-7018-4f0c-8565-42becfa75a2e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Form/Filter/ActiviteActivitePosteTravailFilterType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/easy_admin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/easy_admin.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/GammeEnveloppe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GammeEnveloppe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Filter/ActivitePosteTravailFilterType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Filter/PosteTravailActivitePosteTravailFilterType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200313065911.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ActivitePosteTravailRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ActivitePosteTravailRepository.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,41 +41,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="easy_admin.yaml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="easy_admin.yaml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="58" column="77" selection-start-line="58" selection-start-column="77" selection-end-line="58" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivitePosteTravail.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/ActivitePosteTravail.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="95" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="95" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivitePosteTravailFilterType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Form/Filter/ActivitePosteTravailFilterType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-              <folding>
-                <element signature="e#6#152#0#PHP" expanded="true" />
-                <element signature="e#183#213#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="53" column="40" lean-forward="true" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="GammeEnveloppe.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/GammeEnveloppe.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessusEnveloppe.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/ProcessusEnveloppe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51" />
+            <state relative-caret-position="374">
+              <caret line="33" column="46" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PosteTravailActivitePosteTravailFilterType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Form/Filter/PosteTravailActivitePosteTravailFilterType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+              <folding>
+                <element signature="e#6#152#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActiviteActivitePosteTravailFilterType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Form/Filter/ActiviteActivitePosteTravailFilterType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="36" column="26" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="36" selection-end-column="26" />
+              <folding>
+                <element signature="e#183#214#0#PHP" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -83,11 +95,6 @@
               <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProcessusEnveloppe.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/ProcessusEnveloppe.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="ProcessusEnveloppeGammeEnveloppe.php" pinned="false" current-in-tab="false">
@@ -102,26 +109,20 @@
       <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="606" column="82" selection-start-line="606" selection-start-column="82" selection-end-line="606" selection-end-column="82" />
+            <state relative-caret-position="10659">
+              <caret line="627" column="33" selection-start-line="627" selection-start-column="33" selection-end-line="627" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Version20200313065911.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200313065911.php">
+      <file leaf-file-name="ActivitePosteTravailRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Repository/ActivitePosteTravailRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="44" column="62" selection-start-line="44" selection-start-column="62" selection-end-line="44" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="14" column="31" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="31" />
+            <state relative-caret-position="935">
+              <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
+              <folding>
+                <element signature="e#34#58#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,19 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>56</find>
-      <find>$cPDT</find>
-      <find>import_data_pdt_proto</find>
-      <find>get_pdts</find>
-      <find>gamme_enveloppe_id</find>
-      <find>slug</find>
-      <find>createFor</find>
-      <find>createform</find>
-      <find>\&lt;div class\=\&quot;form\-control\&quot;\&gt;\n                \&lt;i class\=\&quot;fa fa\-calendar\&quot;\&gt;\&lt;\/i\&gt; \{\{ form_label\(form\.dueDate\) \}\}\n                \{\{ form_widget\(form\.dueDate\) \}\}\n\n                \&lt;small\&gt;\{\{ form_help\(form\.dueDate\) \}\}\&lt;\/small\&gt;\n\n                \&lt;div class\=\&quot;form\-error\&quot;\&gt;\n                    \{\{ form_errors\(form\.dueDate\) \}\}\n                \&lt;\/div\&gt;\n            \&lt;\/div\&gt;</find>
-      <find>locale</find>
-      <find>This value should not be blank.</find>
-      <find>user</find>
-      <find>sticker-mule</find>
       <find>class=&quot;col-3&quot;</find>
       <find>dérouller</find>
       <find>var_dump(</find>
@@ -168,6 +156,19 @@
       <find>pdts</find>
       <find>activitePosteTravail</find>
       <find>pdt</find>
+      <find>filter(</find>
+      <find>$paginator</find>
+      <find>knp_paginator</find>
+      <find>ilter</find>
+      <find>filter</find>
+      <find>filterQueryBuilder</find>
+      <find>paginate</find>
+      <find>createOrmPaginator</find>
+      <find>['filter</find>
+      <find>$backendConfig</find>
+      <find>['filter'</find>
+      <find>findAll</find>
+      <find>ActivitePosteTravailFilterType</find>
     </findStrings>
     <replaceStrings>
       <replace>#6F5F59</replace>
@@ -191,6 +192,8 @@
     </replaceStrings>
     <dirStrings>
       <dir>D:\wamp64\www\naviquiz\templates</dir>
+      <dir>D:\wamp64\www\cfsa\vendor\easycorp\easyadmin-bundle\src\Controller</dir>
+      <dir>D:\wamp64\www\cfsa\vendor\easycorp</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -199,12 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/assets/css/app.css" />
-        <option value="$PROJECT_DIR$/templates/configurateur/index.html.twig" />
-        <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
-        <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/templates/layout/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/security/login.html.twig" />
         <option value="$PROJECT_DIR$/templates/home/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/PosteTravailProto.php" />
@@ -246,10 +243,16 @@
         <option value="$PROJECT_DIR$/templates/admin/test_edit.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/ActiviteType.php" />
         <option value="$PROJECT_DIR$/src/Entity/PosteTravail.php" />
-        <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
-        <option value="$PROJECT_DIR$/src/Form/Filter/ActivitePosteTravailFilterType.php" />
         <option value="$PROJECT_DIR$/src/Entity/History.php" />
         <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/src/Repository/ActivitePosteTravailRepository.php" />
+        <option value="$PROJECT_DIR$/src/Form/Filter/ActivitePosteTravailFilterType.php" />
+        <option value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Search/Paginator.php" />
+        <option value="$PROJECT_DIR$/src/Form/Filter/ActiviteActivitePosteTravail.php" />
+        <option value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Controller/AdminControllerTrait.php" />
+        <option value="$PROJECT_DIR$/src/Form/Filter/ActiviteActivitePosteTravailFilterType.php" />
+        <option value="$PROJECT_DIR$/src/Form/Filter/PosteTravailActivitePosteTravailFilterType.php" />
+        <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
       </list>
     </option>
   </component>
@@ -398,7 +401,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
-    <option name="width" value="976" />
+    <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -409,7 +412,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -420,24 +422,7 @@
             <path>
               <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfsa" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
@@ -448,44 +433,13 @@
             <path>
               <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
               <item name="cfsa" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Form" type="462c0819:PsiDirectoryNode" />
-              <item name="Filter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cfsa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cfsa" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="customizations" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -505,19 +459,19 @@
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\wamp64\www\cfsa\src\Form\Filter" />
+      <recent name="D:\wamp64\www\cfsa\templates\admin" />
+      <recent name="D:\wamp64\www\cfsa\assets\css\plugins" />
+      <recent name="D:\wamp64\www\cfsa\assets\js\plugins" />
+      <recent name="D:\wamp64\www\naviquiz\templates\admin\import" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\wamp64\www\naviquiz\assets\images" />
       <recent name="D:\wamp64\www\naviquiz\templates\admin\export" />
       <recent name="D:\wamp64\www\naviquiz\templates\admin\import" />
       <recent name="D:\wamp64\www\naviquiz\public\model" />
       <recent name="D:\wamp64\www\naviquiz\templates" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\wamp64\www\cfsa\templates\admin" />
-      <recent name="D:\wamp64\www\cfsa\assets\css\plugins" />
-      <recent name="D:\wamp64\www\cfsa\assets\js\plugins" />
-      <recent name="D:\wamp64\www\naviquiz\templates\admin\import" />
-      <recent name="D:\wamp64\www\naviquiz\templates\admin\export" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -637,12 +591,13 @@
       <workItem from="1583510269016" duration="1027000" />
       <workItem from="1583823913542" duration="1864000" />
       <workItem from="1583996449550" duration="5100000" />
-      <workItem from="1584081224467" duration="1550000" />
+      <workItem from="1584081224467" duration="21079000" />
+      <workItem from="1584111156755" duration="4124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="540291000" />
+    <option name="totallyTimeSpent" value="563944000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -658,27 +613,27 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32897604" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.1673774" side_tool="true" visible="true" weight="0.46187365" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.15973742" side_tool="true" weight="0.15181518" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.8422175" weight="0.15250544" />
+      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.8402626" visible="true" weight="0.1503268" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.8326226" visible="true" weight="0.46187365" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.84615386" weight="0.2882288" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.66411376" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.84412956" visible="true" weight="0.15351813" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.85897434" visible="true" weight="0.23933902" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.5074627" />
-      <window_info id="Structure" order="1" sideWeight="0.15587045" side_tool="true" visible="true" weight="0.15351813" />
+      <window_info id="Structure" order="1" sideWeight="0.14102565" side_tool="true" visible="true" weight="0.23933902" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.64445627" weight="0.39542484" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32461873" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Database Console" order="11" weight="0.32897604" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4997233" weight="0.32453245" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
     </layout>
     <layout-to-restore>
@@ -687,24 +642,24 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.66411376" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8628389" visible="true" weight="0.30793652" />
       <window_info id="Structure" order="1" sideWeight="0.13716109" side_tool="true" visible="true" weight="0.30793652" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.8428571" weight="0.33113313" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32897604" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32461873" />
+      <window_info anchor="bottom" id="Database Console" order="11" weight="0.32897604" />
       <window_info anchor="right" id="Database" order="4" weight="0.5074627" />
       <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.834127" visible="true" weight="0.30410653" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.16587302" side_tool="true" visible="true" weight="0.30410653" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32897604" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.64445627" weight="0.39542484" />
-      <window_info anchor="bottom" id="Database Console" order="11" weight="0.32897604" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8628389" visible="true" weight="0.30793652" />
+      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.8428571" weight="0.33113313" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32461873" />
+      <window_info id="Favorites" order="3" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -736,30 +691,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200304091649.php" />
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200304093054.php" />
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200304110938.php" />
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200304112009.php" />
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200304112201.php" />
-    <entry file="file://$PROJECT_DIR$/src/Repository/ActivitePosteTravailRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/CentreProduction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="41" column="111" selection-start-line="41" selection-start-column="111" selection-end-line="41" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200304093136.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-973">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/ActiviteProtoPosteTravailProto.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="426">
@@ -893,13 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Activite.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3179">
-          <caret line="192" column="21" selection-start-line="187" selection-start-column="7" selection-end-line="192" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/PosteTravailType.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -931,33 +855,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="77" selection-start-line="58" selection-start-column="77" selection-end-line="58" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/Filter/ActivitePosteTravailFilterType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="e#6#152#0#PHP" expanded="true" />
-            <element signature="e#183#213#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/GammeEnveloppe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="14" column="31" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200313065101.php" />
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200313065911.php" />
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200313070556.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="60" column="111" selection-start-line="60" selection-start-column="111" selection-end-line="60" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Activite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/ActivitePosteTravailRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
+          <folding>
+            <element signature="e#34#58#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/ProcessusEnveloppeGammeEnveloppe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -968,34 +902,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/ProcessusEnveloppe.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/ProcessusEnveloppeGammeEnveloppe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200313065101.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="606" column="82" selection-start-line="606" selection-start-column="82" selection-end-line="606" selection-end-column="82" />
+        <state relative-caret-position="10659">
+          <caret line="627" column="33" selection-start-line="627" selection-start-column="33" selection-end-line="627" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20200313065911.php">
+    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Search/Finder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="44" column="62" selection-start-line="44" selection-start-column="62" selection-end-line="44" selection-end-column="62" />
+        <state relative-caret-position="455">
+          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Search/Paginator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="31" column="60" lean-forward="true" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/Filter/ActiviteActivitePosteTravailFilterType.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Controller/AdminControllerTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="187" column="12" lean-forward="true" selection-start-line="185" selection-start-column="11" selection-end-line="187" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/Filter/ActiviteActivitePosteTravailFilterType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="26" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="36" selection-end-column="26" />
+          <folding>
+            <element signature="e#183#214#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/Filter/PosteTravailActivitePosteTravailFilterType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="e#6#152#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/GammeEnveloppe.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/ProcessusEnveloppe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="33" column="46" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/easy_admin.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="53" column="40" lean-forward="true" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
         </state>
       </provider>
     </entry>

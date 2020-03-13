@@ -596,20 +596,19 @@ class AdminController extends EasyAdminController
         $objects= array();
         $objectsArray = array();
 
+
         if ($constraint !== 'null') {
             if ($type_object === 'activites')
-                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->find($constraint) ?
-                    $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->find($constraint)->getPdts() : null;
+                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->findPosteTravailByAvtivite($constraint);
             elseif ($type_object === 'pdts')
-                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->find($constraint) ?
-                    $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->find($constraint)->getActivites() : null;
+                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->findActivitebyPosteTravail($constraint);
             elseif ($type_object === 'regles')
                 $objects = $this->getDoctrine()->getRepository(Regle::class)->findByGE($constraint);
         } else {
             if ($type_object === 'activites')
-                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->findAll();
+                $objects = $this->getDoctrine()->getRepository(PosteTravail::class)->findAll();
             elseif ($type_object === 'pdts')
-                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->findAll();
+                $objects = $this->getDoctrine()->getRepository(Activite::class)->findAll();
             elseif ($type_object === 'regles')
                 $objects = $this->getDoctrine()->getRepository(Regle::class)->findAll();
         }

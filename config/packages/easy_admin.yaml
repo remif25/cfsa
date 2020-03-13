@@ -27,9 +27,10 @@ easy_admin:
                 - {entity: 'Reponse', icon: 'inbox', label: 'Réponse'}
                 - {label: 'Structure', route: 'config_naviquiz', icon: 'tree' }
 
-            - label: 'Configurateur'
-              icon: 'cogs'
+            - label: 'Enveloppe'
+              icon: 'envelope'
               children:
+                - {entity: 'ProcessusEnveloppe', icon: 'inbox', label: 'Processus enveloppe'}
                 - {entity: 'GammeEnveloppe', icon: 'inbox', label: 'Gamme enveloppe'}
                 - {entity: 'Regle',icon: 'inbox', label: 'Règle'}
             - label: 'Import données'
@@ -43,11 +44,30 @@ easy_admin:
               children:
                 - {label: 'Export structure',icon: 'inbox', route: 'export_structure'}
                 - {label: 'Export GE',icon: 'inbox', route: 'configurateur_index'}
+            - label: 'Tables configuration'
+              icon: 'table'
+              children:
+                - {entity: 'Unite', label: 'Unité', icon: 'inbox'}
             - {entity: 'User', icon: 'users', permission: 'ROLE_ADMIN'}
-            - {entity: 'Time', icon: 'users'}
-            - {entity: 'Unite'}
+
+
 
     entities:
+        ProcessusEnveloppe:
+            class: App\Entity\ProcessusEnveloppe
+            label: 'Processus Enveloppe'
+            actions:
+                    - { name: 'linkGE', icon: 'cubes', label: 'Lier GE' }
+            list:
+                fields:
+                    - { property: 'nom', label: 'Nom'}
+                    - { property: 'processusEnveloppeGammeEnveloppes', label: 'GE lié(s)' }
+            form:
+                fields:
+                    - { property: 'nom', label: 'Nom'}
+                    - { property: 'processusEnveloppeGammeEnveloppes', label: 'GE lié(s)' }
+
+
         Reponse:
             class: App\Entity\Reponse
             label: 'Réponse'
@@ -65,12 +85,11 @@ easy_admin:
                     - { property: 'imageFile', type: 'file', label: 'Image de la réponse' }
                     - { property: 'gammeEnveloppe', label: "Gamme enveloppe"}
 
-
         PosteTravail:
             class: App\Entity\PosteTravail
             label: 'Poste de travail'
             list:
-                filters: [{ property: 'activitePosteTravails', type: 'App\Form\Filter\ActivitePosteTravailFilterType' }]
+                filters: [{ property: 'activitePosteTravails', type: 'App\Form\Filter\PosteTravailActivitePosteTravailFilterType', useOutputWalkers: true }]
                 fields:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
@@ -113,6 +132,7 @@ easy_admin:
             class: App\Entity\Activite
             label: 'Activité'
             list:
+                filters: [{ property: 'activitePosteTravails', type: 'App\Form\Filter\ActiviteActivitePosteTravailFilterType', useOutputWalkers: true }]
                 fields:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }

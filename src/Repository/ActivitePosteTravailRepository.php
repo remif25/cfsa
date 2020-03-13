@@ -2,7 +2,9 @@
 
 namespace App\Repository;
 
+use App\Entity\Activite;
 use App\Entity\ActivitePosteTravail;
+use App\Entity\PosteTravail;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -19,22 +21,49 @@ class ActivitePosteTravailRepository extends ServiceEntityRepository
         parent::__construct($registry, ActivitePosteTravail::class);
     }
 
-    // /**
-    //  * @return ActivitePosteTravail[] Returns an array of ActivitePosteTravail objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+      * @return PosteTravail[] Returns an array of PosteTravail objects
+      */
+
+    public function findPosteTravailByAvtivite($value)
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
+        $result =  $this->createQueryBuilder('a')
+            ->Select('pdt')
+            ->from('App:PosteTravail', 'pdt')
+            ->andWhere('a.activite = :val')
             ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('pdt = a.posteTravail')
+            ->groupBy('pdt.id')
+            ->orderBy('pdt.reference', 'ASC')
             ->getQuery()
             ->getResult()
         ;
+
+        return $result;
     }
-    */
+
+
+    /**
+     * @return Activite[] Returns an array of Activite objects
+     */
+
+    public function findActivitebyPosteTravail($value)
+    {
+        $result =  $this->createQueryBuilder('a')
+            ->Select('act')
+            ->from('App:Activite', 'act')
+            ->andWhere('a.posteTravail = :val')
+            ->setParameter('val', $value)
+            ->andWhere('act = a.activite')
+            ->groupBy('act.id')
+            ->orderBy('act.reference', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+
+        return $result;
+    }
+
 
     /*
     public function findOneBySomeField($value): ?ActivitePosteTravail

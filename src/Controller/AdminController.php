@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Activite;
+use App\Entity\ActivitePosteTravail;
 use App\Entity\ActiviteProto;
 use App\Entity\CentreProduction;
 use App\Entity\Departement;
@@ -597,20 +598,21 @@ class AdminController extends EasyAdminController
 
         if ($constraint !== 'null') {
             if ($type_object === 'activites')
-                $objects = $this->getDoctrine()->getRepository(Activite::class)->find($constraint)->getPdts();
+                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->find($constraint) ?
+                    $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->find($constraint)->getPdts() : null;
             elseif ($type_object === 'pdts')
-                $objects = $this->getDoctrine()->getRepository(PosteTravail::class)->find($constraint)->getActivites();
+                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->find($constraint) ?
+                    $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->find($constraint)->getActivites() : null;
             elseif ($type_object === 'regles')
                 $objects = $this->getDoctrine()->getRepository(Regle::class)->findByGE($constraint);
         } else {
             if ($type_object === 'activites')
-                $objects = $this->getDoctrine()->getRepository(PosteTravail::class)->findAll();
+                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->findAll();
             elseif ($type_object === 'pdts')
-                $objects = $this->getDoctrine()->getRepository(Activite::class)->findAll();
+                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->findAll();
             elseif ($type_object === 'regles')
                 $objects = $this->getDoctrine()->getRepository(Regle::class)->findAll();
         }
-
 
         foreach ($objects as $object) {
             $objectsArray[] = $object;

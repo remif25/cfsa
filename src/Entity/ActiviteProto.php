@@ -40,8 +40,7 @@ class ActiviteProto
 
     public function __construct()
     {
-        $this->posteTravailProtos = new ArrayCollection();
-        $this->posteTravailProto = new ArrayCollection();
+        $this->activiteProtoPosteTravailProtos = new ArrayCollection();
     }
 
     public function getId(): ?int

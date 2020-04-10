@@ -2,29 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e786d1e-7018-4f0c-8565-42becfa75a2e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/css/admin/processus-enveloppe.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/admin/processus-enveloppe.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ProcessusEnveloppeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/customizations/processusEnveloppe_edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Entity/ActiviteTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c38912e2-55b3-48b4-a57d-368d3f84f8a5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c38912e2-55b3-48b4-a57d-368d3f84f8a5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/naviquiz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/naviquiz.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/easy_admin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/easy_admin.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/dev/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/dev/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/NaviquizController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NaviquizController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/GammeEnveloppe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/GammeEnveloppe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ProcessusEnveloppe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ProcessusEnveloppe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/customizations/activitePosteTravail_edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/customizations/activitePosteTravail_edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/ActiviteProtoPosteTravailProto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ActiviteProtoPosteTravailProto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/PosteTravailProto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/PosteTravailProto.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -365,6 +348,7 @@
       <workItem from="1584081224467" duration="21079000" />
       <workItem from="1584111156755" duration="4124000" />
       <workItem from="1586433298306" duration="10048000" />
+      <workItem from="1586508554557" duration="2614000" />
     </task>
     <servers />
   </component>
@@ -376,7 +360,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -407,10 +393,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="778" y="335" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586452174145" />
-    <state x="615" y="252" width="690" height="536" key="find.popup" timestamp="1586451587794">
+    <state x="1913" y="0" width="974" height="1047" key="dock-window-1" timestamp="1586511588238">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1913" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586511588238" />
+    <state x="615" y="252" width="690" height="536" key="find.popup" timestamp="1586510584992">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="615" y="252" width="690" height="536" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586451587794" />
+    <state x="615" y="252" width="690" height="536" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586510584992" />
     <state x="833" y="251" key="ftp.server.browser" timestamp="1586450078322">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

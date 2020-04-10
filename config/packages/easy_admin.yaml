@@ -55,6 +55,9 @@ easy_admin:
     entities:
         ProcessusEnveloppe:
             class: App\Entity\ProcessusEnveloppe
+            templates:
+                edit: 'admin/customizations/processusEnveloppe_edit.html.twig'
+                new: 'admin/customizations/processusEnveloppe_edit.html.twig'
             label: 'Processus Enveloppe'
             actions:
                     - { name: 'linkGE', icon: 'cubes', label: 'Lier GE' }

@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="d2ee5561-3ef5-4835-8d88-701aa3093a95" name="dev.repliqa.fr" url="http://repliqa.fr">
-        <fileTransfer host="repliqa.fr" port="2202" privateKey="D:\ssh\fedora_remi-fongaufier.fr\remi-private.ppk" rootFolder="/var/www/html/dev/symfony/cfsa" accessType="SFTP" keyPair="true">
+        <fileTransfer host="repliqa.fr" port="2202" privateKey="E:\Documents\.ssh\remi-private.ppk" rootFolder="/var/www/html/dev/symfony/cfsa" accessType="SFTP" keyPair="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

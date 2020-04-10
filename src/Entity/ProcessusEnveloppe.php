@@ -2,14 +2,19 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProcessusEnveloppeRepository")
+ * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity("nom")
  */
-class ProcessusEnveloppe
+class ProcessusEnveloppe implements JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -33,9 +38,12 @@ class ProcessusEnveloppe
      */
     private $processusEnveloppeGammeEnveloppes;
 
-    public function __construct()
+    public function __construct(String $nom =  null)
     {
         $this->processusEnveloppeGammeEnveloppes = new ArrayCollection();
+
+        if ($nom !== null)
+            $this->setNom($nom);
     }
 
     public function getId(): ?int
@@ -68,6 +76,15 @@ class ProcessusEnveloppe
     }
 
     /**
+     * @ORM\PrePersist
+     */
+    public function updateSlug()
+    {
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->nom);
+    }
+
+    /**
      * @return Collection|ProcessusEnveloppeGammeEnveloppe[]
      */
     public function getProcessusEnveloppeGammeEnveloppes(): Collection
@@ -96,5 +113,17 @@ class ProcessusEnveloppe
         }
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'nom' => $this->getNom(),
+            'slug' => $this->getSlug(),
+            'processusEnveloppeGammeEnveloppes' => $this->getProcessusEnveloppeGammeEnveloppes(),
+            'title' =>$this->getNom(),
+            'key' => $this->getId()
+        ];
     }
 }

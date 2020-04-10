@@ -2,27 +2,24 @@
 <project version="4">
   <component name="PublishConfigData" autoUpload="Always" serverName="dev.repliqa.fr">
     <serverData>
-      <paths name="cfsa.repliqa.fr">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/var/cache" />
-            <excludedPath local="true" path="$PROJECT_DIR$/var/log" />
-            <excludedPath local="true" path="$PROJECT_DIR$/vendor" />
-            <excludedPath local="true" path="$PROJECT_DIR$/public/css" />
-            <excludedPath local="true" path="$PROJECT_DIR$/public/js" />
-            <excludedPath local="true" path="$PROJECT_DIR$/node_modules" />
-            <excludedPath local="true" path="$PROJECT_DIR$/.env" />
-          </excludedPaths>
-        </serverdata>
-      </paths>
       <paths name="dev.repliqa.fr">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath path="/.env" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="repliqa.fr">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/.env" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>

@@ -535,58 +535,7 @@ class AdminController extends EasyAdminController
         );
     }
 
-    /**
-     * @Route("/api/tree/naviquiz/save", name="save_naviquiz")
-     */
-    public function saveTree(Request $request)
-    {
-        $data = json_decode($request->getContent(), true);
 
-
-        if($data['children']) {
-            $data = $data['children'];
-            $saveAll = self::recursive($data, $data);
-        }
-
-        return new JsonResponse(
-            [
-                'statut' => 'ok',
-                'message' => json_encode($saveAll),
-            ],
-            Response::HTTP_OK
-        );
-    }
-
-    /**
-     * @Route("/api/tree/naviquiz/removeparent", name="remove_element_naviquiz")
-     */
-    public function removeElementTree(Request $request)
-    {
-        $datas = json_decode($request->getContent(), true);
-
-        if(isset($datas['children'][0]['children'])) {
-            $datas = $datas['children'][0]['children'];
-            $em = $this->getEM();
-            $check = $this->removeParentRecursive($datas, $em);
-        }
-
-        if ($check) {
-            return new JsonResponse(
-                [
-                    'statut' => 'ok',
-                    'message' => "Sauvegarde de l'arbre",
-                ],
-                Response::HTTP_OK
-            );
-        }
-        return new JsonResponse(
-            [
-                'statut' => 'error',
-                'message' => "Les données n'ont pas été mis à la courbeille",
-            ],
-            Response::HTTP_OK
-        );
-    }
 
     /**
      * @Route("/api/ge/{type_object}/{constraint}", name="get_objects")

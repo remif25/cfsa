@@ -1,10 +1,9 @@
 {% extends '@EasyAdmin/default/edit.html.twig' %}
 
-
 {% block main %}
     {% block entity_form %}
-
         {{ form_start(form) }}
+        {{ dump(form) }}
         <div class="row">
             <div class="col-12">
                 {{ form_row(form.posteTravail) }}

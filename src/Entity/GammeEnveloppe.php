@@ -307,7 +307,9 @@ class GammeEnveloppe implements JsonSerializable
             'reference' => $this->getReference(),
             'nom' => $this->getNom(),
             'operations' => $this->getOperationsSerialize(),
-            'configurations' => isset($this->configurations) ? $this->configurations : null
+            'configurations' => isset($this->configurations) ? $this->configurations : null,
+            'title' => $this->getReference() . ' - ' . $this->getNom(),
+            'key' => $this->getId()
         ];
     }
 
@@ -403,4 +405,5 @@ class GammeEnveloppe implements JsonSerializable
 
         return $this;
     }
+
 }

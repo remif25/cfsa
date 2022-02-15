@@ -41,10 +41,6 @@ class Time
      */
     private $quantite;
 
-    /**
-     * @ORM\Column(type="string", length=24, nullable=true)
-     */
-    private $unite;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\ActivitePosteTravail", mappedBy="time", cascade={"persist", "remove"})
@@ -55,6 +51,11 @@ class Time
      * @ORM\OneToOne(targetEntity="App\Entity\ActiviteProtoPosteTravailProto", mappedBy="time", cascade={"persist", "remove"})
      */
     private $activiteProtoPosteTravailProto;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Unite", inversedBy="times")
+     */
+    private $unite;
 
     public function getId(): ?int
     {
@@ -121,18 +122,6 @@ class Time
         return $this;
     }
 
-    public function getUnite(): ?string
-    {
-        return $this->unite;
-    }
-
-    public function setUnite(?string $unite): self
-    {
-        $this->unite = $unite;
-
-        return $this;
-    }
-
     public function getActivitePosteTravail(): ?ActivitePosteTravail
     {
         return $this->activitePosteTravail;
@@ -179,5 +168,17 @@ class Time
             'quantite' => $this->quantite->__toString(),
             'unite' => $this->unite
         ];
+    }
+
+    public function getUnite(): ?Unite
+    {
+        return $this->unite;
+    }
+
+    public function setUnite(?Unite $unite): self
+    {
+        $this->unite = $unite;
+
+        return $this;
     }
 }

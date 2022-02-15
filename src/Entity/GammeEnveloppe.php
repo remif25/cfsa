@@ -63,12 +63,24 @@ class GammeEnveloppe implements JsonSerializable
      */
     private $regles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ProcessusEnveloppeGammeEnveloppe", mappedBy="gammeEnveloppe")
+     */
+    private $processusEnveloppeGammeEnveloppes;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\History", mappedBy="gammeEnveloppe", orphanRemoval=true)
+     */
+    private $histories;
+
     public function __construct()
     {
         $this->gammes = new ArrayCollection();
         $this->operations = new ArrayCollection();
         $this->reponses = new ArrayCollection();
         $this->regles = new ArrayCollection();
+        $this->processusEnveloppeGammeEnveloppes = new ArrayCollection();
+        $this->histories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -295,7 +307,9 @@ class GammeEnveloppe implements JsonSerializable
             'reference' => $this->getReference(),
             'nom' => $this->getNom(),
             'operations' => $this->getOperationsSerialize(),
-            'configurations' => isset($this->configurations) ? $this->configurations : null
+            'configurations' => isset($this->configurations) ? $this->configurations : null,
+            'title' => $this->getReference() . ' - ' . $this->getNom(),
+            'key' => $this->getId()
         ];
     }
 
@@ -329,4 +343,67 @@ class GammeEnveloppe implements JsonSerializable
 
         return $this;
     }
+
+    /**
+     * @return Collection|ProcessusEnveloppeGammeEnveloppe[]
+     */
+    public function getProcessusEnveloppeGammeEnveloppes(): Collection
+    {
+        return $this->processusEnveloppeGammeEnveloppes;
+    }
+
+    public function addProcessusEnveloppeGammeEnveloppe(ProcessusEnveloppeGammeEnveloppe $processusEnveloppeGammeEnveloppe): self
+    {
+        if (!$this->processusEnveloppeGammeEnveloppes->contains($processusEnveloppeGammeEnveloppe)) {
+            $this->processusEnveloppeGammeEnveloppes[] = $processusEnveloppeGammeEnveloppe;
+            $processusEnveloppeGammeEnveloppe->setGammeEnveloppe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProcessusEnveloppeGammeEnveloppe(ProcessusEnveloppeGammeEnveloppe $processusEnveloppeGammeEnveloppe): self
+    {
+        if ($this->processusEnveloppeGammeEnveloppes->contains($processusEnveloppeGammeEnveloppe)) {
+            $this->processusEnveloppeGammeEnveloppes->removeElement($processusEnveloppeGammeEnveloppe);
+            // set the owning side to null (unless already changed)
+            if ($processusEnveloppeGammeEnveloppe->getGammeEnveloppe() === $this) {
+                $processusEnveloppeGammeEnveloppe->setGammeEnveloppe(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|History[]
+     */
+    public function getHistories(): Collection
+    {
+        return $this->histories;
+    }
+
+    public function addHistory(History $history): self
+    {
+        if (!$this->histories->contains($history)) {
+            $this->histories[] = $history;
+            $history->setGammeEnveloppe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHistory(History $history): self
+    {
+        if ($this->histories->contains($history)) {
+            $this->histories->removeElement($history);
+            // set the owning side to null (unless already changed)
+            if ($history->getGammeEnveloppe() === $this) {
+                $history->setGammeEnveloppe(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

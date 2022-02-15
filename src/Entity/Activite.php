@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
+use Metadata\Tests\Driver\Fixture\C\SubDir\C;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActiviteRepository")
@@ -116,43 +117,6 @@ class Activite implements JsonSerializable
         return $this;
     }
 
-    /**
-     * @return Collection|PosteTravail[]
-     */
-    /*public function getPdts(): Collection
-    {
-        $posteTravail = new ArrayCollection();
-        foreach ($this->activitePosteTravails as $activitePosteTravail) {
-            $posteTravail->add($activitePosteTravail->getPosteTravail());
-        }
-
-        return $posteTravail;
-    }
-
-    public function addPdt(PosteTravail $pdt): self
-    {
-        $activitePosteTravail = new ActivitePosteTravail();
-        $activitePosteTravail->setPosteTravail($pdt);
-        $activitePosteTravail->setActivite($this);
-
-        return $this;
-    }
-
-    public function removePdt(PosteTravail $pdt): self
-    {
-
-        foreach ($this->activitePosteTravails as $activitePosteTravail) {
-            if($activitePosteTravail->getPosteTravail() == $pdt) {
-            }
-            $posteTravail[] = $this->activitePosteTravails->getPosteTravail();
-        }
-        if ($this->pdts->contains($pdt)) {
-            $this->pdts->removeElement($pdt);
-        }
-
-        return $this;
-    }*/
-
     public function __toString() {
         return $this->reference . ' - ' . $this->description;
     }
@@ -214,5 +178,18 @@ class Activite implements JsonSerializable
         }
 
         return $this;
+    }
+
+
+    /**
+     * @return Collection|PosteTravail[]
+     */
+    public function getPdts() {
+        $pdts = new ArrayCollection();
+        foreach ($this->getActivitePosteTravails() as $activitePosteTravail) {
+            $pdts->add($activitePosteTravail->getPosteTravail());
+        }
+
+        return $pdts;
     }
 }

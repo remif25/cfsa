@@ -27,9 +27,10 @@ easy_admin:
                 - {entity: 'Reponse', icon: 'inbox', label: 'Réponse'}
                 - {label: 'Structure', route: 'config_naviquiz', icon: 'tree' }
 
-            - label: 'Configurateur'
-              icon: 'cogs'
+            - label: 'Enveloppe'
+              icon: 'envelope'
               children:
+                - {entity: 'ProcessusEnveloppe', icon: 'inbox', label: 'Processus enveloppe'}
                 - {entity: 'GammeEnveloppe', icon: 'inbox', label: 'Gamme enveloppe'}
                 - {entity: 'Regle',icon: 'inbox', label: 'Règle'}
             - label: 'Import données'
@@ -43,10 +44,33 @@ easy_admin:
               children:
                 - {label: 'Export structure',icon: 'inbox', route: 'export_structure'}
                 - {label: 'Export GE',icon: 'inbox', route: 'configurateur_index'}
+            - label: 'Tables configuration'
+              icon: 'table'
+              children:
+                - {entity: 'Unite', label: 'Unité', icon: 'inbox'}
             - {entity: 'User', icon: 'users', permission: 'ROLE_ADMIN'}
 
+
+
     entities:
-#        # List the entity class name you want to manage
+        ProcessusEnveloppe:
+            class: App\Entity\ProcessusEnveloppe
+            templates:
+                edit: 'admin/customizations/processusEnveloppe_edit.html.twig'
+                new: 'admin/customizations/processusEnveloppe_edit.html.twig'
+            label: 'Processus Enveloppe'
+            actions:
+                    - { name: 'linkGE', icon: 'cubes', label: 'Lier GE' }
+            list:
+                fields:
+                    - { property: 'nom', label: 'Nom'}
+                    - { property: 'processusEnveloppeGammeEnveloppes', label: 'GE lié(s)' }
+            form:
+                fields:
+                    - { property: 'nom', label: 'Nom'}
+                    - { property: 'processusEnveloppeGammeEnveloppes', label: 'GE lié(s)' }
+
+
         Reponse:
             class: App\Entity\Reponse
             label: 'Réponse'
@@ -68,15 +92,16 @@ easy_admin:
             class: App\Entity\PosteTravail
             label: 'Poste de travail'
             list:
+                filters: [{ property: 'activitePosteTravails', type: 'App\Form\Filter\PosteTravailActivitePosteTravailFilterType', useOutputWalkers: true }]
                 fields:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
-                    - { property: 'activites', label: "Activités" }
+                    - { property: 'activitePosteTravails', label: "Activité-PDT lié" }
             form:
                 fields:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
-                    - { property: 'activites', type_options: { by_reference: false } }
+                    - { property: 'activitePosteTravails', label: "Activité-PDT lié" }
 
         PosteTravailProto:
             class: App\Entity\PosteTravailProto
@@ -106,43 +131,58 @@ easy_admin:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
                     - { property: 'activite', label: "Activité PROD liée" }
-            
         Activite:
             class: App\Entity\Activite
             label: 'Activité'
             list:
+                filters: [{ property: 'activitePosteTravails', type: 'App\Form\Filter\ActiviteActivitePosteTravailFilterType', useOutputWalkers: true }]
                 fields:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
                     - { property: 'activitePosteTravails', label: "Activité-PDT lié" }
-                    - { property: 'pdts', label: "PDT lié" }
             form:
                 fields:
                     - { property: 'reference', label: 'Référence'}
                     - { property: 'description', label: 'Description' }
                     - { property: 'activitePosteTravails', label: "Activité-PDT lié" }
-
 
         ActivitePosteTravail:
             class: App\Entity\ActivitePosteTravail
             label: 'Activité-Poste de Travail'
             templates:
-                show: 'admin/customizations/activitePosteTravail_show.html.twig'
-
+                edit: 'admin/customizations/activitePosteTravail_edit.html.twig'
+                new: 'admin/customizations/activitePosteTravail_edit.html.twig'
             list:
+                filters: [{ property: 'posteTravail' }, { property: 'activite' }]
                 fields:
                     - { property: 'posteTravail', label: 'Poste de Travail'}
                     - { property: 'activite', label: 'Activité' }
-                    - { property: 'tempsReglage', label: "Réglage" }
-                    - { property: 'tempsMO', label: "MO" }
-                    - { property: 'tempsMA', label: "MA" }
+            search:
+                  fields: ['posteTravail.reference', 'posteTravail.description', 'activite.reference', 'activite.description']
             form:
                 fields:
                     - { property: 'posteTravail', label: 'Poste de Travail'}
                     - { property: 'activite', label: 'Activité' }
-                    - { property: 'tempsReglage', label: "Temps de réglage" }
-                    - { property: 'tempsMO', label: "Temps MO" }
-                    - { property: 'tempsMA', label: "Temps MA" }
+                    - { property: 'time', type: 'App\Form\ActivitePosteTravailTimeType' }
+        Time:
+            class: App\Entity\Time
+            label: 'Temps'
+
+            form:
+                fields:
+                     - { property: 'unite'}
+
+        Unite:
+            class: App\Entity\Unite
+            label: 'Unite'
+            list:
+                fields:
+                     - { property: 'name', label: 'Nom' }
+                     - { property: 'short', label: 'Désignation courte' }
+            form:
+                fields:
+                     - { property: 'name', label: 'Nom' }
+                     - { property: 'short', label: 'Désignation courte' }
 
         Question:
             class: App\Entity\Question

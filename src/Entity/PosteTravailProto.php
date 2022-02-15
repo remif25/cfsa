@@ -39,18 +39,12 @@ class PosteTravailProto
     private $centreProduction;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\ActiviteProto", inversedBy="posteTravailProtos")
-     */
-    private $activitesproto;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\ActiviteProtoPosteTravailProto", mappedBy="posteTravailProto")
      */
     private $activiteProtoPosteTravailProtos;
 
     public function __construct()
     {
-        $this->activitesproto = new ArrayCollection();
         $this->activiteProtoPosteTravailProtos = new ArrayCollection();
     }
 
@@ -109,32 +103,6 @@ class PosteTravailProto
 
     public function __toString() {
         return $this->reference . ' - ' . $this->description;
-    }
-
-    /**
-     * @return Collection|ActiviteProto[]
-     */
-    public function getActivitesproto(): Collection
-    {
-        return $this->activitesproto;
-    }
-
-    public function addActivitesproto(ActiviteProto $activitesproto): self
-    {
-        if (!$this->activitesproto->contains($activitesproto)) {
-            $this->activitesproto[] = $activitesproto;
-        }
-
-        return $this;
-    }
-
-    public function removeActivitesproto(ActiviteProto $activitesproto): self
-    {
-        if ($this->activitesproto->contains($activitesproto)) {
-            $this->activitesproto->removeElement($activitesproto);
-        }
-
-        return $this;
     }
 
     /**

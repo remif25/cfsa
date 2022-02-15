@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Activite;
+use App\Entity\ActivitePosteTravail;
 use App\Entity\ActiviteProto;
 use App\Entity\CentreProduction;
 use App\Entity\Departement;
@@ -15,6 +16,7 @@ use App\Entity\Question;
 use App\Entity\Regle;
 use App\Entity\Reponse;
 use App\Entity\User;
+use App\Form\ActiviteType;
 use App\Form\GammeEnveloppeType;
 use Doctrine\ORM\EntityManager;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
@@ -305,7 +307,6 @@ class AdminController extends EasyAdminController
 
                                 if($pdt)
                                     $posteTravailProto->setPdt($pdt);
-
                             }
                         }
                     }
@@ -534,58 +535,7 @@ class AdminController extends EasyAdminController
         );
     }
 
-    /**
-     * @Route("/api/tree/naviquiz/save", name="save_naviquiz")
-     */
-    public function saveTree(Request $request)
-    {
-        $data = json_decode($request->getContent(), true);
 
-
-        if($data['children']) {
-            $data = $data['children'];
-            $saveAll = self::recursive($data, $data);
-        }
-
-        return new JsonResponse(
-            [
-                'statut' => 'ok',
-                'message' => json_encode($saveAll),
-            ],
-            Response::HTTP_OK
-        );
-    }
-
-    /**
-     * @Route("/api/tree/naviquiz/removeparent", name="remove_element_naviquiz")
-     */
-    public function removeElementTree(Request $request)
-    {
-        $datas = json_decode($request->getContent(), true);
-
-        if(isset($datas['children'][0]['children'])) {
-            $datas = $datas['children'][0]['children'];
-            $em = $this->getEM();
-            $check = $this->removeParentRecursive($datas, $em);
-        }
-
-        if ($check) {
-            return new JsonResponse(
-                [
-                    'statut' => 'ok',
-                    'message' => "Sauvegarde de l'arbre",
-                ],
-                Response::HTTP_OK
-            );
-        }
-        return new JsonResponse(
-            [
-                'statut' => 'error',
-                'message' => "Les données n'ont pas été mis à la courbeille",
-            ],
-            Response::HTTP_OK
-        );
-    }
 
     /**
      * @Route("/api/ge/{type_object}/{constraint}", name="get_objects")
@@ -595,11 +545,12 @@ class AdminController extends EasyAdminController
         $objects= array();
         $objectsArray = array();
 
+
         if ($constraint !== 'null') {
             if ($type_object === 'activites')
-                $objects = $this->getDoctrine()->getRepository(Activite::class)->find($constraint)->getPdts();
+                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->findPosteTravailByAvtivite($constraint);
             elseif ($type_object === 'pdts')
-                $objects = $this->getDoctrine()->getRepository(PosteTravail::class)->find($constraint)->getActivites();
+                $objects = $this->getDoctrine()->getRepository(ActivitePosteTravail::class)->findActivitebyPosteTravail($constraint);
             elseif ($type_object === 'regles')
                 $objects = $this->getDoctrine()->getRepository(Regle::class)->findByGE($constraint);
         } else {
@@ -610,7 +561,6 @@ class AdminController extends EasyAdminController
             elseif ($type_object === 'regles')
                 $objects = $this->getDoctrine()->getRepository(Regle::class)->findAll();
         }
-
 
         foreach ($objects as $object) {
             $objectsArray[] = $object;
@@ -635,6 +585,13 @@ class AdminController extends EasyAdminController
             );
         }
     }
+
+    /*protected function createActiviteEditForm($entity, array $entityProperties) {
+        $form = $this->createForm(ActiviteType::class, $entity);
+        return $form;
+    }*/
+
+
 
     public function persistUserEntity($user)
     {

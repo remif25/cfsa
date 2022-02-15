@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -73,6 +75,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=5, nullable=true)
      */
     private $alias;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\History", mappedBy="user", orphanRemoval=true)
+     */
+    private $histories;
+
+    public function __construct()
+    {
+        $this->histories = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -246,6 +258,37 @@ class User implements UserInterface
     public function setAlias(?string $alias): self
     {
         $this->alias = $alias;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|History[]
+     */
+    public function getHistories(): Collection
+    {
+        return $this->histories;
+    }
+
+    public function addHistory(History $history): self
+    {
+        if (!$this->histories->contains($history)) {
+            $this->histories[] = $history;
+            $history->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHistory(History $history): self
+    {
+        if ($this->histories->contains($history)) {
+            $this->histories->removeElement($history);
+            // set the owning side to null (unless already changed)
+            if ($history->getUser() === $this) {
+                $history->setUser(null);
+            }
+        }
 
         return $this;
     }

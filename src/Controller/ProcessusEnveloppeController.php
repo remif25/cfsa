@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Activite;
-use App\Entity\PosteTravail;
+use App\Entity\GammeEnveloppe;
+use App\Entity\ProcessusEnveloppe;
 use App\Entity\Question;
 use App\Entity\Reponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,36 +12,33 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class NaviquizController extends AbstractController
+;
+class ProcessusEnveloppeController extends AbstractController
 {
+
     /**
-     * @Route("/naviquiz", name="naviquiz")
+     * @Route("/api/tree/gammesEnveloppes", methods={"GET"}, name="tree_ges")
      */
-    public function index(Request $request)
+    public function getAllGammeEnveloppe()
     {
-        return $this->render('naviquiz/index.html.twig', [
-            'controller_name' => 'Naviquiz',
-            'tree' => json_encode($this->getTree(), JSON_UNESCAPED_UNICODE),
-        ]);
+        $datas = $this->getDoctrine()->getRepository(GammeEnveloppe::class)->findAll();
+
+        return $this->json($datas);
     }
 
     /**
-     * @Route("/api/tree/naviquiz", name="tree_naviquiz")
+     * @Route("/api/tree/processusEnveloppe/{id}", methods={"GET"}, name="tree_pe")
      */
-    public function getJSONTree()
+    public function getPE(int $id)
     {
-        $tree = $this->getTree();
+        $pe = $this->getDoctrine()->getRepository(ProcessusEnveloppe::class)->find($id);
 
-        return $this->json($tree);
-    }
 
-    /**
-     * @Route("/api/tree/question/ophelins", name="question_orphelins_naviquiz")
-     */
-    public function getJSONReponseOphelins()
-    {
-        $repository = $this->getDoctrine()->getRepository(Question::class);
-        return $this->json($repository->findAllOrphelins());
+        if ($pe === null) {
+            $pe = new ProcessusEnveloppe(uuid_create(UUID_TYPE_RANDOM));
+        }
+
+        return $this->json($pe);
     }
 
     /**

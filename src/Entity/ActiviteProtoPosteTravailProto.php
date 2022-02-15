@@ -17,7 +17,7 @@ class ActiviteProtoPosteTravailProto
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ActiviteProto", inversedBy="posteTravailProto")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ActiviteProto", inversedBy="activiteProtoPosteTravailProtos")
      */
     private $activiteProto;
 

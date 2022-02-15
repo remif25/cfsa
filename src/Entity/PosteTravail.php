@@ -45,7 +45,7 @@ class PosteTravail implements JsonSerializable
     private $posteTravailProto;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ActivitePosteTravail", mappedBy="pdt", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\ActivitePosteTravail", mappedBy="posteTravail", cascade={"persist", "remove"})
      */
     private $activitePosteTravails;
 
@@ -155,30 +155,16 @@ class PosteTravail implements JsonSerializable
     /**
      * @return Collection|Activite[]
      */
-    /*public function getActivites(): Collection
+    public function getActivites(): Collection
     {
-        return $this->activites;
-    }
-
-    public function addActivite(Activite $activite): self
-    {
-        if (!$this->activites->contains($activite)) {
-            $this->activites[] = $activite;
-            $activite->addPdt($this);
+        $activites = new ArrayCollection();
+        foreach ($this->getActivitePosteTravails() as $activitePosteTravail) {
+            $activites->add($activitePosteTravail->getActivite());
         }
 
-        return $this;
+        return $activites;
     }
-
-    public function removeActivite(Activite $activite): self
-    {
-        if ($this->activites->contains($activite)) {
-            $this->activites->removeElement($activite);
-            $activite->removePdt($this);
-        }
-
-        return $this;
-    }*/
+    
 
     public function __toString() {
         return $this->reference . ' - ' . $this->description;
@@ -337,5 +323,9 @@ class PosteTravail implements JsonSerializable
         $this->unite = $unite;
 
         return $this;
+    }
+
+    public function numberOfActvitePostTravail() {
+        
     }
 }

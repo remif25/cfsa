@@ -1,0 +1,52 @@
+{% extends '@EasyAdmin/default/edit.html.twig' %}
+
+{% block main %}
+    {% block entity_form %}
+        {{ form_start(form) }}
+        {{ dump(form) }}
+        <div class="row">
+            <div class="col-12">
+                {{ form_row(form.posteTravail) }}
+                {{ form_row(form.activite) }}
+            </div>
+
+            <div class="col-12">
+                <div class="form-section">
+                    <h2>
+                        <span>Temps</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="field-group col-6">
+                <fieldset>
+                    <legend class="">
+                    </legend>
+                    <div class="row">
+                        <div class="col-12 ">
+                            {{ form_row(form.time.tempsReglage) }}
+                            {{ form_row(form.time.tempsMO) }}
+                            {{ form_row(form.time.tempsMA) }}
+                            {{ form_row(form.time.acheminement) }}
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="field-group col-6">
+                <fieldset>
+                    <legend class="">
+                    </legend>
+                    <div class="row">
+                        <div class="col-12 ">
+                            {{ form_row(form.time.quantite) }}
+                            {{ form_row(form.time.unite) }}
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+
+    {% endblock entity_form %}
+{% endblock %}
+
